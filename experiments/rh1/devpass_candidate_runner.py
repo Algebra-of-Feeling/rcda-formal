@@ -29,7 +29,8 @@ def main():
     cfg=json.loads((HERE/'candidate_pilot.json').read_text())
     cfg['models']=[args.arm]
     cfg['parallel_conditions']=True
-    cfg['operational_continuation']='single candidate; four independent condition branches execute concurrently; 120-second transport timeout; no automatic retries'
+    cfg['parallel_condition_workers']=2
+    cfg['operational_continuation']='single candidate; two independent condition branches execute concurrently after four concurrent Kimi calls failed; 120-second transport timeout; no automatic retries'
     journal=Journal(out)
     files=[HERE/'devpass_candidate_runner.py',HERE/'candidate_pilot.json',
            HERE/'runner.py',HERE/'providers'/'devpass.py']

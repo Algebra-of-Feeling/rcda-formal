@@ -139,7 +139,7 @@ def run_model(model, cfg, gateway, journal):
                 print(json.dumps({'model': model, 'unit': unit, 'completed_arm': condition}), flush=True)
                 return condition, branch
             if cfg.get('parallel_conditions'):
-                with concurrent.futures.ThreadPoolExecutor(max_workers=4) as branch_pool:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=cfg.get('parallel_condition_workers',4)) as branch_pool:
                     futures = [branch_pool.submit(run_branch, condition) for condition in conditions]
                     for future in futures:
                         condition, branch = future.result()
