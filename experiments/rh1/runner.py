@@ -156,6 +156,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--live', action='store_true')
     parser.add_argument('--output', required=True)
+    parser.add_argument('--resume-from')
     args = parser.parse_args()
     root = HERE.parents[1]
     out = Path(args.output).resolve()
@@ -182,6 +183,24 @@ def main():
         status = request('/key', key)['data']
         journal.save('key_usage_before.json', {k:status.get(k) for k in ('usage','devPlan','devPlanCreditsUsed')})
         gateway = Gateway(key, catalog, cfg['budget_usd'], cfg['max_calls'], journal.event)
+        if args.resume_from:
+            prior = Path(args.resume_from).resolve()
+            old_manifest = json.loads((prior/'manifest.json').read_text())
+            if old_manifest['protocol'] != cfg:
+                raise SystemExit('Cannot resume with changed scientific configuration')
+            old_summary = json.loads((prior/'summary.json').read_text())
+            events = [json.loads(x) for x in (prior/'requests.jsonl').read_text().splitlines()]
+            gateway.calls = old_summary['requests']
+            gateway.spent = old_summary['reported_cost_usd']
+            gateway.reserved = old_summary['uncertain_or_pending_reservation_usd']
+            for model in cfg['models']:
+                gateway.replay[model] = [e for e in events if e.get('requested_model') == model and 'content' in e]
+            journal.save('prior_failures.json', [e for e in events if 'error' in e])
+            manifest = json.loads((out/'manifest.json').read_text())
+            manifest['resumed_from'] = {'run':prior.name,'git_commit':old_manifest['git_commit'],
+                                        'manifest_sha256':hashlib.sha256((prior/'manifest.json').read_bytes()).hexdigest(),
+                                        'requests_sha256':hashlib.sha256((prior/'requests.jsonl').read_bytes()).hexdigest()}
+            journal.save('manifest.json',manifest)
     else:
         gateway = MockGateway()
     all_results = []

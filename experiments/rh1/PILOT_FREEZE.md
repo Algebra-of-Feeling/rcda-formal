@@ -72,3 +72,15 @@ Docs checked before execution:
 
 The initial catalogue is saved locally. Pilot results do not prove H-M1,
 geometric holonomy, an independent C state or RCDA-specific mechanisms.
+
+## Operational continuation, same scientific configuration
+
+Run 01 stopped after an organization rate limit (HTTP 429). Before continuation,
+global scheduling was limited to one request every 0.85 seconds (about 70/minute)
+and successful responses are replayed locally in exact per-model call order.
+No successful request is regenerated. Pair/condition/phase/role ordering must
+match or replay stops. The previous manifest and request log hashes are retained;
+prior spend and uncertain billing reservations count against the same USD 10
+authorization. This changes transport pacing only, not prompts, matching or
+outcomes. Early labels of cost_exceeded_reservation_stop on in-flight calls were
+an imprecise shared-stop label after HTTP 429, not evidence of an actual overrun.

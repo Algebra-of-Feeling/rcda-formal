@@ -3,6 +3,7 @@ import json
 import math
 import os
 import threading
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -50,6 +51,16 @@ class Gateway:
         self.spent = self.reserved = 0.0
         self.calls = 0
         self.halted = False
+        self.pacing_lock = threading.Lock()
+        self.last_request = 0.0
+        self.replay = {}
+
+    def pace(self):
+        with self.pacing_lock:
+            delay = max(0, 0.85 - (time.monotonic() - self.last_request))
+            if delay:
+                time.sleep(delay)
+            self.last_request = time.monotonic()
 
     def reserve(self, amount):
         with self.lock:
@@ -60,6 +71,16 @@ class Gateway:
             return self.calls
 
     def complete(self, model, messages, session, info):
+        old = self.replay.get(model, [])
+        if old:
+            event = old.pop(0)
+            if any(event.get(k) != v for k, v in info.items()):
+                raise GatewayError('replay_sequence_mismatch')
+            if event.get('finish_reason') not in ('stop', 'end_turn'):
+                raise GatewayError('replay_invalid_output')
+            self.sink({**event, 'replayed_from_prior_run': True})
+            return event['content']
+        self.pace()
         entry = self.catalog[model]
         pricing = [p['pricing'] for p in entry['providers']]
         # Conservative byte upper bound for input tokens, plus message overhead;
@@ -112,7 +133,7 @@ class Gateway:
             if resolved and resolved != model:
                 raise GatewayError('resolved_model_mismatch')
             if self.halted:
-                raise GatewayError('cost_exceeded_reservation_stop')
+                raise GatewayError('shared_run_halted')
             return content
         except Exception as exc:
             with self.lock:
