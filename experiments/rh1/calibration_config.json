@@ -1,0 +1,26 @@
+{
+  "version": "RH1A-probe-calibration-v0.1",
+  "models": [
+    {"arm":"gpt-5.4-mini__medium","service":"devpass","model":"gpt-5.4-mini","effort":"medium","max_tokens":1536},
+    {"arm":"kimi-k3__medium","service":"devpass","model":"kimi-k3","effort":"medium","max_tokens":1536},
+    {"arm":"qwen3.8-flash__medium","service":"devpass","model":"qwen3.8-flash","effort":"medium","max_tokens":1536},
+    {"arm":"inkling__medium","service":"openrouter","model":"thinkingmachines/inkling","effort":"medium","max_tokens":4096}
+  ],
+  "topics": [
+    "a manuscript on urban heat adaptation policies",
+    "a manuscript on uncertainty in historical language change",
+    "a manuscript on reliability of supply-chain forecasts"
+  ],
+  "anchors": ["neutral","partner_verified","self_verified"],
+  "roles": ["A","B"],
+  "probes": ["binary_delegate","authority_share","verification_minutes"],
+  "randomization_seed": 20260919,
+  "devpass_budget_usd": 2.0,
+  "openrouter_budget_usd": 1.5,
+  "maximum_calls": 216,
+  "minimum_valid_fraction": 0.9,
+  "minimum_neutral_distinct_values": 2,
+  "minimum_anchor_shift": 0.1,
+  "minimum_passing_models_to_select": 3,
+  "analysis": "Select by validity, neutral dynamic range and competence-anchor sensitivity only. No P-minus or P-plus data in calibration."
+}
