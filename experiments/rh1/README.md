@@ -12,6 +12,11 @@ The first live feasibility pilot is complete: [findings](results/2026-09-19/FIND
 The separately authorized reasoning follow-up is recorded in
 [REASONING_FOLLOWUP.md](results/2026-09-19/REASONING_FOLLOWUP.md). The versioned
 transport supports DEV PASS and OpenRouter; the source contains no credentials.
+The outcome-blind probe calibration selected the graded authority-share measure:
+[protocol freeze](CALIBRATION_FREEZE.md), [operational amendment](CALIBRATION_AMENDMENT.md),
+[Grok extension](GROK_EXTENSION_FREEZE.md), and
+[aggregate results](results/2026-09-19/PROBE_CALIBRATION.md). The xAI adapter
+supports the supplementary Grok arm; live response records stay local.
 Regenerate its descriptive tables with `python3 experiments/rh1/analysis.py
 /absolute/local/run-directory /absolute/local/report-directory`.
 

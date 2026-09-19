@@ -26,6 +26,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [Pilot freeze](experiments/rh1/PILOT_FREEZE.md) | Pre-execution design, matching, models, deviations and USD 10 ceiling |
 | [RH-1A pilot findings](experiments/rh1/results/2026-09-19/FINDINGS.md) | Completed 48-trajectory feasibility run; no replicated relational-specific effect |
 | [Reasoning follow-up](experiments/rh1/results/2026-09-19/REASONING_FOLLOWUP.md) | Exploratory GPT effort comparison and Inkling/Kimi/Qwen attempts; no consistent relational-specific effect |
+| [Probe calibration](experiments/rh1/results/2026-09-19/PROBE_CALIBRATION.md) | Outcome-blind measurement calibration; graded authority share selected; Grok supplementary |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -37,7 +38,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 - Foundational logical axioms used by the overall development: Classical.choice, Quot.sound and propext. “No project axioms” does not mean absence of all logical axioms.
 - Sounio receipts are historical evidence imported from that Work, not rerun here. No universal source-to-binary refinement or compiler-correctness theorem is claimed in this snapshot. Compiled ELF artifacts are excluded.
 - The source task was actively extending SounioBridge/IntegerBounds during import. Those working edits were not in this archive and are not certified by this snapshot.
-- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot and exploratory reasoning follow-up are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory preregistration, publication or novelty/priority verification is recorded.
+- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot, exploratory reasoning follow-up and outcome-blind probe calibration are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory path-memory test, publication or novelty/priority verification is recorded.
 - These are local verification receipts, not a GitHub Actions CI result.
 
 ## Stable claim policy
@@ -78,8 +79,19 @@ delegation floor. Kimi and Qwen varied, yet controls and matching outcomes did
 not show a consistent P−-specific effect. Gemini 2.5 Flash stopped on an
 invalid measurement and has no paired outcome. See the linked follow-up for
 denominators, operational deviations and cost accounting. Calibrate probe
-sensitivity on separate data before scaling. This record itself does not
-authorize additional live spending.
+sensitivity on separate data before scaling. That calibration has now run on
+three new static topics without P− or P+ histories. Its frozen criterion
+selected graded authority share: Kimi, Qwen and Inkling passed the original
+four-model rule; Grok 4.6 passed the supplementary fifth-model check. GPT-5.4
+mini remained at a neutral-score floor. All five complete arms had 54 valid
+responses; an initial shared-gateway Kimi truncation and its blocked Qwen
+attempt were excluded and replaced by isolated, complete arms under a frozen
+operational amendment. The new receipted cost was USD 1.199234, and the
+conservative cumulative programme bound is USD 3.578630 under the authorized
+USD 10 ceiling. This selects an instrument, not an H-M1 effect. The next
+scientific test must use held-out P−/N trajectories with the selected probe and
+predefined matching/analysis. This record itself does not authorize additional
+live spending.
 
 Separately, review and import the completed Sounio–Lean bridge only after its own
 source and verification receipts are available. The pilot introduces no new
