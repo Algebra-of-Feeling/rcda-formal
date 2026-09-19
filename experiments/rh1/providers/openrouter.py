@@ -1,6 +1,7 @@
 """Bounded OpenRouter transport for the Inkling RH-1A candidate."""
 import json
 import math
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -37,24 +38,29 @@ class OpenRouterGateway:
         self.spent = self.reserved = 0.0
         self.halted = False
         self.last_request = 0.0
+        self.lock = threading.Lock()
+        self.pacing_lock = threading.Lock()
 
     def complete(self, arm, messages, session, info):
-        if self.halted or arm != 'inkling__medium' or self.calls >= self.max_calls:
+        if arm != 'inkling__medium':
             raise GatewayError('call_stop')
-        delay = max(0, 0.85 - (time.monotonic() - self.last_request))
-        if delay:
-            time.sleep(delay)
-        self.last_request = time.monotonic()
+        with self.pacing_lock:
+            delay = max(0, 0.85 - (time.monotonic() - self.last_request))
+            if delay:
+                time.sleep(delay)
+            self.last_request = time.monotonic()
         max_tokens = 1536
         nbytes = len(json.dumps(messages,ensure_ascii=False).encode()) + 2048
         if nbytes > 40000:
             raise GatewayError('input_size_stop')
         estimate = 2 * (nbytes * float(self.pricing['prompt']) + max_tokens * float(self.pricing['completion'])) + .001
-        if self.spent + self.reserved + estimate > self.limit:
-            self.halted = True
-            raise GatewayError('budget_stop')
-        self.calls += 1
-        self.reserved += estimate
+        with self.lock:
+            if self.halted or self.calls >= self.max_calls or self.spent + self.reserved + estimate > self.limit:
+                self.halted = True
+                raise GatewayError('budget_or_call_stop')
+            self.calls += 1
+            attempt = self.calls
+            self.reserved += estimate
         payload = {'model':self.model, 'messages':messages,
                    'reasoning':{'effort':'medium'}, 'max_tokens':max_tokens,
                    'usage':{'include':True}}
@@ -66,13 +72,15 @@ class OpenRouterGateway:
             if cost is None or not math.isfinite(float(cost)) or float(cost) < 0:
                 raise GatewayError('missing_valid_cost_stop')
             cost = float(cost)
-            self.reserved -= estimate
-            self.spent += cost
-            if cost > estimate or self.spent > self.limit:
-                raise GatewayError('cost_exceeded_reservation_stop')
+            with self.lock:
+                self.reserved -= estimate
+                self.spent += cost
+                if cost > estimate or self.spent > self.limit:
+                    self.halted = True
+                    raise GatewayError('cost_exceeded_reservation_stop')
             choice = data.get('choices',[{}])[0]
             content = choice.get('message',{}).get('content')
-            record = {**info, 'arm':arm, 'requested_model':self.model,
+            record = {**info, 'attempt_id':attempt, 'arm':arm, 'requested_model':self.model,
                       'model':data.get('model'), 'request_id':data.get('id'),
                       'timestamp_utc':started, 'reasoning_effort_requested':'medium',
                       'reasoning_effort_applied':None,
@@ -90,8 +98,9 @@ class OpenRouterGateway:
                 raise GatewayError('invalid_or_truncated_output')
             return content
         except Exception as exc:
-            self.halted = True
+            with self.lock:
+                self.halted = True
             code = str(exc) if isinstance(exc,GatewayError) else 'unexpected_failure'
-            self.sink({**info,'arm':arm,'requested_model':self.model,
+            self.sink({**info,'attempt_id':attempt,'arm':arm,'requested_model':self.model,
                        'timestamp_utc':started,'error':code})
             raise GatewayError(code) from None

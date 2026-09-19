@@ -27,7 +27,8 @@ def main():
     out.mkdir(parents=True,mode=0o700)
     cfg=json.loads((HERE/'candidate_pilot.json').read_text())
     cfg['models']=['inkling__medium']
-    cfg['operational_continuation']='OpenRouter arm only; independent DEV PASS run stopped after uncertain transport'
+    cfg['parallel_conditions']=True
+    cfg['operational_continuation']='OpenRouter arm only; four independent condition branches execute concurrently after a slow sequential attempt was stopped at six calls'
     journal=Journal(out)
     files=[HERE/'inkling_runner.py',HERE/'candidate_runner.py',HERE/'candidate_pilot.json',
            HERE/'runner.py',HERE/'providers'/'openrouter.py']

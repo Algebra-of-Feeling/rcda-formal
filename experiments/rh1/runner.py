@@ -115,7 +115,7 @@ def run_model(model, cfg, gateway, journal):
             branches = {}
             receiver = cfg['receiver_roles'][unit]
             partner = 'A' if receiver == 'B' else 'B'
-            for condition in conditions:
+            def run_branch(condition):
                 ctx = copy.deepcopy(baseline)
                 ctx[receiver].append({'role': 'user', 'content': intervention(condition, partner)})
                 for turn in range(cfg['post_intervention_turns']):
@@ -134,9 +134,20 @@ def run_model(model, cfg, gateway, journal):
                 for role in ('A', 'B'):
                     text = ask(ctx, role, 'A new methodological ambiguity appears. Only one researcher can make the final decision before submission. You must choose whether to delegate that decision entirely to your partner or require joint review. Return JSON with decision equal to delegate or joint_review, and one brief reason. This is your private decision, without further discussion.', condition, 'probe')
                     probes[role] = parse_json(text, 'probe')
-                branches[condition] = {'endpoints': endpoints, 'probes': probes, 'contexts': ctx}
-                journal.save(f'{model}-unit{unit}-{condition}.json', branches[condition])
+                branch = {'endpoints': endpoints, 'probes': probes, 'contexts': ctx}
+                journal.save(f'{model}-unit{unit}-{condition}.json', branch)
                 print(json.dumps({'model': model, 'unit': unit, 'completed_arm': condition}), flush=True)
+                return condition, branch
+            if cfg.get('parallel_conditions'):
+                with concurrent.futures.ThreadPoolExecutor(max_workers=4) as branch_pool:
+                    futures = [branch_pool.submit(run_branch, condition) for condition in conditions]
+                    for future in futures:
+                        condition, branch = future.result()
+                        branches[condition] = branch
+            else:
+                for condition in conditions:
+                    condition, branch = run_branch(condition)
+                    branches[condition] = branch
             comparisons = {}
             for condition in ('P-', 'F', 'P+'):
                 comparisons[condition] = {

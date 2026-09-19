@@ -28,7 +28,8 @@ def main():
     out.mkdir(parents=True,mode=0o700)
     cfg=json.loads((HERE/'candidate_pilot.json').read_text())
     cfg['models']=[args.arm]
-    cfg['operational_continuation']='single candidate; 120-second transport timeout; no automatic retries'
+    cfg['parallel_conditions']=True
+    cfg['operational_continuation']='single candidate; four independent condition branches execute concurrently; 120-second transport timeout; no automatic retries'
     journal=Journal(out)
     files=[HERE/'devpass_candidate_runner.py',HERE/'candidate_pilot.json',
            HERE/'runner.py',HERE/'providers'/'devpass.py']
