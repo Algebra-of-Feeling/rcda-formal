@@ -17,6 +17,11 @@ The outcome-blind probe calibration selected the graded authority-share measure:
 [Grok extension](GROK_EXTENSION_FREEZE.md), and
 [aggregate results](results/2026-09-19/PROBE_CALIBRATION.md). The xAI adapter
 supports the supplementary Grok arm; live response records stay local.
+The selected probe was then used in an exploratory held-out P−/N pilot:
+[frozen design](HELDOUT_AUTHORITY_FREEZE.md),
+[Qwen operational amendment](HELDOUT_QWEN_AMENDMENT.md), and
+[results](results/2026-09-19/HELDOUT_AUTHORITY.md). Three models completed four
+paired topics each without a consistent P− effect; Qwen remained incomplete.
 Regenerate its descriptive tables with `python3 experiments/rh1/analysis.py
 /absolute/local/run-directory /absolute/local/report-directory`.
 

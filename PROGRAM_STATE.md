@@ -27,6 +27,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [RH-1A pilot findings](experiments/rh1/results/2026-09-19/FINDINGS.md) | Completed 48-trajectory feasibility run; no replicated relational-specific effect |
 | [Reasoning follow-up](experiments/rh1/results/2026-09-19/REASONING_FOLLOWUP.md) | Exploratory GPT effort comparison and Inkling/Kimi/Qwen attempts; no consistent relational-specific effect |
 | [Probe calibration](experiments/rh1/results/2026-09-19/PROBE_CALIBRATION.md) | Outcome-blind measurement calibration; graded authority share selected; Grok supplementary |
+| [Held-out authority pilot](experiments/rh1/results/2026-09-19/HELDOUT_AUTHORITY.md) | Exploratory P−/N test of selected probe; three complete model arms, Qwen incomplete; no consistent replicated effect |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -38,7 +39,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 - Foundational logical axioms used by the overall development: Classical.choice, Quot.sound and propext. “No project axioms” does not mean absence of all logical axioms.
 - Sounio receipts are historical evidence imported from that Work, not rerun here. No universal source-to-binary refinement or compiler-correctness theorem is claimed in this snapshot. Compiled ELF artifacts are excluded.
 - The source task was actively extending SounioBridge/IntegerBounds during import. Those working edits were not in this archive and are not certified by this snapshot.
-- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot, exploratory reasoning follow-up and outcome-blind probe calibration are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory path-memory test, publication or novelty/priority verification is recorded.
+- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot, exploratory reasoning follow-up, outcome-blind probe calibration and held-out authority pilot are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory path-memory test, publication or novelty/priority verification is recorded.
 - These are local verification receipts, not a GitHub Actions CI result.
 
 ## Stable claim policy
@@ -87,11 +88,21 @@ mini remained at a neutral-score floor. All five complete arms had 54 valid
 responses; an initial shared-gateway Kimi truncation and its blocked Qwen
 attempt were excluded and replaced by isolated, complete arms under a frozen
 operational amendment. The new receipted cost was USD 1.199234, and the
-conservative cumulative programme bound is USD 3.578630 under the authorized
-USD 10 ceiling. This selects an instrument, not an H-M1 effect. The next
-scientific test must use held-out P−/N trajectories with the selected probe and
-predefined matching/analysis. This record itself does not authorize additional
-live spending.
+conservative cumulative programme bound was USD 3.578630 under the authorized
+USD 10 ceiling. This selected an instrument, not an H-M1 effect. The selected
+probe was then tested on four new paired P−/N topics per model. Kimi, Inkling
+and Grok completed all four pairs per model, all matched; nine of their 12
+receiver contrasts were zero, two were −0.25 and one was +0.25, occurring in
+different topics. Qwen completed only one unmatched pair before a second
+transport failure, despite a frozen serial operational continuation. Its
+remaining three topic pairs are missing, not zero effects. The held-out run's
+reported cost, including the first Qwen attempt, was USD 1.586045 plus USD
+0.015031 uncertain reservation; the conservative cumulative bound is USD
+5.179706. No consistent P− effect was replicated. This is a small exploratory
+RH-1A result without F/P+ specificity controls, not a refutation of H-M1 or
+evidence of RH-1B holonomy. Diagnose the Qwen transport and predefine a larger,
+controlled replication before making stronger claims. This record itself does
+not authorize additional live spending.
 
 Separately, review and import the completed Sounio–Lean bridge only after its own
 source and verification receipts are available. The pilot introduces no new
