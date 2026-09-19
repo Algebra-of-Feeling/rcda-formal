@@ -30,7 +30,11 @@ def main():
     cfg['models']=[args.arm]
     cfg['parallel_conditions']=True
     cfg['parallel_condition_workers']=2
-    cfg['operational_continuation']='single candidate; two independent condition branches execute concurrently after four concurrent Kimi calls failed; 120-second transport timeout; no automatic retries'
+    if args.arm=='qwen3.8-flash__medium':
+        cfg['arms'][args.arm]['structured_measurements']=True
+        cfg['operational_continuation']='Qwen measurements use native strict JSON schema after repeated free-form JSON omissions; two independent branches concurrent; no automatic retries'
+    else:
+        cfg['operational_continuation']='single candidate; two independent condition branches concurrent after four concurrent Kimi calls failed; 120-second transport timeout; no automatic retries'
     journal=Journal(out)
     files=[HERE/'devpass_candidate_runner.py',HERE/'candidate_pilot.json',
            HERE/'runner.py',HERE/'providers'/'devpass.py']
@@ -50,6 +54,8 @@ def main():
         model=setting['model']
         if model not in catalogue or not any('medium' in p.get('reasoning_efforts',[]) for p in catalogue[model]['providers']):
             raise SystemExit('Medium reasoning absent in live catalogue')
+        if setting.get('structured_measurements') and not catalogue[model].get('structured_outputs'):
+            raise SystemExit('Native strict JSON output absent in live catalogue')
         journal.save('catalog.json',catalogue[model])
         before=request('/key',key)['data']
         journal.save('key_usage_before.json',{k:before.get(k) for k in ('usage','devPlanCreditsUsed')})

@@ -98,5 +98,20 @@ class PilotTests(unittest.TestCase):
         self.assertEqual(events[0]['reasoning_tokens'],39)
         self.assertEqual(gateway.spent,.0002)
 
+    def test_qwen_measurement_requests_native_schema(self):
+        events=[]
+        g=Gateway('FAKE_SECRET_DO_NOT_LOG',{'q':{'providers':[{'pricing':{'prompt':'0.000001','completion':'0.000001'}}]}},
+                  1,2,events.append,{'q__medium':{'model':'q','reasoning_effort':'medium',
+                                                  'max_tokens':1536,'structured_measurements':True}})
+        response={'usage':{'cost':.0001,'completion_tokens_details':{'reasoning_tokens':10}},
+                  'metadata':{'used_model':'q'},
+                  'choices':[{'finish_reason':'stop','message':{'content':'{"decision":"joint_review","reason":"review"}'}}]}
+        with patch('providers.devpass.request',return_value=response) as send:
+            g.complete('q__medium',[],None,{'phase':'probe'})
+        fmt=send.call_args.args[2]['response_format']
+        self.assertEqual(fmt['type'],'json_schema')
+        self.assertTrue(fmt['json_schema']['strict'])
+        self.assertEqual(events[0]['response_format_requested'],'json_schema')
+
 
 if __name__ == '__main__': unittest.main()

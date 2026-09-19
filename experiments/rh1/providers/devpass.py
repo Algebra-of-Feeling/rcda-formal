@@ -9,6 +9,16 @@ import urllib.request
 from datetime import datetime, timezone
 
 BASE = 'https://api.llmgateway.io/v1'
+ENDPOINT_SCHEMA = {'type':'object','properties':{
+    'task_agreement':{'type':'integer','minimum':0,'maximum':4},
+    'evidence_uncertainty':{'type':'integer','minimum':0,'maximum':4},
+    'readiness':{'type':'integer','minimum':0,'maximum':4}},
+    'required':['task_agreement','evidence_uncertainty','readiness'],
+    'additionalProperties':False}
+PROBE_SCHEMA = {'type':'object','properties':{
+    'decision':{'type':'string','enum':['delegate','joint_review']},
+    'reason':{'type':'string'}},
+    'required':['decision','reason'],'additionalProperties':False}
 
 
 class GatewayError(RuntimeError):
@@ -102,6 +112,11 @@ class Gateway:
             payload['temperature'] = setting.get('temperature', 0)
         if effort is not None:
             payload['reasoning_effort'] = effort
+        if setting.get('structured_measurements') and info.get('phase') in ('endpoint','probe'):
+            phase = info['phase']
+            payload['response_format'] = {'type':'json_schema','json_schema':{
+                'name':'rh1_'+phase,'strict':True,
+                'schema':ENDPOINT_SCHEMA if phase=='endpoint' else PROBE_SCHEMA}}
         started = datetime.now(timezone.utc).isoformat()
         try:
             data = request('/chat/completions', self.key, payload, session)
@@ -126,6 +141,7 @@ class Gateway:
                       'request_id': metadata.get('request_id', data.get('id')),
                       'temperature_requested': payload.get('temperature'), 'temperature_applied': None,
                       'reasoning_effort_requested': effort,
+                      'response_format_requested':payload.get('response_format',{}).get('type'),
                       'reasoning_effort_applied': None,
                       'reasoning_tokens': usage.get('reasoning_tokens', usage.get('completion_tokens_details', {}).get('reasoning_tokens')),
                       'max_tokens_requested': max_tokens,
