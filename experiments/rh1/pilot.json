@@ -1,0 +1,24 @@
+{
+  "protocol_version": "RH1A-feasibility-v0.1",
+  "modality": "RH-1A",
+  "models": ["gpt-4.1-mini", "claude-haiku-4-5-20251001", "gemini-2.5-flash-lite"],
+  "conditions": ["N", "F", "P-", "P+"],
+  "scenarios": [
+    "a manuscript about forecasting ecological change",
+    "a manuscript about robust software performance evaluation",
+    "a manuscript about reproducibility in educational research",
+    "a manuscript about measuring collaboration in design teams"
+  ],
+  "budget_usd": 10,
+  "max_calls": 720,
+  "temperature": 0,
+  "max_tokens": 384,
+  "post_intervention_turns": 6,
+  "recovery_turns": 4,
+  "matching_features": ["task_agreement", "evidence_uncertainty", "readiness"],
+  "matching_max_coordinate_difference": 1,
+  "matching_scale": [0, 4],
+  "randomization_seed": 20260919,
+  "receiver_roles": ["B", "A", "B", "A"],
+  "analysis": "descriptive paired P-minus versus N; F and P-plus controls; no significance or holonomy claim"
+}

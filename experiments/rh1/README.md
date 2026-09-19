@@ -1,7 +1,11 @@
 # RH-1 local harness — implementation contract
 
-**Status: specification only. No runner, adapter or live experiment is implemented
-by this document.** Protocol: [RH1-v1.1-design](../../RH1_PROTOCOL.md).
+**Status: a bounded feasibility runner and DevPass adapter are implemented.**
+The broader contract below remains the target architecture. See
+[PILOT_FREEZE.md](PILOT_FREEZE.md) for the smaller implemented design, deviations
+and execution limits. Run locally with `python3 experiments/rh1/runner.py --output
+/absolute/local/run-directory`; add `--live` only with the credential in the local
+environment and a clean committed source tree. Protocol: [RH1-v1.1-design](../../RH1_PROTOCOL.md).
 Parent scientific claim: H-M1.
 
 ## Proposed layout
@@ -20,7 +24,9 @@ experiments/rh1/
   analysis.py
 ```
 
-The files above are planned modules, not a list of existing implementations.
+The files above are planned modules, not a list of existing implementations;
+the initial pilot combines orchestration, measurement and descriptive comparisons
+in runner.py and uses pilot.json instead of YAML.
 Only introduce provider-specific adapters when an actual interface requires them.
 A routing service does not establish model independence or hidden-state access.
 
