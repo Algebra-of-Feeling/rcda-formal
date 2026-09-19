@@ -1,0 +1,12 @@
+RCDA_SOUNIO_WITNESS_V1
+[P:runtime] embedding: 64 basis products preserve multiplication and sector
+OCT_ASSOC_E1_E2_E4=0 0 0 0 0 0 0 2 
+[P:runtime] 64 quaternion basis triples associative; octonion witness nonzero
+ANNIHILATION_PRODUCT=0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+[P:runtime] (e1+e10)(e4-e15)=0, both factors nonzero, sector escape observed
+[P:runtime] scaled curvature identity; omitted quadratic term rejected
+[P:runtime] relative-loop memory witness; nonidentity holonomy fixes zero state
+[C] division-sector theorem requires the declared division structure
+[C] associator-curvature coupling is additional model data
+[H] clinical annihilation, empirical memory and novelty remain hypotheses
+RCDA_SOUNIO_PASS

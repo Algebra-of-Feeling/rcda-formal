@@ -1,0 +1,3 @@
+*.md whitespace=-blank-at-eol
+# Preserve exact historical runtime logs, including printed trailing spaces.
+sounio/verification/*.log -whitespace

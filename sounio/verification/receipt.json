@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "engine": "Madaros v0.80.0 -- the Sounio self-hosted compiler",
+  "mode": "default bin/souc to Madaros, check + native compile + execute",
+  "compiler_rebuilt_by_this_task": false,
+  "compiler_sha256": "8b2bcb2670bb47fe16752c3c855e416303411e324d040fb21ab9127358041306",
+  "source_sha256": "dea821c2edb0ffb5857c0e6c9befd5ed31635cdc9b1c38444788e4344f67f970",
+  "gate_sha256": "c0c65922ab2b3611f7afa279586680ebb4cff3ee66d1c92bd9ab9f2599e7c3cb",
+  "executable_sha256": "2fbbd4ee99766ff07859ebb05c2187d2825d75218be9783eaa2538c833a6dd5f",
+  "observed_repository_head": "3a50ccec92372c0b68ec623b31e34ea44ebbdb89",
+  "observed_repository_branch": "lane/cursor-1/20260826",
+  "remote_artifact_root": "/workspace/rcda-core-01a0badb",
+  "positive_exit_code": 0,
+  "controlled_rejections": 5,
+  "lean_tagged_claims": 26,
+  "source_refinement_proved": false,
+  "ci_run": false,
+  "repository_sources_modified": false,
+  "scope": "finite exact integer witnesses; universal proofs in companion Lean; no empirical claim"
+}

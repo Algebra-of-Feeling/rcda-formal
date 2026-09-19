@@ -1,0 +1,9 @@
+name = "rcda"
+version = "0.1.0"
+defaultTargets = ["RCDA", "Audit"]
+
+[[lean_lib]]
+name = "RCDA"
+
+[[lean_lib]]
+name = "Audit"

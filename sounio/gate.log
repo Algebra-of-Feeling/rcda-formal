@@ -1,0 +1,8 @@
+case	expected	observed
+positive	0	0
+mutant_zero	controlled_nonzero	1
+mutant_pair	controlled_nonzero	1
+mutant_curvature	controlled_nonzero	1
+reject_bound	controlled_nonzero	1
+reject_dimension	controlled_nonzero	1
+RCDA_SOUNIO_GATE_PASS

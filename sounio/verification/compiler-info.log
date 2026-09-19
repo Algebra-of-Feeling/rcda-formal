@@ -1,0 +1,4 @@
+wrapper:      /workspace/sounio/bin/madaros
+raw_elf:      /workspace/sounio/artifacts/self-hosted/madaros
+stdlib:       /workspace/sounio/stdlib
+identity:     Madaros v0.80.0 -- the Sounio self-hosted compiler

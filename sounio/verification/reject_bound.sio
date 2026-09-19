@@ -1,0 +1,313 @@
+// RCDA/RCDB executable kernel. Sounio / Madaros is the execution authority.
+// Companion Lean proofs: ../RCDA/*.lean; runtime checks are finite evidence.
+// Convention: (a,b)(c,d) = (ac - conjugate(d)b, da + b conjugate(c)).
+// Integer coefficients, dimensions 1,2,4,8,16. No floating-point tolerance.
+// The sigma recurrence follows stdlib/algebra/cayley_dickson.sio, specialized
+// here to bounded i64 coordinates to match the companion integer witnesses.
+
+struct CD {
+    c: [i64; 16],
+    dim: i64,
+}
+
+fn cd_zero(dim: i64) -> CD with IO, Panic {
+    if dim != 1 && dim != 2 && dim != 4 && dim != 8 && dim != 16 {
+        println("RCDA: invalid dimension"); panic("RCDA: invalid dimension")
+    }
+    CD { c: [0; 16], dim: dim }
+}
+
+fn cd_basis(dim: i64, index: i64) -> CD with IO, Mut, Panic {
+    if index < 0 || index >= dim { println("RCDA: basis index out of range"); panic("RCDA: basis index out of range") }
+    var r = cd_zero(dim)
+    r.c[index as usize] = 1
+    r
+}
+
+// Guard the arithmetic domain before operations. This is an explicit runtime
+// refusal boundary, not a claim that all Lean integers fit in a machine word.
+fn cd_validate(a: CD) with IO, Mut, Panic {
+    if a.dim != 1 && a.dim != 2 && a.dim != 4 && a.dim != 8 && a.dim != 16 {
+        println("RCDA: invalid dimension"); panic("RCDA: invalid dimension")
+    }
+    var i: i64 = 0
+    while i < 16 {
+        let x = a.c[i as usize]
+        if x < -1000000 || x > 1000000 { println("RCDA: coefficient outside exact domain"); panic("RCDA: coefficient outside exact domain") }
+        if i >= a.dim && x != 0 { println("RCDA: nonzero unused coordinate"); panic("RCDA: nonzero unused coordinate") }
+        i = i + 1
+    }
+}
+
+fn cd_pair_validate(a: CD, b: CD) with IO, Mut, Panic {
+    cd_validate(a)
+    cd_validate(b)
+    if a.dim != b.dim { println("RCDA: dimension mismatch"); panic("RCDA: dimension mismatch") }
+}
+
+fn basis_sign(dim: i64, i: i64, j: i64) -> i64 with Div {
+    if dim == 1 { return 1 }
+    let h = dim / 2
+    if i < h && j < h { return basis_sign(h, i, j) }
+    if i < h && j >= h { return basis_sign(h, j - h, i) }
+    if i >= h && j < h {
+        let sign = if j == 0 { 1 } else { -1 }
+        return sign * basis_sign(h, i - h, j)
+    }
+    let sign = if j - h == 0 { -1 } else { 1 }
+    sign * basis_sign(h, j - h, i - h)
+}
+
+fn cd_add(a: CD, b: CD) -> CD with IO, Mut, Panic {
+    cd_pair_validate(a, b)
+    var r = cd_zero(a.dim)
+    var i: i64 = 0
+    while i < a.dim {
+        r.c[i as usize] = a.c[i as usize] + b.c[i as usize]
+        i = i + 1
+    }
+    r
+}
+
+fn cd_sub(a: CD, b: CD) -> CD with IO, Mut, Panic {
+    cd_pair_validate(a, b)
+    var r = cd_zero(a.dim)
+    var i: i64 = 0
+    while i < a.dim {
+        r.c[i as usize] = a.c[i as usize] - b.c[i as usize]
+        i = i + 1
+    }
+    r
+}
+
+fn cd_mul(a: CD, b: CD) -> CD with IO, Mut, Panic, Div {
+    cd_pair_validate(a, b)
+    var r = cd_zero(a.dim)
+    var i: i64 = 0
+    while i < a.dim {
+        var j: i64 = 0
+        while j < a.dim {
+            let k = i ^ j
+            let term = basis_sign(a.dim, i, j) * a.c[i as usize] * b.c[j as usize]
+            r.c[k as usize] = r.c[k as usize] + term
+            j = j + 1
+        }
+        i = i + 1
+    }
+    r
+}
+
+fn cd_equal(a: CD, b: CD) -> bool with IO, Mut, Panic {
+    if a.dim != b.dim { return false }
+    var i: i64 = 0
+    while i < 16 {
+        if a.c[i as usize] != b.c[i as usize] { return false }
+        i = i + 1
+    }
+    true
+}
+
+fn cd_is_zero(a: CD) -> bool with IO, Mut, Panic {
+    cd_equal(a, cd_zero(a.dim))
+}
+
+fn cd_associator(a: CD, b: CD, c: CD) -> CD with IO, Mut, Panic, Div {
+    let ab = cd_mul(a, b)
+    let bc = cd_mul(b, c)
+    let left = cd_mul(ab, c)
+    let right = cd_mul(a, bc)
+    cd_sub(left, right)
+}
+
+fn embed_octonion(a: CD) -> CD with IO, Mut, Panic {
+    cd_validate(a)
+    if a.dim != 8 { println("RCDA: embedding requires dimension eight"); panic("RCDA: embedding requires dimension eight") }
+    var r = cd_zero(16)
+    var i: i64 = 0
+    while i < 8 {
+        r.c[i as usize] = a.c[i as usize]
+        i = i + 1
+    }
+    r
+}
+
+fn in_octonion_sector(a: CD) -> bool with IO, Mut, Panic {
+    cd_validate(a)
+    if a.dim != 16 { return false }
+    var i: i64 = 8
+    while i < 16 {
+        if a.c[i as usize] != 0 { return false }
+        i = i + 1
+    }
+    true
+}
+
+fn assert_claim(ok: bool, message: string) with IO, Panic {
+    if !ok {
+        println(message)
+        panic("RCDA witness failed")
+    }
+}
+
+fn test_embedding() with IO, Mut, Panic, Div {
+    var i: i64 = 0
+    while i < 8 {
+        var j: i64 = 0
+        while j < 8 {
+            let a = cd_basis(8, i)
+            let b = cd_basis(8, j)
+            let expected = embed_octonion(cd_mul(a, b))
+            let actual = cd_mul(embed_octonion(a), embed_octonion(b))
+            assert_claim(cd_equal(actual, expected), "FAIL embedding product")
+            assert_claim(in_octonion_sector(actual), "FAIL sector closure")
+            assert_claim(!cd_is_zero(actual), "FAIL embedded basis product vanished")
+            j = j + 1
+        }
+        i = i + 1
+    }
+    println("[P:runtime] embedding: 64 basis products preserve multiplication and sector")
+}
+
+fn test_associators() with IO, Mut, Panic, Div {
+    var i: i64 = 0
+    while i < 4 {
+        var j: i64 = 0
+        while j < 4 {
+            var k: i64 = 0
+            while k < 4 {
+                let a = cd_associator(cd_basis(4, i), cd_basis(4, j), cd_basis(4, k))
+                assert_claim(cd_is_zero(a), "FAIL quaternion sector associativity")
+                k = k + 1
+            }
+            j = j + 1
+        }
+        i = i + 1
+    }
+    let oct = cd_associator(cd_basis(8, 1), cd_basis(8, 2), cd_basis(8, 4))
+    assert_claim(!cd_is_zero(oct), "FAIL octonion nonassociativity witness")
+    print("OCT_ASSOC_E1_E2_E4=")
+    var p: i64 = 0
+    while p < 8 {
+        print_int(oct.c[p as usize])
+        print(" ")
+        p = p + 1
+    }
+    println("")
+    println("[P:runtime] 64 quaternion basis triples associative; octonion witness nonzero")
+}
+
+fn test_annihilation() with IO, Mut, Panic, Div {
+    let x = cd_add(cd_basis(16, 1), cd_basis(16, 10))
+    let y = cd_sub(cd_basis(16, 4), cd_basis(16, 15))
+    let product = cd_mul(x, y)
+    assert_claim(!cd_is_zero(x), "FAIL left factor is zero")
+    assert_claim(!cd_is_zero(y), "FAIL right factor is zero")
+    assert_claim(cd_is_zero(product), "FAIL nontrivial annihilation")
+    assert_claim(!(in_octonion_sector(x) && in_octonion_sector(y)), "FAIL sector escape")
+    // A negative control detects replacing every product by zero.
+    assert_claim(cd_equal(cd_mul(x, cd_basis(16, 0)), x), "FAIL unit negative control")
+    print("ANNIHILATION_PRODUCT=")
+    var i: i64 = 0
+    while i < 16 {
+        print_int(product.c[i as usize])
+        print(" ")
+        i = i + 1
+    }
+    println("")
+    println("[P:runtime] (e1+e10)(e4-e15)=0, both factors nonzero, sector escape observed")
+}
+
+// Ordinary 2x2 integer operator matrices: multiplication is associative.
+// The fixed curvature fixture is deliberately noncommutative.
+struct Mat2 { a: i64, b: i64, c: i64, d: i64 }
+fn m_add(x: Mat2, y: Mat2) -> Mat2 {
+    Mat2 { a: x.a+y.a, b: x.b+y.b, c: x.c+y.c, d: x.d+y.d }
+}
+fn m_sub(x: Mat2, y: Mat2) -> Mat2 {
+    Mat2 { a: x.a-y.a, b: x.b-y.b, c: x.c-y.c, d: x.d-y.d }
+}
+fn m_mul(x: Mat2, y: Mat2) -> Mat2 {
+    Mat2 { a: x.a*y.a+x.b*y.c, b: x.a*y.b+x.b*y.d,
+           c: x.c*y.a+x.d*y.c, d: x.c*y.b+x.d*y.d }
+}
+fn m_scale(x: Mat2, k: i64) -> Mat2 {
+    Mat2 { a: k*x.a, b: k*x.b, c: k*x.c, d: k*x.d }
+}
+fn m_equal(x: Mat2, y: Mat2) -> bool {
+    x.a == y.a && x.b == y.b && x.c == y.c && x.d == y.d
+}
+fn curvature(dx: Mat2, dy: Mat2, dbracket: Mat2) -> Mat2 {
+    m_sub(m_sub(m_mul(dx, dy), m_mul(dy, dx)), dbracket)
+}
+fn exterior(dx: Mat2, dy: Mat2, kx: Mat2, ky: Mat2, kb: Mat2) -> Mat2 {
+    let first = m_sub(m_mul(dx, ky), m_mul(ky, dx))
+    let second = m_sub(m_mul(kx, dy), m_mul(dy, kx))
+    m_sub(m_add(first, second), kb)
+}
+fn wedge(kx: Mat2, ky: Mat2) -> Mat2 {
+    m_sub(m_mul(kx, ky), m_mul(ky, kx))
+}
+
+fn test_curvature() with IO, Panic {
+    let dx = Mat2 { a: 1, b: 2, c: 0, d: 1 }
+    let dy = Mat2 { a: 0, b: 1, c: 3, d: 2 }
+    let db = Mat2 { a: 1, b: 0, c: 1, d: -1 }
+    let kx = Mat2 { a: 2, b: 0, c: 1, d: -1 }
+    let ky = Mat2 { a: 0, b: -2, c: 1, d: 1 }
+    let kb = Mat2 { a: -1, b: 1, c: 0, d: 2 }
+    let k: i64 = 3
+    let lhs = curvature(m_add(dx, m_scale(kx, k)), m_add(dy, m_scale(ky, k)), m_add(db, m_scale(kb, k)))
+    let reference = curvature(dx, dy, db)
+    let linear_term = m_scale(exterior(dx, dy, kx, ky, kb), k)
+    let quadratic = m_scale(wedge(kx, ky), k*k)
+    let rhs = m_add(m_add(reference, linear_term), quadratic)
+    assert_claim(m_equal(lhs, rhs), "FAIL curvature deformation")
+    assert_claim(!m_equal(lhs, m_add(reference, linear_term)), "FAIL quadratic-term negative control")
+    println("[P:runtime] scaled curvature identity; omitted quadratic term rejected")
+}
+
+// A one-object groupoid of invertible matrices acting on integer pairs.
+struct State2 { x: i64, y: i64 }
+fn transport(m: Mat2, s: State2) -> State2 {
+    State2 { x: m.a*s.x+m.b*s.y, y: m.c*s.x+m.d*s.y }
+}
+fn state_equal(a: State2, b: State2) -> bool { a.x == b.x && a.y == b.y }
+fn test_memory() with IO, Panic {
+    let p = Mat2 { a: 1, b: 1, c: 0, d: 1 }
+    let q = Mat2 { a: 1, b: 0, c: 1, d: 1 }
+    let qi = Mat2 { a: 1, b: 0, c: -1, d: 1 }
+    let id = Mat2 { a: 1, b: 0, c: 0, d: 1 }
+    assert_claim(m_equal(m_mul(q, qi), id), "FAIL inverse transport")
+    assert_claim(m_equal(m_mul(qi, q), id), "FAIL reverse inverse transport")
+    let initial = State2 { x: 2, y: 3 }
+    let p_state = transport(p, initial)
+    let q_state = transport(q, initial)
+    let relative = m_mul(qi, p)
+    let loop_state = transport(relative, initial)
+    assert_claim(!state_equal(p_state, q_state), "FAIL memory witness")
+    assert_claim(!state_equal(loop_state, initial), "FAIL loop displacement")
+    assert_claim(state_equal(transport(q, loop_state), p_state), "FAIL relative loop law")
+    let zero_state = State2 { x: 0, y: 0 }
+    assert_claim(state_equal(transport(relative, zero_state), zero_state), "FAIL fixed-state control")
+    println("[P:runtime] relative-loop memory witness; nonidentity holonomy fixes zero state")
+}
+
+fn original_main() -> i64 with IO, Mut, Panic, Div {
+    println("RCDA_SOUNIO_WITNESS_V1")
+    test_embedding()
+    test_associators()
+    test_annihilation()
+    test_curvature()
+    test_memory()
+    println("[C] division-sector theorem requires the declared division structure")
+    println("[C] associator-curvature coupling is additional model data")
+    println("[H] clinical annihilation, empirical memory and novelty remain hypotheses")
+    println("RCDA_SOUNIO_PASS")
+    0
+}
+fn main() -> i64 with IO, Mut, Panic, Div {
+    var a = cd_basis(8, 1)
+    a.c[1] = 1000001
+    let ignored = cd_mul(a, cd_basis(8, 0))
+    0
+}

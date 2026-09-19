@@ -1,0 +1,5 @@
+RCDA_SOUNIO_WITNESS_V1
+[P:runtime] embedding: 64 basis products preserve multiplication and sector
+OCT_ASSOC_E1_E2_E4=0 0 0 0 0 0 0 2 
+[P:runtime] 64 quaternion basis triples associative; octonion witness nonzero
+FAIL nontrivial annihilation
