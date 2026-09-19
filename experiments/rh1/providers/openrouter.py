@@ -29,11 +29,12 @@ def request(path, key, payload=None):
 
 
 class OpenRouterGateway:
-    def __init__(self, key, model, pricing, limit, max_calls, sink):
+    def __init__(self, key, model, pricing, limit, max_calls, sink, max_tokens=1536):
         if not key or not 0 < limit <= 10:
             raise GatewayError('missing_key_or_bad_budget')
         self.key, self.model, self.pricing = key, model, pricing
         self.limit, self.max_calls, self.sink = limit, max_calls, sink
+        self.max_tokens = max_tokens
         self.calls = 0
         self.spent = self.reserved = 0.0
         self.halted = False
@@ -49,7 +50,7 @@ class OpenRouterGateway:
             if delay:
                 time.sleep(delay)
             self.last_request = time.monotonic()
-        max_tokens = 1536
+        max_tokens = self.max_tokens
         nbytes = len(json.dumps(messages,ensure_ascii=False).encode()) + 2048
         if nbytes > 40000:
             raise GatewayError('input_size_stop')

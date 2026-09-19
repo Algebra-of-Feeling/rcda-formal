@@ -27,8 +27,10 @@ def main():
     out.mkdir(parents=True,mode=0o700)
     cfg=json.loads((HERE/'candidate_pilot.json').read_text())
     cfg['models']=['inkling__medium']
+    cfg['arms']['inkling__medium']['max_tokens']=4096
+    cfg['openrouter_budget_usd']=3.0
     cfg['parallel_conditions']=True
-    cfg['operational_continuation']='OpenRouter arm only; four independent condition branches execute concurrently after a slow sequential attempt was stopped at six calls'
+    cfg['operational_continuation']='OpenRouter arm only; independent conditions concurrent; output cap raised to 4096 after a 1536-token baseline truncation'
     journal=Journal(out)
     files=[HERE/'inkling_runner.py',HERE/'candidate_runner.py',HERE/'candidate_pilot.json',
            HERE/'runner.py',HERE/'providers'/'openrouter.py']
@@ -50,7 +52,7 @@ def main():
         before=request('/key',key)['data']
         journal.save('key_usage_before.json',{k:before.get(k) for k in ('usage','usage_daily','limit_remaining')})
         gateway=OpenRouterGateway(key,'thinkingmachines/inkling',listing['pricing'],
-                                  cfg['openrouter_budget_usd'],120,journal.event)
+                                  cfg['openrouter_budget_usd'],120,journal.event,max_tokens=4096)
     else:
         gateway=MockGateway()
     results=run_model('inkling__medium',cfg,gateway,journal)
