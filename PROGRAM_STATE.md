@@ -25,6 +25,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [RH-1 harness](experiments/rh1/README.md) | Implemented bounded RH-1A feasibility runner and broader RH-1A/RH-1B target contract |
 | [Pilot freeze](experiments/rh1/PILOT_FREEZE.md) | Pre-execution design, matching, models, deviations and USD 10 ceiling |
 | [RH-1A pilot findings](experiments/rh1/results/2026-09-19/FINDINGS.md) | Completed 48-trajectory feasibility run; no replicated relational-specific effect |
+| [Reasoning follow-up](experiments/rh1/results/2026-09-19/REASONING_FOLLOWUP.md) | Exploratory GPT effort comparison and Inkling/Kimi/Qwen attempts; no consistent relational-specific effect |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -36,7 +37,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 - Foundational logical axioms used by the overall development: Classical.choice, Quot.sound and propext. “No project axioms” does not mean absence of all logical axioms.
 - Sounio receipts are historical evidence imported from that Work, not rerun here. No universal source-to-binary refinement or compiler-correctness theorem is claimed in this snapshot. Compiled ELF artifacts are excluded.
 - The source task was actively extending SounioBridge/IntegerBounds during import. Those working edits were not in this archive and are not certified by this snapshot.
-- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot is now completed (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory preregistration, publication or novelty/priority verification is recorded.
+- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot and exploratory reasoning follow-up are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory preregistration, publication or novelty/priority verification is recorded.
 - These are local verification receipts, not a GitHub Actions CI result.
 
 ## Stable claim policy
@@ -69,9 +70,16 @@ USD 0.645100, plus USD 0.002754 retained as a conservative uncertain reservation
 All 12 primary P-/N pairs passed the fixed coarse matching rule. GPT/Claude had
 zero delegation throughout; Gemini showed a small negative P-/N difference also
 present in controls. This is not replicated support for a relational-specific
-effect, and does not refute H-M1. Validate probe sensitivity on separate
-calibration data before scaling or changing the design. No further live run is
-authorized merely by this record.
+effect, and does not refute H-M1. The separately authorized reasoning follow-up
+compared GPT-5.4 mini at `none` and `medium`, and ran reasoning-enabled Inkling,
+Kimi K3 and Qwen3.8 Flash. The GPT reasoning-token receipts differed (0 versus
+8,629), but delegation was zero throughout both arms. Inkling was also at the
+delegation floor. Kimi and Qwen varied, yet controls and matching outcomes did
+not show a consistent P−-specific effect. Gemini 2.5 Flash stopped on an
+invalid measurement and has no paired outcome. See the linked follow-up for
+denominators, operational deviations and cost accounting. Calibrate probe
+sensitivity on separate data before scaling. This record itself does not
+authorize additional live spending.
 
 Separately, review and import the completed Sounio–Lean bridge only after its own
 source and verification receipts are available. The pilot introduces no new

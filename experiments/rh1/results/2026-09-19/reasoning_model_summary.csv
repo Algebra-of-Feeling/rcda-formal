@@ -1,0 +1,7 @@
+arm,complete_units,matched_primary_pairs,delta_pminus_vs_n,requests,reasoning_token_records,reasoning_tokens,reported_cost_usd,providers,errors
+gpt-5.4-mini__none,2,2,0.0,116,116,0,0.10672125,azure,
+gpt-5.4-mini__medium,2,2,0.0,116,116,8629,0.14847225,azure,
+gemini-2.5-flash__medium,0,0,,13,13,8408,0.0262988,google-vertex,
+inkling__medium,2,2,0.0,116,116,44836,0.2545579674,,
+kimi-k3__medium,2,2,-0.25,116,116,24654,0.6864978,novita,
+qwen3.8-flash__medium,2,1,0.5,116,116,26157,0.028582806,"alibaba,novita",

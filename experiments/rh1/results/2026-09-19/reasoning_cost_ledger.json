@@ -1,0 +1,91 @@
+{
+  "initial_pilot": {
+    "reported_cost_usd": 0.6451,
+    "uncertain_reservation_usd": 0.0027538
+  },
+  "followup_runs": [
+    {
+      "run": "rh1-reasoning-live-01",
+      "status": "incomplete",
+      "attempt_records": 245,
+      "reported_cost_usd": 0.2814923,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-candidates-live-01",
+      "status": "incomplete",
+      "attempt_records": 57,
+      "reported_cost_usd": 0.012529082,
+      "uncertain_reservation_usd": 0.00637544
+    },
+    {
+      "run": "rh1-inkling-live-01",
+      "status": "operationally_interrupted",
+      "attempt_records": 6,
+      "reported_cost_usd": 0.012684573,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-inkling-live-02",
+      "status": "incomplete",
+      "attempt_records": 3,
+      "reported_cost_usd": 0.008012466,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-inkling-live-03",
+      "status": "completed",
+      "attempt_records": 116,
+      "reported_cost_usd": 0.2545579674,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-kimi-live-01",
+      "status": "operationally_interrupted",
+      "attempt_records": 9,
+      "reported_cost_usd": 0.0466926,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-kimi-live-02",
+      "status": "incomplete",
+      "attempt_records": 7,
+      "reported_cost_usd": 0.021903,
+      "uncertain_reservation_usd": 0.34134200000000003
+    },
+    {
+      "run": "rh1-kimi-live-03",
+      "status": "completed",
+      "attempt_records": 116,
+      "reported_cost_usd": 0.6864978,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-qwen-live-02",
+      "status": "incomplete",
+      "attempt_records": 55,
+      "reported_cost_usd": 0.012732468,
+      "uncertain_reservation_usd": 1.734723475976807e-18
+    },
+    {
+      "run": "rh1-qwen-live-03",
+      "status": "incomplete",
+      "attempt_records": 55,
+      "reported_cost_usd": 0.01313972,
+      "uncertain_reservation_usd": 0
+    },
+    {
+      "run": "rh1-qwen-live-04",
+      "status": "completed",
+      "attempt_records": 116,
+      "reported_cost_usd": 0.028582806,
+      "uncertain_reservation_usd": 6.071532165918825e-18
+    }
+  ],
+  "preflight_cost_upper_bound_usd": 0.005,
+  "reported_total_usd": 2.0239247824,
+  "uncertain_total_usd": 0.35047124,
+  "conservative_total_upper_bound_usd": 2.3793960224,
+  "authorized_ceiling_usd": 10,
+  "note": "Reservation is an upper bound for calls with uncertain billing, not a confirmed charge. Runs interrupted before summary creation have only reported costs from responses."
+}

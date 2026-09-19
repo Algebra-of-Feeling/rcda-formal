@@ -9,6 +9,9 @@ environment and a clean committed source tree. Protocol: [RH1-v1.1-design](../..
 Parent scientific claim: H-M1.
 
 The first live feasibility pilot is complete: [findings](results/2026-09-19/FINDINGS.md).
+The separately authorized reasoning follow-up is recorded in
+[REASONING_FOLLOWUP.md](results/2026-09-19/REASONING_FOLLOWUP.md). The versioned
+transport supports DEV PASS and OpenRouter; the source contains no credentials.
 Regenerate its descriptive tables with `python3 experiments/rh1/analysis.py
 /absolute/local/run-directory /absolute/local/report-directory`.
 
@@ -48,8 +51,10 @@ exception objects. Logging must use an allowlist of safe fields and sanitized
 errors, not serialization of the provider client. Run data stays outside the
 checkout in an explicit local output directory.
 
-Notes was not accessed. Moving a credential from Notes to an environment or
-secret store is a separate local setup step; no secret value is required in chat.
+For the authorized live runs, an unversioned local bridge read the exact Apple
+Notes entries and passed the selected credentials to child processes in their
+environment. The bridge and notes remain outside this repository; no secret
+value was required in chat.
 Authentication transmission must be restricted to the documented service origin;
 do not forward credentials to redirects or arbitrary model-supplied URLs.
 

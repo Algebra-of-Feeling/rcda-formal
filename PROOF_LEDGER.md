@@ -51,7 +51,8 @@ It does not establish that a supplied abstract OctonionLike model exists.
 ## Stable scientific hypothesis IDs
 
 All entries below are scientific hypotheses, not Lean theorems. H-M1 has an
-initial RH-1A feasibility pilot, with no replicated relational-specific effect;
+initial RH-1A feasibility pilot and a separate reasoning follow-up, with no
+replicated relational-specific effect;
 the other listed experimental targets remain unexecuted in this repository.
 
 | ID | Scientific question / experiment |
@@ -60,7 +61,7 @@ the other listed experimental targets remain unexecuted in this repository.
 | H-Z1 | Annihilation-capable regime versus ordinary decay; ZA-1 |
 | H-SE1 | Latent sector escape/new directions before some ruptures; SE-1 |
 | H-R1 | Nonzero empirical associator–transport/curvature coupling and possible mediation |
-| H-M1 | RH-1A has a completed small feasibility pilot, not a held-out incremental-prediction test; no replicated relational-specific effect. RH-1B remains unexecuted. Neither modality alone certifies geometric holonomy. See [findings](experiments/rh1/results/2026-09-19/FINDINGS.md) and [RH-1](RH1_PROTOCOL.md) |
+| H-M1 | RH-1A has a completed small feasibility pilot and exploratory reasoning follow-up, not a held-out incremental-prediction test; no replicated relational-specific effect. RH-1B remains unexecuted. Neither modality alone certifies geometric holonomy. See [initial findings](experiments/rh1/results/2026-09-19/FINDINGS.md), [reasoning follow-up](experiments/rh1/results/2026-09-19/REASONING_FOLLOWUP.md) and [RH-1](RH1_PROTOCOL.md) |
 | H-I1 | Persistent post-rupture differences following apparent recovery |
 
 These six programme IDs are not a one-to-one renaming of the six textual
