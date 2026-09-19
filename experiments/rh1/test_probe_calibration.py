@@ -1,8 +1,10 @@
 import json
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from probe_calibration import parse_response, summarize
+from providers.xai import XaiGateway
 
 
 class CalibrationTests(unittest.TestCase):
@@ -31,6 +33,21 @@ class CalibrationTests(unittest.TestCase):
         rows = [r for r in rows if r['probe'] == 'binary_delegate' and r['arm'] in
                 (cfg['models'][0]['arm'], cfg['models'][1]['arm'])]
         self.assertIsNone(summarize(rows, cfg)['selected_probe'])
+
+    def test_xai_cost_receipt_and_model_check(self):
+        events = []
+        gateway = XaiGateway('FAKE_SECRET_DO_NOT_LOG', 1.5, 1, events.append)
+        reply = {'model': 'grok-4.6', 'id': 'test-id', 'status': 'completed',
+                 'usage': {'cost_in_usd_ticks': 10000000, 'input_tokens': 20,
+                           'output_tokens': 10, 'output_tokens_details': {'reasoning_tokens': 5}},
+                 'output': [{'type': 'message', 'content': [
+                     {'type': 'output_text', 'text': '{"decision":"delegate"}'}]}]}
+        with patch('providers.xai.request', return_value=reply):
+            result = gateway.complete('grok-4.6__medium', [{'role':'user','content':'test'}],
+                                      'session', {'probe':'binary_delegate'})
+        self.assertEqual(parse_response(result, 'binary_delegate'), 1)
+        self.assertEqual(gateway.spent, .001)
+        self.assertNotIn('FAKE_SECRET_DO_NOT_LOG', json.dumps(events))
 
 
 if __name__ == '__main__':
