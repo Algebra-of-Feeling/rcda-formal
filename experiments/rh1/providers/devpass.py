@@ -31,7 +31,7 @@ def request(path, key, payload=None, session=None):
     try:
         # Disable environment proxies and redirects: credential only goes to BASE.
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
-        with opener.open(req, timeout=60) as response:
+        with opener.open(req, timeout=120) as response:
             return json.loads(response.read())
     except urllib.error.HTTPError as exc:
         raise GatewayError('http_' + str(exc.code)) from None
