@@ -58,5 +58,22 @@ class PilotTests(unittest.TestCase):
     def test_redirect_refused(self):
         self.assertIsNone(NoRedirect().redirect_request(None,None,302,'',{},'https://untrusted.example'))
 
+    def test_reasoning_arm_sends_requested_effort_and_records_tokens(self):
+        events = []
+        g = Gateway('FAKE_SECRET_DO_NOT_LOG', {'m': {'providers': [{'pricing': {'prompt': '0.000001', 'completion': '0.000001'}}]}},
+                    1, 2, events.append, {'m__medium': {'model':'m', 'reasoning_effort':'medium', 'max_tokens':1536}})
+        response = {'usage': {'cost':.0001, 'reasoning_tokens':17},
+                    'metadata': {'used_model':'m'},
+                    'choices':[{'finish_reason':'stop','message':{'content':'ok'}}]}
+        with patch('providers.devpass.request', return_value=response) as send:
+            self.assertEqual(g.complete('m__medium', [], 's', {}), 'ok')
+        payload = send.call_args.args[2]
+        self.assertEqual(payload['model'], 'm')
+        self.assertEqual(payload['reasoning_effort'], 'medium')
+        self.assertEqual(payload['max_tokens'], 1536)
+        self.assertNotIn('temperature', payload)
+        self.assertEqual(events[0]['reasoning_tokens'], 17)
+        self.assertIsNone(events[0]['reasoning_effort_applied'])
+
 
 if __name__ == '__main__': unittest.main()
