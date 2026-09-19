@@ -2,6 +2,7 @@ import copy
 import unittest
 from unittest.mock import patch
 from providers.devpass import Gateway, GatewayError, NoRedirect
+from providers.openrouter import OpenRouterGateway
 from runner import matched, parse_json
 
 
@@ -74,6 +75,21 @@ class PilotTests(unittest.TestCase):
         self.assertNotIn('temperature', payload)
         self.assertEqual(events[0]['reasoning_tokens'], 17)
         self.assertIsNone(events[0]['reasoning_effort_applied'])
+
+    def test_inkling_request_cost_and_reasoning_usage(self):
+        events = []
+        gateway = OpenRouterGateway('FAKE_SECRET_DO_NOT_LOG','thinkingmachines/inkling',
+                                    {'prompt':'0.000001','completion':'0.00000405'},1,2,events.append)
+        response = {'id':'gen-test','model':'thinkingmachines/inkling',
+                    'usage':{'cost':.0002,'completion_tokens_details':{'reasoning_tokens':39}},
+                    'choices':[{'finish_reason':'stop','message':{'content':'ok'}}]}
+        with patch('providers.openrouter.request',return_value=response) as send:
+            self.assertEqual(gateway.complete('inkling__medium',[],None,{}),'ok')
+        payload = send.call_args.args[2]
+        self.assertEqual(payload['reasoning'],{'effort':'medium'})
+        self.assertTrue(payload['usage']['include'])
+        self.assertEqual(events[0]['reasoning_tokens'],39)
+        self.assertEqual(gateway.spent,.0002)
 
 
 if __name__ == '__main__': unittest.main()

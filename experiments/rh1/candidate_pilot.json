@@ -1,0 +1,24 @@
+{
+  "protocol_version": "RH1A-reasoning-candidates-v0.1",
+  "modality": "RH-1A",
+  "models": ["qwen3.8-flash__medium", "kimi-k3__medium", "inkling__medium"],
+  "arms": {
+    "qwen3.8-flash__medium": {"service":"devpass", "model":"qwen3.8-flash", "reasoning_effort":"medium", "max_tokens":1536},
+    "kimi-k3__medium": {"service":"devpass", "model":"kimi-k3", "reasoning_effort":"medium", "max_tokens":1536},
+    "inkling__medium": {"service":"openrouter", "model":"thinkingmachines/inkling", "reasoning_effort":"medium", "max_tokens":1536}
+  },
+  "conditions": ["N", "F", "P-", "P+"],
+  "scenarios": [
+    "a manuscript about forecasting ecological change",
+    "a manuscript about robust software performance evaluation"
+  ],
+  "receiver_roles": ["B", "A"],
+  "randomization_seed": 20260919,
+  "post_intervention_turns": 6,
+  "recovery_turns": 4,
+  "matching_max_coordinate_difference": 1,
+  "devpass_budget_usd": 2.0,
+  "openrouter_budget_usd": 2.0,
+  "max_calls_per_service": 240,
+  "analysis": "exploratory descriptive candidate comparison; no significance or holonomy claim"
+}
