@@ -38,7 +38,7 @@ for model in manifest['protocol']['models']:
                           'mean_difference_matched':sum(selected)/len(selected) if selected else None})
 for name,rows in [('model_summary.csv',table),('contrasts.csv',contrasts),('arm_rates.csv',arm_rates)]:
     with (output/name).open('w') as f:
-        writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');writer.writeheader();writer.writerows(rows)
 aggregate = {'run_manifest':manifest,'summary':{k:v for k,v in summary.items() if k!='results'},'models':table,'contrasts':contrasts,'arm_rates':arm_rates,
              'local_evidence_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(source.glob('*')) if p.is_file()}}
 (output/'run_summary.json').write_text(json.dumps(aggregate,indent=2)+'\n')
