@@ -22,6 +22,11 @@ The selected probe was then used in an exploratory held-out P−/N pilot:
 [Qwen operational amendment](HELDOUT_QWEN_AMENDMENT.md), and
 [results](results/2026-09-19/HELDOUT_AUTHORITY.md). Three models completed four
 paired topics each without a consistent P− effect; Qwen remained incomplete.
+A controlled within-family follow-up compared Grok 4.6 with pinned Grok 4.20:
+[frozen design](GROK_CONTROLLED_FREEZE.md),
+[post-hoc instrument diagnostic](GROK420_POSTHOC_DIAGNOSTIC.md), and
+[aggregate findings](results/2026-09-19/GROK_CONTROLLED.md). The isolated 4.6
+contrast did not replicate in 4.20. Raw responses remain local.
 Regenerate its descriptive tables with `python3 experiments/rh1/analysis.py
 /absolute/local/run-directory /absolute/local/report-directory`.
 

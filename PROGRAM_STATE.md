@@ -28,6 +28,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [Reasoning follow-up](experiments/rh1/results/2026-09-19/REASONING_FOLLOWUP.md) | Exploratory GPT effort comparison and Inkling/Kimi/Qwen attempts; no consistent relational-specific effect |
 | [Probe calibration](experiments/rh1/results/2026-09-19/PROBE_CALIBRATION.md) | Outcome-blind measurement calibration; graded authority share selected; Grok supplementary |
 | [Held-out authority pilot](experiments/rh1/results/2026-09-19/HELDOUT_AUTHORITY.md) | Exploratory P−/N test of selected probe; three complete model arms, Qwen incomplete; no consistent replicated effect |
+| [Controlled Grok comparison](experiments/rh1/results/2026-09-19/GROK_CONTROLLED.md) | Grok 4.6 versus pinned Grok 4.20 with N/F/P−/P+ controls; no cross-version replication; post-hoc 4.20 probe diagnostic |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -39,7 +40,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 - Foundational logical axioms used by the overall development: Classical.choice, Quot.sound and propext. “No project axioms” does not mean absence of all logical axioms.
 - Sounio receipts are historical evidence imported from that Work, not rerun here. No universal source-to-binary refinement or compiler-correctness theorem is claimed in this snapshot. Compiled ELF artifacts are excluded.
 - The source task was actively extending SounioBridge/IntegerBounds during import. Those working edits were not in this archive and are not certified by this snapshot.
-- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot, exploratory reasoning follow-up, outcome-blind probe calibration and held-out authority pilot are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory path-memory test, publication or novelty/priority verification is recorded.
+- At initial kernel import, no experiment was recorded. The subsequent bounded RH-1A feasibility pilot, exploratory reasoning follow-up, outcome-blind probe calibration, held-out authority pilot and controlled Grok comparison are recorded (see findings). The full RH-1 protocol and RH-1B remain unexecuted; no confirmatory path-memory test, publication or novelty/priority verification is recorded.
 - These are local verification receipts, not a GitHub Actions CI result.
 
 ## Stable claim policy
@@ -101,8 +102,18 @@ reported cost, including the first Qwen attempt, was USD 1.586045 plus USD
 5.179706. No consistent P− effect was replicated. This is a small exploratory
 RH-1A result without F/P+ specificity controls, not a refutation of H-M1 or
 evidence of RH-1B holonomy. Diagnose the Qwen transport and predefine a larger,
-controlled replication before making stronger claims. This record itself does
-not authorize additional live spending.
+controlled replication before making stronger claims. A two-version xAI follow-up
+then used four new topics with N/F/P−/P+ controls. Grok 4.6 had one matched topic
+with P− = −0.25 and P+ = +0.25, F = 0, and zero contrasts in the other three.
+Pinned Grok 4.20 had zero authority-share contrasts in all four topics; its
+P−/N match rate was 3/4 and only 2/4 topics matched all controls. Thus the
+4.6 sign pattern did not replicate across versions. A separately labelled
+post-hoc static probe check for 4.20 passed the earlier sensitivity gate, but
+cannot alter the controlled comparison. The new receipted cost was USD 2.050597
+including that diagnostic; the conservative cumulative bound is USD 7.230303.
+This is still small exploratory RH-1A evidence, not a positive H-M1 or RH-1B
+result. The two Grok versions share a provider and family. This record itself
+does not authorize additional live spending.
 
 Separately, review and import the completed Sounio–Lean bridge only after its own
 source and verification receipts are available. The pilot introduces no new
