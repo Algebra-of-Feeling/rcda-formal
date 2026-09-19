@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import random
+import re
 import subprocess
 import threading
 from datetime import datetime, timezone
@@ -37,8 +38,11 @@ def intervention(condition, partner):
 
 def parse_json(text, kind):
     text = text.strip()
-    if text.startswith('```'):
-        text = text.split('\n', 1)[1].rsplit('```', 1)[0].strip()
+    if '```' in text:
+        blocks = re.findall(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.IGNORECASE | re.DOTALL)
+        if len(blocks) != 1:
+            raise GatewayError('invalid_measurement_json')
+        text = blocks[0]
     try:
         value = json.loads(text)
     except (ValueError, TypeError):

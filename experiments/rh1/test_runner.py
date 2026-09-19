@@ -56,6 +56,13 @@ class PilotTests(unittest.TestCase):
         for content,kind in [('{"decision":"maybe"}','probe'), ('{"task_agreement":true,"evidence_uncertainty":1,"readiness":2}','endpoint')]:
             with self.assertRaises(GatewayError): parse_json(content,kind)
 
+    def test_single_fenced_json_with_prose_is_parsed(self):
+        content = 'Brief explanation.\n```json\n{"task_agreement":4,"evidence_uncertainty":3,"readiness":4}\n```'
+        self.assertEqual(parse_json(content,'endpoint'),
+                         {'task_agreement':4,'evidence_uncertainty':3,'readiness':4})
+        with self.assertRaises(GatewayError):
+            parse_json(content+'\n```json\n{"readiness":0}\n```','endpoint')
+
     def test_redirect_refused(self):
         self.assertIsNone(NoRedirect().redirect_request(None,None,302,'',{},'https://untrusted.example'))
 
