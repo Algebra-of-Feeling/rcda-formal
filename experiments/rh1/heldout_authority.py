@@ -89,7 +89,7 @@ def run_unit(model, unit, cfg, gateway, journal):
             journal.save(f'{arm}-unit{unit}-{condition}.json',
                          {'endpoints': endpoints, 'probes': probes, 'contexts': ctx})
             return {'endpoints': endpoints, 'probes': probes}
-        with ThreadPoolExecutor(max_workers=2) as pool:
+        with ThreadPoolExecutor(max_workers=cfg.get('condition_workers', 2)) as pool:
             futures = {condition: pool.submit(branch, condition) for condition in order}
             branches = {condition: futures[condition].result() for condition in order}
         pair_matched = matched(branches['N']['endpoints'], branches['P-']['endpoints'],
@@ -142,12 +142,18 @@ def main():
     p.add_argument('--arm', required=True)
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--live', action='store_true')
+    p.add_argument('--serial-conditions', action='store_true')
     args = p.parse_args()
     cfg_bytes = (HERE / 'heldout_authority_config.json').read_bytes()
     cfg = json.loads(cfg_bytes)
     model = next((m for m in cfg['models'] if m['arm'] == args.arm), None)
     if model is None:
         raise SystemExit('Unknown arm')
+    if args.serial_conditions:
+        if args.arm != 'qwen3.8-flash__medium':
+            raise SystemExit('Serial continuation is only frozen for Qwen')
+        cfg['condition_workers'] = 1
+        model = {**model, 'budget_usd': .4}
     root = HERE.parents[1]
     out = args.output.resolve()
     if out.is_relative_to(root) or out.exists():
@@ -161,7 +167,9 @@ def main():
                 'git_commit': subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
                 'config_sha256': hashlib.sha256(cfg_bytes).hexdigest(),
                 'started_utc': datetime.now(timezone.utc).isoformat(),
-                'credential_saved': False, 'status': 'started'}
+                'credential_saved': False, 'status': 'started',
+                'serial_conditions': args.serial_conditions,
+                'operational_amendment': 'HELDOUT_QWEN_AMENDMENT.md' if args.serial_conditions else None}
     journal.save('manifest.json', manifest)
     if args.live:
         env = {'devpass': 'RH1_GATEWAY_KEY', 'openrouter': 'RH1_OPENROUTER_KEY',
