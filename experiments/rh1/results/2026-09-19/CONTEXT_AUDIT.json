@@ -1,0 +1,874 @@
+{
+  "status": "post-hoc; analyst knows conditions and outcomes; descriptive only",
+  "new_api_calls": 0,
+  "arms": [
+    {
+      "arm": "grok-4.6__medium",
+      "source_run_commit": "7edd196b1e2c42cc772e14f5bbe33898f1c27356",
+      "sources": [
+        {
+          "file": "grok-4.6__medium-unit0-N.json",
+          "sha256": "23bff2c7801a22211506ee18f1756d57c6005de13d5c63671f31829f8b88c360"
+        },
+        {
+          "file": "grok-4.6__medium-unit0-F.json",
+          "sha256": "e02f554cf5949022d9716252586798d55233042ef06f63fabed782dc67c86fea"
+        },
+        {
+          "file": "grok-4.6__medium-unit0-P-.json",
+          "sha256": "4dd459e02daf98c1a6f99230883a312194a241b9040952a0ec281c896d862555"
+        },
+        {
+          "file": "grok-4.6__medium-unit0-P+.json",
+          "sha256": "87381313c29f461aab430229b17e134308677fb32680127c2cb5ec275f022f51"
+        },
+        {
+          "file": "grok-4.6__medium-unit1-N.json",
+          "sha256": "f1e426dfab5ecab1aa0502ac0eafd0c4f9153d733dee9c0abebda054c33f3cc8"
+        },
+        {
+          "file": "grok-4.6__medium-unit1-F.json",
+          "sha256": "b75d2ea89a6db5797128abcc4840d2fb6873691ce84922b59adec58b1938b1e5"
+        },
+        {
+          "file": "grok-4.6__medium-unit1-P-.json",
+          "sha256": "4db11b7bf0f53ed80618823baebcdf81c28d2c3585fdb1232734a6e998dab906"
+        },
+        {
+          "file": "grok-4.6__medium-unit1-P+.json",
+          "sha256": "5090f841b0f9984f96df1480dcf7fed1f5612fa356337f5928a8f08dcce307df"
+        },
+        {
+          "file": "grok-4.6__medium-unit2-N.json",
+          "sha256": "da9a2fa0bcfb925467f77dcbcef001939bc2829e9679d70f93751dea6c530c04"
+        },
+        {
+          "file": "grok-4.6__medium-unit2-F.json",
+          "sha256": "888e37982f1a5b38efcf6b376cf5bb93aa854a29fe878af95f28b52f3b1936b1"
+        },
+        {
+          "file": "grok-4.6__medium-unit2-P-.json",
+          "sha256": "d41d2e18518b7644af76bdfe6649adc3a81eea23a7640e15e2546647cc5ee66e"
+        },
+        {
+          "file": "grok-4.6__medium-unit2-P+.json",
+          "sha256": "96d2a65e5b83f8c97b890ca1ea1aa56e04de82995cd3e1b71797412f540b008b"
+        },
+        {
+          "file": "grok-4.6__medium-unit3-N.json",
+          "sha256": "f6e64815b709502fc763d9f294015cc380eb66efe5192fd3234470315045c90b"
+        },
+        {
+          "file": "grok-4.6__medium-unit3-F.json",
+          "sha256": "0f1884b901ba1411a12fdcf0be4c7028b20faec2d76df9a19f5ce4939d3ec012"
+        },
+        {
+          "file": "grok-4.6__medium-unit3-P-.json",
+          "sha256": "6ea70e6244f4a69bf7d85b81760080436c9562c168fa003e040d22dbbafb97a5"
+        },
+        {
+          "file": "grok-4.6__medium-unit3-P+.json",
+          "sha256": "502201d89b0f32098a09c5793ce622615c1552710165923bf7509be3220ad273"
+        }
+      ],
+      "summary": {
+        "branches": 16,
+        "retained_interventions": 16,
+        "shared_recovery_events": 16,
+        "contrasts": 12,
+        "exact_endpoint_matches": 1,
+        "tolerance1_endpoint_matches": 12,
+        "identical_contexts": 0,
+        "both_last_responses_identical": 0
+      },
+      "rows": [
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 0,
+          "condition": "N",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "0002cb6eea9341ae941d91d7db6ef91a5b10dcfefce1c198944a1010dda6c0e1",
+            "B": "c7e406a275c8548b9e66748a9def6a55b362d85a434969cf1a9a0a45e5ce9e27"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 0,
+          "condition": "F",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "c74a6f846da0ef6e29f55242726922149bfff3498bf429ab1fb9f4115869c82f",
+            "B": "67da9755bf3c5bdcb87bc629a55c9ca67eaf41ebebc5f92bf26c09079fe2d740"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 0,
+          "condition": "P-",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "48963c05a64d5404ffadabf4bf2f29612f6cca53d295bd1f4bbd061a8dcb0536",
+            "B": "4bc19e162784bd22c7e59561ef8a3212b70d93e299112459b259a34ed571c52d"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 0,
+          "condition": "P+",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "f852ab8b692a9719a36bffc712cbbc3af4ed343a3c407a9be50ec67d7ea35202",
+            "B": "a93ede2883eaacb9393b7d5544564f26f06ce0489e200990975e819683bbf805"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 1,
+          "condition": "N",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "05f0999f2ee99562b3f80aab23990ea67753252c7d1627663c7ae12759e9e095",
+            "B": "8136996c59aa151d34519708193515270651d4fbab6f16fff04f2d28d90a0ebc"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 1,
+          "condition": "F",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "aed65108f447b947eb8e875b8734b35ceeff7d625a5294b15350e8ca7fb2b5ff",
+            "B": "716b8b24715090d08d04189de9ae9c06b20b8b6951b43e17cccc6b24cfdf6fa6"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 1,
+          "condition": "P-",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.0,
+          "receiver_delta_vs_N": -0.25,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "77ac2aabf19f01b61da16d304e03b9a89ade10d872aa263cf22dfdc918f14661",
+            "B": "b4d545f8cee5c51b5e70061c601b81e5fb3131af0fbb36949ff1b2f68d6e55ea"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 1,
+          "condition": "P+",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.25,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "bc37b4a9e3a8f0a87f922ee28ea69f1b6e0915168d6807fd46b11f5117e25066",
+            "B": "795ca4830e4ad5d21a0d49dbf4d579f241ff51d3857de7d91434a68438d67ff2"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 2,
+          "condition": "N",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "42de8bc20a61b7758d984fe206e90eaccee829339e9534609953b65e09ab6cae",
+            "B": "0b0523c2a1f1d1f243b642703d85728af24a8f3c2469e54b0fbda29a2bc2c568"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 2,
+          "condition": "F",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "cb2a51178bfef9a9050a4b243ab42a861eb11bb1f10003096d8742a76e8edd54",
+            "B": "d9ee0bd156723892db027525087d2455944b47acb15afcb8ca839cb54e032019"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 2,
+          "condition": "P-",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "a2dddf20beaa2656204c2f11aea62cd0dfeda66a098c59bc21b12a41541acc51",
+            "B": "d77893f10cadc63459b933b06fec1d5082d40032c977783de681fabfcd9012bd"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 2,
+          "condition": "P+",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.5,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "8dcdf379bd7c636defdec1e2af26fd4145828cf2c8bb52b8de8bcc1bd61bf995",
+            "B": "5ad1856008a83b44a6b07d3ecd780fea47853239fc6e88617039a8a9ae5685b4"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 3,
+          "condition": "N",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "bece5867979533f578e91a54ffffcc2b866a711ee4cafd8554f6b3b3e73159dc",
+            "B": "376d6cf22b143f61ca8b6d2a909f6a3b4ba36bd68b108c98d6afbfd55b217968"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 3,
+          "condition": "F",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "ae8f11fb462a1cd27ffd9aff122a03cdde2b86bbc69e46c25dd58d8bd2522a68",
+            "B": "34f942d5d9115204e09e2a82de875d15cf38023bf9ff05c4eaff29e7f73204d5"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 3,
+          "condition": "P-",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "6495144c1a87b165acf2b07ff28676f420dd30c2854ed91d20e1a6ddcdcbaa8e",
+            "B": "7a780bf53b98de2974f0603dff3746b2f62df1dc3ddcf3414abcfb54bce6632a"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.6__medium",
+          "unit": 3,
+          "condition": "P+",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "1238ee1877e15b26dd546fb1182d44ac34c72009265ff7e1e5c9839660dd4387",
+            "B": "9260060f14bf69666f5a939233480b875462bc8b388b5192fb300f6f82ecc112"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        }
+      ]
+    },
+    {
+      "arm": "grok-4.20-0309-reasoning",
+      "source_run_commit": "7edd196b1e2c42cc772e14f5bbe33898f1c27356",
+      "sources": [
+        {
+          "file": "grok-4.20-0309-reasoning-unit0-N.json",
+          "sha256": "541005c257df65940d401f3399f0334e1da174f3b292d4c22378f8ea5486b437"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit0-F.json",
+          "sha256": "252d7e2c87c3453aa75e322896f2fb497c1d7e4a8ed1249f9c18bec52a808556"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit0-P-.json",
+          "sha256": "a83f4b59e1f9dcc8fc56b651265459c809cccbe8e5b625ec4c7cf12bd579f568"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit0-P+.json",
+          "sha256": "1046397c92671c55c2771fe72dcf6af354c1927f5e579df6e90f27c062248efd"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit1-N.json",
+          "sha256": "6bb6fe07ac98aeb4fd8d87289fe122316f4fea4acf851d28d31e8c976c9a631f"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit1-F.json",
+          "sha256": "16ec16daeebfc755db9fcb8a30c944a6204090597812f6311ac9516bc5cce803"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit1-P-.json",
+          "sha256": "766960bd9962d60d64ed37b5d324407d7983f197d0abab404fe0a0f0a9f3751a"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit1-P+.json",
+          "sha256": "b47588bd76c20b6febaca2e5a445ae8111eb7d6411c8b1bb18ac4d18aa9d8d22"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit2-N.json",
+          "sha256": "83272ba83df7c25f8c497f8f4648d1c85caee97b4468eafd484a3342daac7cc5"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit2-F.json",
+          "sha256": "a1dc52d22aa924e395efdd0db7745a17cd5e673bd862c37eea5be896b3f65593"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit2-P-.json",
+          "sha256": "60c56986fe5f817d06d0b36d090ad5aef17c701cd6dd77d784ac3c7be2818271"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit2-P+.json",
+          "sha256": "a7c8ebc06f0955dd40bcf1998d38b22656a96d05cb3bd29110c1dd47a84e54a3"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit3-N.json",
+          "sha256": "e6441cbe36e63cb42a5e175a09d1d63d1c8c68bd05770b4c3b36bb5bbbd5cf1a"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit3-F.json",
+          "sha256": "bf08fa8187b19e72f96fe8f3ce2fd7781e940e2e3b1d85a4f0c95303492ee54b"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit3-P-.json",
+          "sha256": "6870f10e580308a2da2eb1dc1c313884cb141896e8498c70979e4aafa4f73dbf"
+        },
+        {
+          "file": "grok-4.20-0309-reasoning-unit3-P+.json",
+          "sha256": "ae82a2bd670ddf15d2be68045ee72333ef9839367f0a6345123e5e9934b3bcff"
+        }
+      ],
+      "summary": {
+        "branches": 16,
+        "retained_interventions": 16,
+        "shared_recovery_events": 16,
+        "contrasts": 12,
+        "exact_endpoint_matches": 0,
+        "tolerance1_endpoint_matches": 9,
+        "identical_contexts": 0,
+        "both_last_responses_identical": 0
+      },
+      "rows": [
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 0,
+          "condition": "N",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "9bc6f60423946c507544cf34288d192339135b59342d5f171687729cfa831100",
+            "B": "8db471be51d235bf2294fa594b555ecbea7f3bf81f9ebce1bf571ca09bcc73c0"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 0,
+          "condition": "F",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "16c54ec47173ef1c46425816bbd730e048ec32a57b4059e50a33e74cb62e9ac6",
+            "B": "fa2cad269330dd071e85c9b4aa184299429562a134dfa56de7053dd721b0eced"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 0,
+          "condition": "P-",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "abc1be015e050056b09259cb34538cc3b74dc3d2e161082de60fc3416f1d51db",
+            "B": "f4fe8a1f6a1de269e80eb993ea600418fdd9f0ea2b54efa44e63c07968d38112"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 0,
+          "condition": "P+",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "d4e20d2ebe01b5a96716accb46677ac005d6fa7bb039abd5476a8f9a1c1f75b8",
+            "B": "fec15d34370c9783e7c7030bb36f9a697a646c9897ad1cd8fa32848b5eef1720"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 1,
+          "condition": "N",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "e0ee36452c42ffe4ae7dc6b336acd21950f62a0e90a9b833784978db22f42ec0",
+            "B": "488df9f5e308cc1d280b196824876cd97429e5268963f22698520e75c43841ff"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 1,
+          "condition": "F",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "59e51213a8a030a4263e30f62d69b81d974ce369d12b3b4ebeb0d70522932151",
+            "B": "9d6ffd8aea2ff614c43ee473731eb3f7d4c39543e41c001a6a3c93b244c6e513"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 1,
+          "condition": "P-",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 2,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": false,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "134c934b696da2e235423fe8b7684292bb410cc0ddf9672cf778311a30674ef8",
+            "B": "ab8453e02828a8d61c5e9925ba20834465cd43ad9509facbe374ee6a8d26cb66"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 1,
+          "condition": "P+",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 2,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": false,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "81cc6f32b8a78e7c4905eae6226a40b48b897d367a18b08069cf59ed45c2fa8b",
+            "B": "5280e18c58950a7e805b2763c75e6966fa3fc1c2c4e328a480865c2377389555"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 2,
+          "condition": "N",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "03437ffb7d38b1c3ba5f0520a17ca884ced2cfdf4c31358ca2cd05e4837de8b3",
+            "B": "b347971c96dd4225f1150b9463a7d164bb83d54f1465ebdf5739f4d095183804"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 2,
+          "condition": "F",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "3b57b8a6927ab53a72cdd38feaf65a6e1486ceb6224f15f78c24ea82d768e393",
+            "B": "d3a8315786570fa7218ccdad86277c52af5dac8501f3826bbf192d65d8d17991"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 2,
+          "condition": "P-",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "f9519fbab6eaa34a052b9d1d3a3fac7a6af52fd2c49e8086907c6ec701cad57b",
+            "B": "ed19cf24dd584eb0151934d019df5968f4042d62f50cd7db508d72367cc9338d"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 2,
+          "condition": "P+",
+          "receiver": "B",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "2e0a1e1f9801465f2962e88818bdc5f9c72f1ceb0f5bd87029c58e2234d529ff",
+            "B": "af27ab95638e629b2c6f4d9f55250bfdd58cc4e4aff56f8ad830f0906e418e80"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 3,
+          "condition": "N",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 0,
+          "endpoint_exact_vs_N": true,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": true,
+          "context_sha256": {
+            "A": "0e97a0067ad9bc7a49be69eeb038851d2a22e1dc2d60857c99f1e670aa88a772",
+            "B": "5cfdfbfd050a287f217718ddc0fc991a7187b4dd4536f6877f636a0e470f4656"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": true,
+            "B": true
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 3,
+          "condition": "F",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "fba12094577c3f6a121c33d80cd9709e32e41a5a05f1e57f4786e03709e841c8",
+            "B": "6e7335dd19eea2db25cb508bbda1e3fc53e9d1003cced0c33bfc418449c6e265"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 3,
+          "condition": "P-",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 1,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": true,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "8c92899bca33cf529bbed57c3e68d8cb960eb367e54b11eba81f0509d02bc9f2",
+            "B": "97aa9aa1fa8edd74a1562adfac5087d9daaace8f11019f9f4ee4623364f1b26d"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        },
+        {
+          "arm": "grok-4.20-0309-reasoning",
+          "unit": 3,
+          "condition": "P+",
+          "receiver": "A",
+          "intervention_occurrences_in_receiver": 1,
+          "recovery_events_once_each_both_roles": true,
+          "receiver_share": 0.25,
+          "receiver_delta_vs_N": 0.0,
+          "endpoint_max_difference_vs_N": 2,
+          "endpoint_exact_vs_N": false,
+          "endpoint_tolerance1_vs_N": false,
+          "context_exact_vs_N": false,
+          "context_sha256": {
+            "A": "011bf4ac09b90c84426e64cef2f10207e8244e8b045b2a81b0ce4cf48863428a",
+            "B": "704457e40ed8d7ac6101221cf7ffae13a34c46e7774891f1f1138d4bad3711b7"
+          },
+          "last_assistant_exact_vs_N": {
+            "A": false,
+            "B": false
+          }
+        }
+      ]
+    }
+  ]
+}

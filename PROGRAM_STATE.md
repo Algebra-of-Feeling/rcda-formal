@@ -29,6 +29,8 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [Probe calibration](experiments/rh1/results/2026-09-19/PROBE_CALIBRATION.md) | Outcome-blind measurement calibration; graded authority share selected; Grok supplementary |
 | [Held-out authority pilot](experiments/rh1/results/2026-09-19/HELDOUT_AUTHORITY.md) | Exploratory P−/N test of selected probe; three complete model arms, Qwen incomplete; no consistent replicated effect |
 | [Controlled Grok comparison](experiments/rh1/results/2026-09-19/GROK_CONTROLLED.md) | Grok 4.6 versus pinned Grok 4.20 with N/F/P−/P+ controls; no cross-version replication; post-hoc 4.20 probe diagnostic |
+| [Context audit](experiments/rh1/results/2026-09-19/CONTEXT_AUDIT.md) | Post-hoc audit of all 32 controlled trajectories; retained intervention in every receiver context; coarse matching does not certify equal state |
+| [State-control design v0.2](experiments/rh1/RH1A_STATE_CONTROLS_V02.md) | Proposed full-history, message-removal and canonical-reset controls; not executed |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -118,3 +120,16 @@ does not authorize additional live spending.
 Separately, review and import the completed Sounio–Lean bridge only after its own
 source and verification receipts are available. The pilot introduces no new
 Lean theorem or RH-1B result.
+
+## Post-hoc context audit and next design
+
+The offline audit of all 32 controlled Grok trajectories found the original
+intervention retained in every receiver context. Of 24 contrasts, 21 pass
+tolerance-one matching, but only one has identical endpoint ratings (F/N,
+Grok 4.6 topic 3; zero receiver difference). No contrast has identical full
+contexts. These are approximate task endpoints, not equal computational
+states. A focal unblinded reading of topic 1 identifies plausible textual
+paths, without establishing their causal contribution. H-M1 remains open.
+The v0.2 design adds context-removal and canonical-reset controls; operational
+choices must be frozen before a new run. No new API calls or spend occurred.
+Prior experimental freezes and outcomes remain unchanged.

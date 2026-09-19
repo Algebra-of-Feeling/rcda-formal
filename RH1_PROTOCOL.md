@@ -10,6 +10,15 @@ now run: [frozen design](experiments/rh1/PILOT_FREEZE.md) and
 protocol below and RH-1B have not been executed. The pilot did not provide a
 replicated relational-specific effect.
 
+## Post-hoc validity update — 2026-09-19
+
+The [controlled-context audit](experiments/rh1/results/2026-09-19/CONTEXT_AUDIT.md)
+shows that the intervention text remains in all 32 receiver contexts.
+Matching six task self-ratings is not equality of the complete observable
+input or internal state. The [v0.2 context-control proposal](experiments/rh1/RH1A_STATE_CONTROLS_V02.md)
+defines a narrower behavioural target and proposed ablations. It is not
+executed or a retroactive change to any frozen pilot.
+
 ## Multi-model amendment — RH1-v1.1-design
 
 Status: design adopted for future implementation; no run or preregistration.

@@ -195,3 +195,11 @@ credential-safe logging work. Deliberately inject a fake test secret into error
 paths and verify it never reaches logs, manifests or persisted config.
 Then freeze the unresolved methodological choices and explicitly authorize a
 bounded live pilot. No model roster, budget or execution date is invented here.
+
+## Context audit and proposed v0.2
+
+See [the post-hoc audit](results/2026-09-19/CONTEXT_AUDIT.md) and
+[proposed context controls](RH1A_STATE_CONTROLS_V02.md).
+`audit_controlled_contexts.py --inputs DIR_46 DIR_420 --output FILE`
+reproduces the structural audit offline from the saved controlled trajectories.
+No new model execution is included.
