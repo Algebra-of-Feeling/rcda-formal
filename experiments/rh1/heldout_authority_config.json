@@ -1,0 +1,25 @@
+{
+  "version": "RH1A-heldout-authority-v0.1",
+  "models": [
+    {"arm":"kimi-k3__medium","service":"devpass","model":"kimi-k3","effort":"medium","max_tokens":4096,"budget_usd":2.5},
+    {"arm":"qwen3.8-flash__medium","service":"devpass","model":"qwen3.8-flash","effort":"medium","max_tokens":1536,"budget_usd":0.5},
+    {"arm":"inkling__medium","service":"openrouter","model":"thinkingmachines/inkling","effort":"medium","max_tokens":4096,"budget_usd":0.8},
+    {"arm":"grok-4.6__medium","service":"xai","model":"grok-4.6","effort":"medium","max_tokens":1536,"budget_usd":1.5}
+  ],
+  "topics": [
+    "a manuscript on measurement bias in marine microplastic assays",
+    "a manuscript on reconstruction of early industrial air-quality data",
+    "a manuscript on the reliability of regional energy-demand forecasts",
+    "a manuscript on validation of flood-risk maps"
+  ],
+  "receiver_roles": ["B","A","B","A"],
+  "conditions": ["N","P-"],
+  "post_intervention_turns": 6,
+  "recovery_turns": 4,
+  "matching_max_coordinate_difference": 1,
+  "randomization_seed": 20260919,
+  "maximum_calls_per_model": 120,
+  "previous_programme_upper_bound_usd": 3.5786297285,
+  "maximum_new_exposure_usd": 5.3,
+  "analysis": "Exploratory paired receiver authority-share difference P-minus minus N, with all-unit and matched-subset estimates reported separately; no hypothesis significance or model pooling claim."
+}
