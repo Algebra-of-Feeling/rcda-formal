@@ -1,0 +1,167 @@
+# RH-1 local harness — implementation contract
+
+**Status: specification only. No runner, adapter or live experiment is implemented
+by this document.** Protocol: [RH1-v1.1-design](../../RH1_PROTOCOL.md).
+Parent scientific claim: H-M1.
+
+## Proposed layout
+
+```text
+experiments/rh1/
+  protocol.yaml
+  scenarios/scientific_collaboration.yaml
+  providers/base.py
+  providers/devpass.py
+  providers/local.py
+  runner.py
+  matching.py
+  probes.py
+  metrics.py
+  analysis.py
+```
+
+The files above are planned modules, not a list of existing implementations.
+Only introduce provider-specific adapters when an actual interface requires them.
+A routing service does not establish model independence or hidden-state access.
+
+## Credential contract
+
+The credential remains local on the Mac. Read it at runtime from an explicitly
+configured environment variable or a local secret store. The environment variable
+name and any Keychain service identifier must be supplied during implementation;
+do not assume a DEV PASS convention.
+
+Never put credential values in chat, GitHub, programme state, scripts, manifests,
+request URLs, command-line arguments, logs, exception messages or test fixtures.
+Never dump the environment, secret-store contents, request headers or raw SDK
+exception objects. Logging must use an allowlist of safe fields and sanitized
+errors, not serialization of the provider client. Run data stays outside the
+checkout in an explicit local output directory.
+
+Notes was not accessed. Moving a credential from Notes to an environment or
+secret store is a separate local setup step; no secret value is required in chat.
+Authentication transmission must be restricted to the documented service origin;
+do not forward credentials to redirects or arbitrary model-supplied URLs.
+
+## Provider adapter contract
+
+Before implementing devpass.py, verify the documented endpoint, request/response
+schema, authentication mechanism, model identifiers, routing policy, error
+semantics, rate limits and any cost information. Do not assume OpenAI-compatible
+requests or invent model names.
+
+Each adapter exposes a capability record:
+- observable text output;
+- internal activations and their extraction specification;
+- whether a revision/fingerprint is returned;
+- temperature/seed support and whether those settings were actually applied;
+- token usage and cost reporting availability;
+- context/cache/session behavior and whether routing fallback is possible.
+
+RH-1A requires observable output and a recorded endpoint feature extractor.
+RH-1B additionally requires real internal activations and a pinned extraction
+specification. Refuse RH-1B when activations are unavailable; never substitute
+text embeddings, self-reports or generated explanations as hidden states.
+
+Record requested and resolved model separately. Disable provider fallback where
+possible. A changed or unknown resolved model must be explicit and handled by a
+prespecified exclusion/stratification rule. Unknown revision is null, not a
+fabricated version string. Temperature zero and a requested seed are settings,
+not a receipt of determinism.
+
+## Run state and isolation
+
+Default mode must be offline validation/dry-run with synthetic adapter fixtures.
+A dry-run is orchestration validation and cannot count as experimental evidence.
+Live mode requires explicit local activation, validated configuration, an allowed
+model roster and hard request/token/cost budgets. No live call is authorized by
+this specification.
+
+The runner creates a baseline once, then branches contexts separately. It must
+avoid state sharing between counterfactual branches or models. Pair and scenario
+identifiers persist through matching, probing and analysis.
+
+Use bounded retries with attempt identifiers. Keep failures and all attempts in
+the local record, distinguishing infrastructure errors from outcomes and avoiding
+duplicate trial counting. Retries can incur cost and must consume the same budget.
+Write partial runs atomically and support resumption without silently repeating
+completed trials.
+
+## Safe manifest shape
+
+This is a **non-executable example**, not a run receipt. Null means unresolved or
+unavailable. A real manifest uses actual values and records capability limitations.
+
+```json
+{
+  "schema_version": "rh1-manifest-v1",
+  "record_kind": "design_example",
+  "run_status": "not_started",
+  "modality": null,
+  "run_id": null,
+  "pair_id": null,
+  "scenario_id": "scientific_collaboration",
+  "scenario_version": "RH1-v1.1-design",
+  "scenario_sha256": null,
+  "protocol_sha256": null,
+  "router": "DEV PASS",
+  "provider": null,
+  "requested_model": null,
+  "model": null,
+  "model_version": null,
+  "model_lineage": null,
+  "temperature_requested": 0,
+  "temperature_applied": null,
+  "seed_requested": null,
+  "seed_applied": null,
+  "condition": null,
+  "timestamp_utc": null,
+  "git_commit": null,
+  "git_dirty": null,
+  "capabilities": null,
+  "endpoint_measurement_spec": null,
+  "scoring_spec_sha256": null,
+  "split_id": null,
+  "matching_calibration_sha256": null,
+  "matching_status": null,
+  "exclusion_reason": null,
+  "attempt_id": null,
+  "usage_tokens": null,
+  "cost": null
+}
+```
+
+Allowed condition codes: N, F, P-, P+. Allowed modalities: RH-1A, RH-1B.
+Use actual UTC timestamps. Record unavailable token/cost information as null.
+Manifests contain neither credential values nor authentication headers.
+A dirty checkout needs an archived source diff/hash or a blocked run, not a
+misleading clean commit pin.
+
+## Analysis contract
+
+- Freeze endpoint features and the delegation scoring rubric before outcomes.
+- Preserve all generated trajectories, condition-specific matching/admission
+  rates, exclusions, infrastructure failures and attempted costs locally.
+- Use calibration data separate from outcome evaluation; no outcome-dependent
+  matching thresholds, layer choices or prompt selection.
+- Keep related branches, reused controls and scenario variants together in data
+  partitions. Define independent units before choosing resampling procedures.
+- Report effects and uncertainty per model first. Freeze the pooling/heterogeneity
+  method and replication criterion before analysis; do not treat model labels or
+  individual dialogue turns as independent experimental replications.
+- Track P- versus N as the primary contrast. F and P+ qualify specificity and
+  valence; secondary probes and layer sweeps remain labelled exploratory.
+- For RH-1B, retain activation shape, dtype, layer/token selection, pooling and
+  weights/runtime provenance. Cross-architecture geometric alignment is a
+  separate prespecified analysis, never an implicit raw-coordinate comparison.
+- A successful dry-run, HTTP response or completed job is not a positive H-M1
+  result. A positive behavioural result is not a geometric holonomy certificate.
+
+## Acceptance before the first paid call
+
+The local implementation must demonstrate with synthetic data that branch
+isolation, manifest validation, splits, retry accounting, budget stops and
+credential-safe logging work. Deliberately inject a fake test secret into error
+paths and verify it never reaches logs, manifests or persisted config.
+Then freeze the unresolved methodological choices and explicitly authorize a
+bounded live pilot. No model roster, budget or execution date is invented here.

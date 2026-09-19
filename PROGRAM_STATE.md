@@ -22,6 +22,7 @@ published formal state. New Work edits do not enter this snapshot automatically.
 | [Receipt](verification/receipt.json), [axioms](verification/axioms.log) | Reproduced local Lean verification |
 | [Import provenance](verification/import-provenance.json) | Exact archive digest and imported-file digests |
 | [RH-1 protocol](RH1_PROTOCOL.md) | Preserved conceptual design plus unresolved operational choices |
+| [RH-1 harness specification](experiments/rh1/README.md) | RH-1A/RH-1B execution contract; implementation and live runs pending |
 | [Formal Methods Note](FORMAL_METHODS_NOTE.md) | Manuscript skeleton; unpublished |
 | [Sounio layer](sounio/README.md) | Imported finite runtime witnesses, distinct from universal Lean proofs |
 
@@ -55,4 +56,18 @@ Editorial example: **Formal basis: P-SE1. Model interpretation: C-SE1. Empirical
 
 ## Immediate next checkpoint
 
-Review and import the separately completed Sounio–Lean bridge only after its own source and verification receipts are available. No new theorem or experiment was introduced in this synchronization.
+RH1-v1.1-design distinguishes behavioural replication (RH-1A) from internal-state
+replication (RH-1B), both under H-M1. DEV PASS is the proposed execution router;
+its interface and available models are unverified. The harness is specified,
+not implemented. No Notes access, credential retrieval, API call or paid run
+was performed for this amendment. Credentials must remain local and must never
+enter programme documents, versioned scripts, manifests or logs.
+
+Before implementation, identify the actual DEV PASS API contract and supported
+models without exposing credentials. Before live execution, freeze measurement,
+scoring, calibration, model revisions, replication criteria and a request/cost
+budget. Preserve unknown capabilities rather than inventing settings.
+
+Separately, review and import the completed Sounio–Lean bridge only after its own
+source and verification receipts are available. This amendment introduces no new
+theorem or experimental result.

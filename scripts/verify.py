@@ -47,6 +47,7 @@ tracked = files + [root / "lean-toolchain", root / "lakefile.toml", root / "lake
 tracked += sorted(p for p in (root / "sounio").glob("*") if p.is_file())
 tracked += sorted(root.glob("*.md"))
 tracked += sorted((root / "docs").glob("*.md"))
+tracked += sorted((root / "experiments").rglob("*.md"))
 tracked += [root / "verification" / "import-provenance.json"]
 hashes = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(tracked)}
 receipt = {"status": "PASS", "lean": version, "external_packages": [],

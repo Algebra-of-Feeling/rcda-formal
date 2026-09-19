@@ -4,6 +4,80 @@ Source: conversation `6aaeccad-c81c-83e9-8616-f713672713c1` (Garantir a novidade
 
 **Status: conceptual pilot protocol, not executed or preregistered.** Linked claim: H-M1; formal background: P-M1. The source text below is preserved, including proposed values, but execution is not authorized by this document.
 
+## Multi-model amendment — RH1-v1.1-design
+
+Status: design adopted for future implementation; no run or preregistration.
+This amendment governs the two execution modalities. The v1.0 text below is
+retained as historical protocol content, not silently rewritten.
+
+| Modality | Endpoint measurement | Primary permitted inference |
+|---|---|---|
+| **RH-1A — Cross-Model Behavioural Path-Memory Test** | Frozen observable endpoint features, assessed before the outcome probe | Incremental prediction by interaction history beyond the measured observables, within each tested model |
+| **RH-1B — Internal-State Relational Holonomy Test** | Prespecified internal representations, layers, tokens and pooling in instrumentable models, plus observable endpoints | Incremental history prediction beyond the measured internal and observable representations; geometry is a separate analysis |
+
+H-M1 remains the parent hypothesis. RH-1A and RH-1B are protocol modalities,
+not new proved claims. A positive RH-1A does not establish latent holonomy.
+A positive RH-1B does not automatically establish a relational fibre, independent
+relational state, geometric transport law or Cayley–Dickson structure.
+
+### Shared comparison and replication design
+
+1. **Within-model:** branch from an identical baseline for the same pinned model;
+   compare P- with N using the shared scenario and probe. Retain F and P+ as
+   specificity and valence/manipulation controls.
+2. **Between-model:** apply the same protocol to each model, and estimate an
+   effect separately for each. Match endpoints within models; do not compare raw
+   hidden coordinates across unrelated architectures.
+3. **Replication:** report model-specific effects, uncertainty, admission rates
+   and heterogeneity. Freeze the replication success rule and the model roster
+   before outcome analysis. Provider labels alone do not demonstrate independent
+   architectures or training lineages; record lineage as unknown when unavailable.
+
+The proposed common primary outcome remains delegation, Y_delegate. Freeze its
+rubric, invalid-response handling and assessor blinding before execution. The
+primary predictor comparison is M0: Y ~ endpoint features versus
+M1: Y ~ endpoint features + condition/history features. Prefer a prespecified
+held-out proper scoring rule for the chosen outcome encoding; the exact metric
+and minimum meaningful effect remain unset. A predictive increment and a causal
+effect are distinct targets.
+
+Fit feature transformations, matching calibration and outcome predictors using
+training/calibration data only. Split by baseline dyad/scenario family, keeping
+all counterfactual branches and reused controls in one partition. Report every
+generated pair and exclusion, not just accepted matches; account for shared
+baselines and repeated scenarios in uncertainty estimates. The historical 200-unit
+proposal is a pilot proposal, not a powered multi-model sample-size determination.
+
+### Measurement limits and controls
+
+- RH-1A observable features must be frozen before probing and must not contain
+  future outcomes. Matched self-reports or behavioural summaries do not certify
+  equality of internal individual states.
+- For RH-1B, specify what state is measured versus retained (context, cache,
+  tokenization, layer and pooling). The intended test concerns the sufficiency of
+  measured representations, not different outputs from identical complete
+  deterministic computational states under identical inputs.
+- If C_T = Psi(h_A,h_B), identical inputs imply identical C_T for deterministic
+  Psi. Approximate matching can permit C_T differences; these alone do not show
+  an independent relational degree of freedom. Any stronger C_T proposal must
+  define its history dependence, measurement and validation separately.
+- Retained history can directly influence future generation. Prespecify an
+  exploratory context-reset or standardized-summary control to distinguish this
+  from stronger claims about latent persistence. Do not silently substitute this
+  control for the primary full-history protocol.
+- Geometric analysis needs a fixed representation, distance, transport estimator,
+  null model and held-out validation. A visual loop or embedding plot is not by
+  itself a holonomy result.
+
+### Execution boundary
+
+DEV PASS is the proposed routing layer. Its endpoint, authentication contract,
+model inventory and capabilities have not been inspected or verified in this
+task. No compatibility with a particular API schema is assumed.
+See [the local harness specification](experiments/rh1/README.md) for the
+capability and manifest contract. Credentials stay local on the Mac and are
+read only at runtime from the environment or local secret store.
+
 ## Open operational decisions before execution
 
 - Pin model, weights revision, runtime, tokenizer, context handling, hardware, decoding and random seeds.

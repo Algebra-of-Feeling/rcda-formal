@@ -58,7 +58,7 @@ All entries below are **unexecuted hypotheses**, not Lean theorems.
 | H-Z1 | Annihilation-capable regime versus ordinary decay; ZA-1 |
 | H-SE1 | Latent sector escape/new directions before some ruptures; SE-1 |
 | H-R1 | Nonzero empirical associator–transport/curvature coupling and possible mediation |
-| H-M1 | Incremental prediction by history after matching measured terminal individual representations; [RH-1](RH1_PROTOCOL.md) |
+| H-M1 | Incremental prediction by history after matching measured endpoints: RH-1A uses observable features; RH-1B adds prespecified internal representations. Both remain unexecuted; neither alone certifies geometric holonomy. See [RH-1](RH1_PROTOCOL.md) |
 | H-I1 | Persistent post-rupture differences following apparent recovery |
 
 These six programme IDs are not a one-to-one renaming of the six textual
