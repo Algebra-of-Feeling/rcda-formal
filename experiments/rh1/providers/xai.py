@@ -1,4 +1,4 @@
-"""Bounded direct xAI Responses transport for supplementary Grok calibration."""
+"""Bounded direct xAI Responses transport for Grok RH-1A experiments."""
 from datetime import datetime, timezone
 import json
 import math
@@ -29,10 +29,15 @@ def request(path, key, payload=None):
 
 
 class XaiGateway:
-    def __init__(self, key, limit, max_calls, sink):
-        if not key or not 0 < limit <= 1.5:
+    def __init__(self, key, limit, max_calls, sink, *, model='grok-4.6',
+                 arm='grok-4.6__medium', max_tokens=1536, input_rate=2,
+                 output_rate=6, reasoning_effort='medium'):
+        if not key or not 0 < limit <= 2.3:
             raise GatewayError('missing_key_or_bad_budget')
         self.key, self.limit, self.max_calls, self.sink = key, limit, max_calls, sink
+        self.model, self.arm, self.max_tokens = model, arm, max_tokens
+        self.input_rate, self.output_rate = input_rate, output_rate
+        self.reasoning_effort = reasoning_effort
         self.lock = threading.Lock()
         self.pacing_lock = threading.Lock()
         self.last_request = 0
@@ -41,7 +46,7 @@ class XaiGateway:
         self.halted = False
 
     def complete(self, arm, messages, session, info):
-        if arm != 'grok-4.6__medium':
+        if arm != self.arm:
             raise GatewayError('call_stop')
         with self.pacing_lock:
             delay = max(0, .85 - (time.monotonic() - self.last_request))
@@ -49,10 +54,11 @@ class XaiGateway:
                 time.sleep(delay)
             self.last_request = time.monotonic()
         nbytes = len(json.dumps(messages, ensure_ascii=False).encode()) + 2048
-        max_tokens = 1536
+        max_tokens = self.max_tokens
         if nbytes > 40000:
             raise GatewayError('input_size_stop')
-        estimate = 2 * (nbytes * 2 / 1_000_000 + max_tokens * 6 / 1_000_000) + .001
+        estimate = 2 * (nbytes * self.input_rate / 1_000_000 +
+                        max_tokens * self.output_rate / 1_000_000) + .001
         with self.lock:
             if self.halted or self.calls >= self.max_calls or self.spent + self.reserved + estimate > self.limit:
                 self.halted = True
@@ -60,8 +66,9 @@ class XaiGateway:
             self.calls += 1
             attempt = self.calls
             self.reserved += estimate
-        payload = {'model': 'grok-4.6', 'input': messages, 'reasoning': {'effort': 'medium'},
-                   'max_output_tokens': max_tokens}
+        payload = {'model': self.model, 'input': messages, 'max_output_tokens': max_tokens}
+        if self.reasoning_effort is not None:
+            payload['reasoning'] = {'effort': self.reasoning_effort}
         started = datetime.now(timezone.utc).isoformat()
         try:
             data = request('/responses', self.key, payload)
@@ -79,17 +86,17 @@ class XaiGateway:
             texts = [c.get('text') for item in output if item.get('type') == 'message'
                      for c in item.get('content', []) if c.get('type') == 'output_text']
             content = '\n'.join(t for t in texts if isinstance(t, str))
-            record = {**info, 'attempt_id': attempt, 'arm': arm, 'requested_model': 'grok-4.6',
+            record = {**info, 'attempt_id': attempt, 'arm': arm, 'requested_model': self.model,
                       'model': data.get('model'), 'request_id': data.get('id'),
-                      'timestamp_utc': started, 'reasoning_effort_requested': 'medium',
+                      'timestamp_utc': started, 'reasoning_effort_requested': self.reasoning_effort,
                       'reasoning_effort_applied': None, 'reasoning_tokens':
-                      usage.get('output_tokens_details', {}).get('reasoning_tokens'),
+                      (usage.get('output_tokens_details') or {}).get('reasoning_tokens'),
                       'input_tokens': usage.get('input_tokens'), 'output_tokens': usage.get('output_tokens'),
                       'cost_usd': cost, 'status': data.get('status'), 'content': content}
             if self.key in json.dumps(record):
                 raise GatewayError('secret_in_response_stop')
             self.sink(record)
-            if data.get('model') != 'grok-4.6' or data.get('status') != 'completed' or not content.strip():
+            if data.get('model') != self.model or data.get('status') != 'completed' or not content.strip():
                 raise GatewayError('invalid_or_truncated_output')
             if self.halted:
                 raise GatewayError('cost_exceeded_reservation_stop')

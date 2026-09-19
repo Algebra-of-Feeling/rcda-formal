@@ -1,0 +1,23 @@
+{
+  "version": "RH1A-grok-controlled-v0.1",
+  "models": [
+    {"arm":"grok-4.6__medium","model":"grok-4.6","reasoning_effort":"medium","max_tokens":1536,"input_usd_per_million":2.0,"output_usd_per_million":6.0,"budget_usd":2.3},
+    {"arm":"grok-4.20-0309-reasoning","model":"grok-4.20-0309-reasoning","reasoning_effort":null,"max_tokens":4096,"input_usd_per_million":1.25,"output_usd_per_million":2.5,"budget_usd":1.5}
+  ],
+  "topics": [
+    "a manuscript on uncertainty in archival seismic hazard maps",
+    "a manuscript on remote-sensing estimates of wetland loss",
+    "a manuscript on reproducibility of protein assay measurements",
+    "a manuscript on calibration of stellar metallicity catalogues"
+  ],
+  "receiver_roles": ["B","A","B","A"],
+  "conditions": ["N","F","P-","P+"],
+  "post_intervention_turns": 6,
+  "recovery_turns": 4,
+  "matching_max_coordinate_difference": 1,
+  "condition_workers": 2,
+  "randomization_seed": 20260919,
+  "maximum_calls_per_model": 232,
+  "previous_programme_upper_bound_usd": 5.1797058907,
+  "maximum_new_exposure_usd": 3.8
+}
