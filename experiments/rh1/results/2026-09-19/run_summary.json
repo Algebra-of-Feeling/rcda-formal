@@ -1,0 +1,322 @@
+{
+  "run_manifest": {
+    "protocol": {
+      "protocol_version": "RH1A-feasibility-v0.1",
+      "modality": "RH-1A",
+      "models": [
+        "gpt-4.1-mini",
+        "claude-haiku-4-5-20251001",
+        "gemini-2.5-flash-lite"
+      ],
+      "conditions": [
+        "N",
+        "F",
+        "P-",
+        "P+"
+      ],
+      "scenarios": [
+        "a manuscript about forecasting ecological change",
+        "a manuscript about robust software performance evaluation",
+        "a manuscript about reproducibility in educational research",
+        "a manuscript about measuring collaboration in design teams"
+      ],
+      "budget_usd": 10,
+      "max_calls": 720,
+      "temperature": 0,
+      "max_tokens": 384,
+      "post_intervention_turns": 6,
+      "recovery_turns": 4,
+      "matching_features": [
+        "task_agreement",
+        "evidence_uncertainty",
+        "readiness"
+      ],
+      "matching_max_coordinate_difference": 1,
+      "matching_scale": [
+        0,
+        4
+      ],
+      "randomization_seed": 20260919,
+      "receiver_roles": [
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "analysis": "descriptive paired P-minus versus N; F and P-plus controls; no significance or holonomy claim"
+    },
+    "mode": "live",
+    "timestamp_utc": "2026-09-19T19:09:47.421826+00:00",
+    "git_commit": "a36dedd5b6ab92bf5aa206dc7dcda676d5ac7dd4",
+    "git_dirty": false,
+    "source_sha256": {
+      "experiments/rh1/runner.py": "17919af97aa87c649d8fbad373ecfde4badf84e92203a629084e8cf7d9552d6a",
+      "experiments/rh1/PILOT_FREEZE.md": "884dfb58709ae589f1445c6b0f0ffdbe2e812b2173fbd3e8d3ac488f696d7a7c",
+      "experiments/rh1/README.md": "69cdc4823b33892800abdb2942096db2cc341d990d09e9c1f6415ec12d884bdd",
+      "experiments/rh1/test_runner.py": "40baa9a854554e997698163adcc60c2793f16d74ac9c03ea8369e5cc2835af21",
+      "experiments/rh1/pilot.json": "4aab3bcbbb52cdcb6bd20f3306edacfc2e679c8c2171b1c61aecd284c4ac30d1",
+      "experiments/rh1/providers/devpass.py": "254e5596e84ab0ad00fc774de71a7c13841a3799c6c90efb1a999c7c4fa5a267"
+    },
+    "status": "completed",
+    "seed_scope": "local branch ordering only; no model seed supported/requested",
+    "resumed_from": {
+      "run": "rh1-live-01",
+      "git_commit": "3519d575f18fcbd30f8a1a3af4e625eaa3fa5a14",
+      "manifest_sha256": "30d9a02bc72e903ebede06eec2ddd1c9310df211c6d2371cbfdfd29ff1e217f1",
+      "requests_sha256": "9ac79fd88b1de937946775ef0e5186357f7d0c54c54b4f2c3e3e5fc802799f9b"
+    },
+    "finished_at_utc": "2026-09-19T19:20:45.590748+00:00"
+  },
+  "summary": {
+    "mode": "live",
+    "complete_units": 12,
+    "expected_units": 12,
+    "requests": 697,
+    "reported_cost_usd": 0.6450999999999997,
+    "uncertain_or_pending_reservation_usd": 0.0027538000000001464,
+    "scientific_status": "feasibility only; no confirmatory hypothesis test"
+  },
+  "models": [
+    {
+      "model": "gpt-4.1-mini",
+      "completed_units": 4,
+      "matched_primary_pairs": 4,
+      "primary_mean_difference_matched": 0.0,
+      "primary_mean_difference_all": 0.0,
+      "requests": 232,
+      "reported_cost_usd": 0.1051796,
+      "providers": "openai"
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "completed_units": 4,
+      "matched_primary_pairs": 4,
+      "primary_mean_difference_matched": 0.0,
+      "primary_mean_difference_all": 0.0,
+      "requests": 232,
+      "reported_cost_usd": 0.5146,
+      "providers": "anthropic"
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "completed_units": 4,
+      "matched_primary_pairs": 4,
+      "primary_mean_difference_matched": -0.125,
+      "primary_mean_difference_all": -0.125,
+      "requests": 233,
+      "reported_cost_usd": 0.0253204,
+      "providers": "google-vertex"
+    }
+  ],
+  "contrasts": [
+    {
+      "model": "gpt-4.1-mini",
+      "contrast": "P- minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "gpt-4.1-mini",
+      "contrast": "F minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "gpt-4.1-mini",
+      "contrast": "P+ minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "contrast": "P- minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "contrast": "F minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "contrast": "P+ minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": 0.0
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "contrast": "P- minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": -0.125
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "contrast": "F minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": -0.25
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "contrast": "P+ minus N",
+      "matched_pairs": 4,
+      "mean_difference_matched": -0.125
+    }
+  ],
+  "arm_rates": [
+    {
+      "model": "gpt-4.1-mini",
+      "condition": "N",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "gpt-4.1-mini",
+      "condition": "F",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "gpt-4.1-mini",
+      "condition": "P-",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "gpt-4.1-mini",
+      "condition": "P+",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "condition": "N",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "condition": "F",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "condition": "P-",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "condition": "P+",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "condition": "N",
+      "delegate_count": 2,
+      "role_decisions": 8,
+      "delegation_rate": 0.25
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "condition": "F",
+      "delegate_count": 0,
+      "role_decisions": 8,
+      "delegation_rate": 0.0
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "condition": "P-",
+      "delegate_count": 1,
+      "role_decisions": 8,
+      "delegation_rate": 0.125
+    },
+    {
+      "model": "gemini-2.5-flash-lite",
+      "condition": "P+",
+      "delegate_count": 1,
+      "role_decisions": 8,
+      "delegation_rate": 0.125
+    }
+  ],
+  "local_evidence_sha256": {
+    "catalog.json": "860fd9ccb3164371aac3f2887a087c49d579864e899a03776f2733f02e86ad4a",
+    "claude-haiku-4-5-20251001-unit0-F.json": "46c6a5d5d1194a89a6147fbb6b956369c64250165d9693b023bce1faa43c3815",
+    "claude-haiku-4-5-20251001-unit0-N.json": "401e3ec87f6c1999bc018a4f885482f419103fb73454a862fe6adc168a99c294",
+    "claude-haiku-4-5-20251001-unit0-P+.json": "003b4e6a74b41662472f57e3fb6809eb7ba04f820553fd2f858795a404c007fe",
+    "claude-haiku-4-5-20251001-unit0-P-.json": "95b39352cccc06d727c8ee3df7bbf399637dd7efbdc82de3c439b616384b90fc",
+    "claude-haiku-4-5-20251001-unit0-result.json": "42ff142cf33c6dd6016b2615331717a9401018168d200d0dd4a59ce50bd048dd",
+    "claude-haiku-4-5-20251001-unit1-F.json": "09c06c3b43c9f7a37199b3c7a9b869e3f4f77ea68ad7dcc59d84c2b02093d045",
+    "claude-haiku-4-5-20251001-unit1-N.json": "0dc8c8a593b5fe6ce945d46926293868d2645ce424215ee8716032781c89ec59",
+    "claude-haiku-4-5-20251001-unit1-P+.json": "5dc0e3601e8b158d92da02c1607067385dcf64ebcae1ca3a8f675aa176c8fe26",
+    "claude-haiku-4-5-20251001-unit1-P-.json": "e0ec3f1ccacb9d13ee55542d7b7a868468ce24e34f7002330146e7e26110b79d",
+    "claude-haiku-4-5-20251001-unit1-result.json": "fe368185bd96f8b3fd0ed29dec1528281d6e966e4662f810771185c549fe49eb",
+    "claude-haiku-4-5-20251001-unit2-F.json": "3913f28784382a19a0b17b0072f39d3e2daa6914289cc63d9c229d875fad7810",
+    "claude-haiku-4-5-20251001-unit2-N.json": "5563aa3a13755ab3f0058a87c722bf4cfefa74b48a5b39cf83b0336603c8f07c",
+    "claude-haiku-4-5-20251001-unit2-P+.json": "708d586750f335000aad123a2df368eaa808ad43c1d59e8e059ef25f57ec6a8f",
+    "claude-haiku-4-5-20251001-unit2-P-.json": "a39c9da15ca9320c9683630cb04867d36626be899273e7e8aa2da72c78b0d66c",
+    "claude-haiku-4-5-20251001-unit2-result.json": "f5f890a237013f72845af8dd049ea3442d9ba8ebba6e022bb332fbecff0422f7",
+    "claude-haiku-4-5-20251001-unit3-F.json": "fd53c17169f89412ef4d60cc29f8c0196f4dcc65802958d7d747955fee401975",
+    "claude-haiku-4-5-20251001-unit3-N.json": "f0f9c502add3efcdd11415761ea1f47d986402b6d2ec67c2ff385fef9edc60a9",
+    "claude-haiku-4-5-20251001-unit3-P+.json": "a6ab5bb2c3adc2b935dbd65765e19db02608d20bf5c2e2240c1e03ff6e3d4e72",
+    "claude-haiku-4-5-20251001-unit3-P-.json": "5f5b5d566a91158a5a35f95270315ea3a822a787704020a6af15d32521c10f10",
+    "claude-haiku-4-5-20251001-unit3-result.json": "34bfb9486e28cc8f14d78972a464a645cbf5a5e2048c62ae33971a748871fb79",
+    "gemini-2.5-flash-lite-unit0-F.json": "776f94387bbc363cf0bba98d080cf70e319c015009956aa6c6cc9bc368285781",
+    "gemini-2.5-flash-lite-unit0-N.json": "3f88a524ba361c7a33ba10c810038c9433cfafbd6d12c4b17d8cb00d656a0aa2",
+    "gemini-2.5-flash-lite-unit0-P+.json": "dfe70872cdc8bb3719a2c5fda9268bced9103cbc072ebc7dc926fba19105ae0c",
+    "gemini-2.5-flash-lite-unit0-P-.json": "01493acd2b8ed45ca6f416a7816b815ac20fc2564fc8c6ae151553b03a74b818",
+    "gemini-2.5-flash-lite-unit0-result.json": "4948c04374c9bd5d91e8e26c2e980a22abcc4203c008a421c5d7d3c94ab1fc32",
+    "gemini-2.5-flash-lite-unit1-F.json": "6ea993e8e34c0a655942f154b1767195b951c261a34576bb9b404430618a564a",
+    "gemini-2.5-flash-lite-unit1-N.json": "958569804d428089790ad694eaacd9b668873be57e0df821dbf41a0e3abbb99d",
+    "gemini-2.5-flash-lite-unit1-P+.json": "c3763b4f6289c3619457cd4f7774294a9466d3b903bd1442ce3489e3bfa37aca",
+    "gemini-2.5-flash-lite-unit1-P-.json": "626adf76438217dcc5fd0603eb9aca336c4d46e6d1b59729beb3756fb6ff08df",
+    "gemini-2.5-flash-lite-unit1-result.json": "abd37f74fb573ea009a921982fe1f230a6fe197468d2ffaa708698b79b88b1b3",
+    "gemini-2.5-flash-lite-unit2-F.json": "4c6e47fc9339c339976fe1a0624a05a7c39fc3b76bf7e6e4d22c8f143df9fe2f",
+    "gemini-2.5-flash-lite-unit2-N.json": "3933414f4d140b59b4fa53a18e0ab727d6a5de5bd79a750d530ef6723efb407b",
+    "gemini-2.5-flash-lite-unit2-P+.json": "1ccdd6dd6a9fe86a0cd7b251eee500ae8eef56cca410cee9d1d821ee8df673a6",
+    "gemini-2.5-flash-lite-unit2-P-.json": "63aea7f1185e1828b23c9b10d019f6c4ab98b58417eb59bf6bd5a2cab100f01c",
+    "gemini-2.5-flash-lite-unit2-result.json": "3259ab3853fbabed43d5499a9e1fd3d3192dbc030f4981e1ffc77ba8ad14f272",
+    "gemini-2.5-flash-lite-unit3-F.json": "4e0445e3d8756536f9b4f4d514b8141a0dbe1e2d80bde3bd7b8112a2466bf054",
+    "gemini-2.5-flash-lite-unit3-N.json": "2cb15ba61bfa92416fe9abad156e0387f5a64a5d12584361a2be40afbf2f0adf",
+    "gemini-2.5-flash-lite-unit3-P+.json": "7861af54ce693215314cb29226a34e5801de49d3c634ad25042c751640424c12",
+    "gemini-2.5-flash-lite-unit3-P-.json": "27791e75b742a8e5ad2a68bc7a358e35b2f7c53ebd03dde5fcd166ebc3919fb6",
+    "gemini-2.5-flash-lite-unit3-result.json": "f0ad3a2665850227ae1c49d50ed76bf8ab89b252b791a51c72e0eae967a6b684",
+    "gpt-4.1-mini-unit0-F.json": "84819e0e0103a9dea59bd9b897394c0aa3eef4da5b2f77443375c138b7e8560b",
+    "gpt-4.1-mini-unit0-N.json": "68dff37a0b6e14b4f6de649ce3f3773f6f9cb31379ecbede2abc3d60477e5df8",
+    "gpt-4.1-mini-unit0-P+.json": "310d8c3a9594bb351fb09944c8fb80ba9144b02fce329916e432faa9e211b70c",
+    "gpt-4.1-mini-unit0-P-.json": "df3192efcf1003761f99d8e1cb45eff0f41a89cbd105885c5921c0868f999cf8",
+    "gpt-4.1-mini-unit0-result.json": "f96d289d25968f9d0a2db193874c3173c7912fc543d00c1bcffb64b33c362e08",
+    "gpt-4.1-mini-unit1-F.json": "cbbf6663f7db5d6f7146274e9cd9759d3186d629c68fb792748f0e3d44a7f751",
+    "gpt-4.1-mini-unit1-N.json": "6b051c7fc95292d4676822cd2340c12536262ccd9ff4d88fc9a17570e0d02730",
+    "gpt-4.1-mini-unit1-P+.json": "58e774aa633f1efbb3de6858e1073564390da030fc5b36b4f06a4cf4de1215a9",
+    "gpt-4.1-mini-unit1-P-.json": "9fb98936e24a58e9dc5996b3330fda470af394963131dde15a06a808d4a772be",
+    "gpt-4.1-mini-unit1-result.json": "7b92fe0851dac37c931864a9c5584e90e53885170889fccc7e8d5d357b78d42c",
+    "gpt-4.1-mini-unit2-F.json": "6667a3e652e95853efe49f21ae69a5ae1d2926d424809764d1c2b8a7dc280534",
+    "gpt-4.1-mini-unit2-N.json": "c6a4acae31e2a74cca914eb5eda5d605759efbe5b1a78f05d264473ad4370ed6",
+    "gpt-4.1-mini-unit2-P+.json": "f5452b9d91a8b1539e7928cbd12dc53c8989a50aafb4c43351cb4ed2cfb5d64e",
+    "gpt-4.1-mini-unit2-P-.json": "47eb90413151a9628ee7be106da82c523e3e2f0a4cd1721296c153fa547f4126",
+    "gpt-4.1-mini-unit2-result.json": "6dee63cabddb7165ce0ab046c25aa6cbf6ad8cbf3a32b5acf73e006f1b15a64a",
+    "gpt-4.1-mini-unit3-F.json": "8faceea0f473c39d795e21df28e24bc5dbe230d75da60c4fc5a27f1f133a63d2",
+    "gpt-4.1-mini-unit3-N.json": "e786e0533fe72f0ba38ee55458c98b2a3dbd4b60a5e570307bd10937603c5c57",
+    "gpt-4.1-mini-unit3-P+.json": "14539ae69a5523c76361060431622b98e77040228fc14f469e80bbf2e7cb8565",
+    "gpt-4.1-mini-unit3-P-.json": "917738856e3e558e741123d1dc8e48e1ebb1c3ff5dd21d422a19db4febe4ff63",
+    "gpt-4.1-mini-unit3-result.json": "bdff7c3d1a48e8c230882e5269a042716db6c07e872042c9cb16018838ebe593",
+    "key_usage_after.json": "d094f8b3a41783ab51d826336e2c8c3815e2091bcae943dc084b718fa887d6e0",
+    "key_usage_before.json": "f7730442a3dbdde527126d4d6e05910ac958e6afc85c1e73dcb33d3ac9b7896a",
+    "manifest.json": "1259d3e8d87f675782c0874fdf1881c50d71f3b684723f290b76b290d0a1e20e",
+    "prior_failures.json": "af91cb9afacdcea41a74435d518a05dc5b9a5d007524ecefafa179ee9bed1013",
+    "requests.jsonl": "ecc412f16c10754a55d935854d4049f4884794d609d0e66ae0bed6e5ad47028a",
+    "summary.json": "2467c2ce4b361c38ed1f025842364885f069e584026dcef41e8e66c5c41815dc"
+  }
+}

@@ -1,0 +1,4 @@
+model,completed_units,matched_primary_pairs,primary_mean_difference_matched,primary_mean_difference_all,requests,reported_cost_usd,providers
+gpt-4.1-mini,4,4,0.0,0.0,232,0.1051796,openai
+claude-haiku-4-5-20251001,4,4,0.0,0.0,232,0.5146,anthropic
+gemini-2.5-flash-lite,4,4,-0.125,-0.125,233,0.0253204,google-vertex

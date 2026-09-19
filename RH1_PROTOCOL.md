@@ -4,6 +4,12 @@ Source: conversation `6aaeccad-c81c-83e9-8616-f713672713c1` (Garantir a novidade
 
 **Status: conceptual pilot protocol, not executed or preregistered.** Linked claim: H-M1; formal background: P-M1. The source text below is preserved, including proposed values, but execution is not authorized by this document.
 
+**Execution update:** a smaller, explicitly different RH-1A feasibility pilot has
+now run: [frozen design](experiments/rh1/PILOT_FREEZE.md) and
+[findings](experiments/rh1/results/2026-09-19/FINDINGS.md). The complete historical
+protocol below and RH-1B have not been executed. The pilot did not provide a
+replicated relational-specific effect.
+
 ## Multi-model amendment — RH1-v1.1-design
 
 Status: design adopted for future implementation; no run or preregistration.

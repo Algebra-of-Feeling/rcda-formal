@@ -50,7 +50,9 @@ It does not establish that a supplied abstract OctonionLike model exists.
 
 ## Stable scientific hypothesis IDs
 
-All entries below are **unexecuted hypotheses**, not Lean theorems.
+All entries below are scientific hypotheses, not Lean theorems. H-M1 has an
+initial RH-1A feasibility pilot, with no replicated relational-specific effect;
+the other listed experimental targets remain unexecuted in this repository.
 
 | ID | Scientific question / experiment |
 |---|---|
@@ -58,13 +60,14 @@ All entries below are **unexecuted hypotheses**, not Lean theorems.
 | H-Z1 | Annihilation-capable regime versus ordinary decay; ZA-1 |
 | H-SE1 | Latent sector escape/new directions before some ruptures; SE-1 |
 | H-R1 | Nonzero empirical associator–transport/curvature coupling and possible mediation |
-| H-M1 | Incremental prediction by history after matching measured endpoints: RH-1A uses observable features; RH-1B adds prespecified internal representations. Both remain unexecuted; neither alone certifies geometric holonomy. See [RH-1](RH1_PROTOCOL.md) |
+| H-M1 | RH-1A has a completed small feasibility pilot, not a held-out incremental-prediction test; no replicated relational-specific effect. RH-1B remains unexecuted. Neither modality alone certifies geometric holonomy. See [findings](experiments/rh1/results/2026-09-19/FINDINGS.md) and [RH-1](RH1_PROTOCOL.md) |
 | H-I1 | Persistent post-rupture differences following apparent recovery |
 
 These six programme IDs are not a one-to-one renaming of the six textual
 hypotheses inside Audit.lean: that separate audit list also records ontology,
 empirical identifiability and scientific novelty. Neither list constitutes
-observed experimental support. Novelty/priority has not been verified here.
+established experimental support. The recorded pilot does not promote H-M1 to a
+proved or validated claim. Novelty/priority has not been verified here.
 
 ## Audit catalogue versus programme ledger
 

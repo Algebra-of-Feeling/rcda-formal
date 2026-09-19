@@ -8,6 +8,10 @@ and execution limits. Run locally with `python3 experiments/rh1/runner.py --outp
 environment and a clean committed source tree. Protocol: [RH1-v1.1-design](../../RH1_PROTOCOL.md).
 Parent scientific claim: H-M1.
 
+The first live feasibility pilot is complete: [findings](results/2026-09-19/FINDINGS.md).
+Regenerate its descriptive tables with `python3 experiments/rh1/analysis.py
+/absolute/local/run-directory /absolute/local/report-directory`.
+
 ## Proposed layout
 
 ```text

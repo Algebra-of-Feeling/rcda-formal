@@ -48,7 +48,7 @@ tracked += sorted(p for p in (root / "sounio").glob("*") if p.is_file())
 tracked += sorted(root.glob("*.md"))
 tracked += sorted((root / "docs").glob("*.md"))
 tracked += sorted(p for p in (root / "experiments").rglob("*")
-                  if p.is_file() and p.suffix in {".md", ".py", ".json"}
+                  if p.is_file() and p.suffix in {".md", ".py", ".json", ".csv"}
                   and "__pycache__" not in p.parts)
 tracked += [root / "verification" / "import-provenance.json"]
 hashes = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(tracked)}

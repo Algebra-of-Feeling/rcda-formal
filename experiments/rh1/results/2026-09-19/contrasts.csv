@@ -1,0 +1,10 @@
+model,contrast,matched_pairs,mean_difference_matched
+gpt-4.1-mini,P- minus N,4,0.0
+gpt-4.1-mini,F minus N,4,0.0
+gpt-4.1-mini,P+ minus N,4,0.0
+claude-haiku-4-5-20251001,P- minus N,4,0.0
+claude-haiku-4-5-20251001,F minus N,4,0.0
+claude-haiku-4-5-20251001,P+ minus N,4,0.0
+gemini-2.5-flash-lite,P- minus N,4,-0.125
+gemini-2.5-flash-lite,F minus N,4,-0.25
+gemini-2.5-flash-lite,P+ minus N,4,-0.125

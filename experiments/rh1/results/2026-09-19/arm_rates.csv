@@ -1,0 +1,13 @@
+model,condition,delegate_count,role_decisions,delegation_rate
+gpt-4.1-mini,N,0,8,0.0
+gpt-4.1-mini,F,0,8,0.0
+gpt-4.1-mini,P-,0,8,0.0
+gpt-4.1-mini,P+,0,8,0.0
+claude-haiku-4-5-20251001,N,0,8,0.0
+claude-haiku-4-5-20251001,F,0,8,0.0
+claude-haiku-4-5-20251001,P-,0,8,0.0
+claude-haiku-4-5-20251001,P+,0,8,0.0
+gemini-2.5-flash-lite,N,2,8,0.25
+gemini-2.5-flash-lite,F,0,8,0.0
+gemini-2.5-flash-lite,P-,1,8,0.125
+gemini-2.5-flash-lite,P+,1,8,0.125
