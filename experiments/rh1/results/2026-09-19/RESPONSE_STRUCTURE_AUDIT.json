@@ -1,0 +1,811 @@
+{
+  "timestamp_utc": "2026-09-20T02:28:02.154344+00:00",
+  "new_inference_calls": 0,
+  "retrieval_get_calls": 4,
+  "results": [
+    {
+      "block_call": 1,
+      "original": {
+        "status": "completed",
+        "content": "{\"authority_share\":25}",
+        "output_item_types": [
+          "reasoning",
+          "message"
+        ],
+        "output_content_types": [
+          "output_text"
+        ],
+        "output_tokens": 751,
+        "reasoning_tokens": 744,
+        "max_output_tokens_returned": 4096
+      },
+      "retrieved": {
+        "status": "completed",
+        "model": "grok-4.6",
+        "temperature": 1.7,
+        "effort": "high",
+        "max_output_tokens": 4096,
+        "incomplete_details_present": false,
+        "error_present": false,
+        "output_item_types": [
+          "message"
+        ],
+        "output_content_types": [
+          "output_text"
+        ],
+        "extracted_final_text": "{\"authority_share\":25}",
+        "input_tokens": 987,
+        "output_tokens": 751,
+        "reasoning_tokens": 744,
+        "cost_in_usd_ticks": 51360000,
+        "structure": {
+          "created_at": {
+            "type": "int"
+          },
+          "completed_at": {
+            "type": "int"
+          },
+          "id": {
+            "type": "string",
+            "characters": 36
+          },
+          "max_output_tokens": {
+            "type": "int"
+          },
+          "model": {
+            "type": "string",
+            "characters": 8
+          },
+          "object": {
+            "type": "string",
+            "characters": 8
+          },
+          "output": [
+            {
+              "content": [
+                {
+                  "type": {
+                    "type": "string",
+                    "characters": 11
+                  },
+                  "text": {
+                    "type": "string",
+                    "characters": 22
+                  },
+                  "logprobs": [],
+                  "annotations": []
+                }
+              ],
+              "id": {
+                "type": "string",
+                "characters": 40
+              },
+              "role": {
+                "type": "string",
+                "characters": 9
+              },
+              "type": {
+                "type": "string",
+                "characters": 7
+              },
+              "status": {
+                "type": "string",
+                "characters": 9
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "type": "bool"
+          },
+          "previous_response_id": {
+            "type": "NoneType"
+          },
+          "reasoning": {
+            "effort": {
+              "type": "string",
+              "characters": 4
+            },
+            "summary": {
+              "type": "string",
+              "characters": 8
+            }
+          },
+          "temperature": {
+            "type": "float"
+          },
+          "text": {
+            "format": {
+              "type": {
+                "type": "string",
+                "characters": 4
+              }
+            }
+          },
+          "tool_choice": {
+            "type": "string",
+            "characters": 4
+          },
+          "tools": [],
+          "top_p": {
+            "type": "float"
+          },
+          "usage": {
+            "input_tokens": {
+              "type": "int"
+            },
+            "input_tokens_details": {
+              "cached_tokens": {
+                "type": "int"
+              }
+            },
+            "output_tokens": {
+              "type": "int"
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": {
+                "type": "int"
+              }
+            },
+            "total_tokens": {
+              "type": "int"
+            },
+            "num_sources_used": {
+              "type": "int"
+            },
+            "num_server_side_tools_used": {
+              "type": "int"
+            },
+            "cost_in_usd_ticks": {
+              "type": "int"
+            },
+            "context_details": {
+              "input_tokens": {
+                "type": "int"
+              },
+              "output_tokens": {
+                "type": "int"
+              }
+            }
+          },
+          "user": {
+            "type": "NoneType"
+          },
+          "incomplete_details": {
+            "type": "NoneType"
+          },
+          "status": {
+            "type": "string",
+            "characters": 9
+          },
+          "store": {
+            "type": "bool"
+          },
+          "metadata": {
+            "system_fingerprint": {
+              "type": "string",
+              "characters": 19
+            }
+          },
+          "background": {
+            "type": "bool"
+          },
+          "service_tier": {
+            "type": "string",
+            "characters": 7
+          },
+          "truncation": {
+            "type": "string",
+            "characters": 8
+          },
+          "top_logprobs": {
+            "type": "int"
+          },
+          "presence_penalty": {
+            "type": "float"
+          },
+          "frequency_penalty": {
+            "type": "float"
+          },
+          "prompt_cache_key": {
+            "type": "NoneType"
+          },
+          "max_tool_calls": {
+            "type": "NoneType"
+          },
+          "safety_identifier": {
+            "type": "NoneType"
+          },
+          "error": {
+            "type": "NoneType"
+          },
+          "instructions": {
+            "type": "NoneType"
+          }
+        }
+      }
+    },
+    {
+      "block_call": 2,
+      "original": {
+        "status": "completed",
+        "content": "{\"authority_share\":25}",
+        "output_item_types": [
+          "reasoning",
+          "message"
+        ],
+        "output_content_types": [
+          "output_text"
+        ],
+        "output_tokens": 7849,
+        "reasoning_tokens": 7842,
+        "max_output_tokens_returned": 8192
+      },
+      "retrieved": {
+        "status": "completed",
+        "model": "grok-4.6",
+        "temperature": 1.7,
+        "effort": "high",
+        "max_output_tokens": 8192,
+        "incomplete_details_present": false,
+        "error_present": false,
+        "output_item_types": [
+          "message"
+        ],
+        "output_content_types": [
+          "output_text"
+        ],
+        "extracted_final_text": "{\"authority_share\":25}",
+        "input_tokens": 987,
+        "output_tokens": 7849,
+        "reasoning_tokens": 7842,
+        "cost_in_usd_ticks": 477240000,
+        "structure": {
+          "created_at": {
+            "type": "int"
+          },
+          "completed_at": {
+            "type": "int"
+          },
+          "id": {
+            "type": "string",
+            "characters": 36
+          },
+          "max_output_tokens": {
+            "type": "int"
+          },
+          "model": {
+            "type": "string",
+            "characters": 8
+          },
+          "object": {
+            "type": "string",
+            "characters": 8
+          },
+          "output": [
+            {
+              "content": [
+                {
+                  "type": {
+                    "type": "string",
+                    "characters": 11
+                  },
+                  "text": {
+                    "type": "string",
+                    "characters": 22
+                  },
+                  "logprobs": [],
+                  "annotations": []
+                }
+              ],
+              "id": {
+                "type": "string",
+                "characters": 40
+              },
+              "role": {
+                "type": "string",
+                "characters": 9
+              },
+              "type": {
+                "type": "string",
+                "characters": 7
+              },
+              "status": {
+                "type": "string",
+                "characters": 9
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "type": "bool"
+          },
+          "previous_response_id": {
+            "type": "NoneType"
+          },
+          "reasoning": {
+            "effort": {
+              "type": "string",
+              "characters": 4
+            },
+            "summary": {
+              "type": "string",
+              "characters": 8
+            }
+          },
+          "temperature": {
+            "type": "float"
+          },
+          "text": {
+            "format": {
+              "type": {
+                "type": "string",
+                "characters": 4
+              }
+            }
+          },
+          "tool_choice": {
+            "type": "string",
+            "characters": 4
+          },
+          "tools": [],
+          "top_p": {
+            "type": "float"
+          },
+          "usage": {
+            "input_tokens": {
+              "type": "int"
+            },
+            "input_tokens_details": {
+              "cached_tokens": {
+                "type": "int"
+              }
+            },
+            "output_tokens": {
+              "type": "int"
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": {
+                "type": "int"
+              }
+            },
+            "total_tokens": {
+              "type": "int"
+            },
+            "num_sources_used": {
+              "type": "int"
+            },
+            "num_server_side_tools_used": {
+              "type": "int"
+            },
+            "cost_in_usd_ticks": {
+              "type": "int"
+            },
+            "context_details": {
+              "input_tokens": {
+                "type": "int"
+              },
+              "output_tokens": {
+                "type": "int"
+              }
+            }
+          },
+          "user": {
+            "type": "NoneType"
+          },
+          "incomplete_details": {
+            "type": "NoneType"
+          },
+          "status": {
+            "type": "string",
+            "characters": 9
+          },
+          "store": {
+            "type": "bool"
+          },
+          "metadata": {
+            "system_fingerprint": {
+              "type": "string",
+              "characters": 19
+            }
+          },
+          "background": {
+            "type": "bool"
+          },
+          "service_tier": {
+            "type": "string",
+            "characters": 7
+          },
+          "truncation": {
+            "type": "string",
+            "characters": 8
+          },
+          "top_logprobs": {
+            "type": "int"
+          },
+          "presence_penalty": {
+            "type": "float"
+          },
+          "frequency_penalty": {
+            "type": "float"
+          },
+          "prompt_cache_key": {
+            "type": "NoneType"
+          },
+          "max_tool_calls": {
+            "type": "NoneType"
+          },
+          "safety_identifier": {
+            "type": "NoneType"
+          },
+          "error": {
+            "type": "NoneType"
+          },
+          "instructions": {
+            "type": "NoneType"
+          }
+        }
+      }
+    },
+    {
+      "block_call": 3,
+      "original": {
+        "status": "completed",
+        "content": "",
+        "output_item_types": [
+          "reasoning"
+        ],
+        "output_content_types": [],
+        "output_tokens": 6950,
+        "reasoning_tokens": 6949,
+        "max_output_tokens_returned": 8192
+      },
+      "retrieved": {
+        "status": "completed",
+        "model": "grok-4.6",
+        "temperature": 1.7,
+        "effort": "high",
+        "max_output_tokens": 8192,
+        "incomplete_details_present": false,
+        "error_present": false,
+        "output_item_types": [],
+        "output_content_types": [],
+        "extracted_final_text": "",
+        "input_tokens": 987,
+        "output_tokens": 6950,
+        "reasoning_tokens": 6949,
+        "cost_in_usd_ticks": 423300000,
+        "structure": {
+          "created_at": {
+            "type": "int"
+          },
+          "completed_at": {
+            "type": "int"
+          },
+          "id": {
+            "type": "string",
+            "characters": 36
+          },
+          "max_output_tokens": {
+            "type": "int"
+          },
+          "model": {
+            "type": "string",
+            "characters": 8
+          },
+          "object": {
+            "type": "string",
+            "characters": 8
+          },
+          "output": [],
+          "parallel_tool_calls": {
+            "type": "bool"
+          },
+          "previous_response_id": {
+            "type": "NoneType"
+          },
+          "reasoning": {
+            "effort": {
+              "type": "string",
+              "characters": 4
+            },
+            "summary": {
+              "type": "string",
+              "characters": 8
+            }
+          },
+          "temperature": {
+            "type": "float"
+          },
+          "text": {
+            "format": {
+              "type": {
+                "type": "string",
+                "characters": 4
+              }
+            }
+          },
+          "tool_choice": {
+            "type": "string",
+            "characters": 4
+          },
+          "tools": [],
+          "top_p": {
+            "type": "float"
+          },
+          "usage": {
+            "input_tokens": {
+              "type": "int"
+            },
+            "input_tokens_details": {
+              "cached_tokens": {
+                "type": "int"
+              }
+            },
+            "output_tokens": {
+              "type": "int"
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": {
+                "type": "int"
+              }
+            },
+            "total_tokens": {
+              "type": "int"
+            },
+            "num_sources_used": {
+              "type": "int"
+            },
+            "num_server_side_tools_used": {
+              "type": "int"
+            },
+            "cost_in_usd_ticks": {
+              "type": "int"
+            },
+            "context_details": {
+              "input_tokens": {
+                "type": "int"
+              },
+              "output_tokens": {
+                "type": "int"
+              }
+            }
+          },
+          "user": {
+            "type": "NoneType"
+          },
+          "incomplete_details": {
+            "type": "NoneType"
+          },
+          "status": {
+            "type": "string",
+            "characters": 9
+          },
+          "store": {
+            "type": "bool"
+          },
+          "metadata": {
+            "system_fingerprint": {
+              "type": "string",
+              "characters": 19
+            }
+          },
+          "background": {
+            "type": "bool"
+          },
+          "service_tier": {
+            "type": "string",
+            "characters": 7
+          },
+          "truncation": {
+            "type": "string",
+            "characters": 8
+          },
+          "top_logprobs": {
+            "type": "int"
+          },
+          "presence_penalty": {
+            "type": "float"
+          },
+          "frequency_penalty": {
+            "type": "float"
+          },
+          "prompt_cache_key": {
+            "type": "NoneType"
+          },
+          "max_tool_calls": {
+            "type": "NoneType"
+          },
+          "safety_identifier": {
+            "type": "NoneType"
+          },
+          "error": {
+            "type": "NoneType"
+          },
+          "instructions": {
+            "type": "NoneType"
+          }
+        }
+      }
+    },
+    {
+      "block_call": 4,
+      "original": {
+        "status": "completed",
+        "content": "",
+        "output_item_types": [
+          "reasoning"
+        ],
+        "output_content_types": [],
+        "output_tokens": 10627,
+        "reasoning_tokens": 10627,
+        "max_output_tokens_returned": 4096
+      },
+      "retrieved": {
+        "status": "completed",
+        "model": "grok-4.6",
+        "temperature": 1.7,
+        "effort": "high",
+        "max_output_tokens": 4096,
+        "incomplete_details_present": false,
+        "error_present": false,
+        "output_item_types": [],
+        "output_content_types": [],
+        "extracted_final_text": "",
+        "input_tokens": 987,
+        "output_tokens": 10627,
+        "reasoning_tokens": 10627,
+        "cost_in_usd_ticks": 643920000,
+        "structure": {
+          "created_at": {
+            "type": "int"
+          },
+          "completed_at": {
+            "type": "int"
+          },
+          "id": {
+            "type": "string",
+            "characters": 36
+          },
+          "max_output_tokens": {
+            "type": "int"
+          },
+          "model": {
+            "type": "string",
+            "characters": 8
+          },
+          "object": {
+            "type": "string",
+            "characters": 8
+          },
+          "output": [],
+          "parallel_tool_calls": {
+            "type": "bool"
+          },
+          "previous_response_id": {
+            "type": "NoneType"
+          },
+          "reasoning": {
+            "effort": {
+              "type": "string",
+              "characters": 4
+            },
+            "summary": {
+              "type": "string",
+              "characters": 8
+            }
+          },
+          "temperature": {
+            "type": "float"
+          },
+          "text": {
+            "format": {
+              "type": {
+                "type": "string",
+                "characters": 4
+              }
+            }
+          },
+          "tool_choice": {
+            "type": "string",
+            "characters": 4
+          },
+          "tools": [],
+          "top_p": {
+            "type": "float"
+          },
+          "usage": {
+            "input_tokens": {
+              "type": "int"
+            },
+            "input_tokens_details": {
+              "cached_tokens": {
+                "type": "int"
+              }
+            },
+            "output_tokens": {
+              "type": "int"
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": {
+                "type": "int"
+              }
+            },
+            "total_tokens": {
+              "type": "int"
+            },
+            "num_sources_used": {
+              "type": "int"
+            },
+            "num_server_side_tools_used": {
+              "type": "int"
+            },
+            "cost_in_usd_ticks": {
+              "type": "int"
+            },
+            "context_details": {
+              "input_tokens": {
+                "type": "int"
+              },
+              "output_tokens": {
+                "type": "int"
+              }
+            }
+          },
+          "user": {
+            "type": "NoneType"
+          },
+          "incomplete_details": {
+            "type": "NoneType"
+          },
+          "status": {
+            "type": "string",
+            "characters": 9
+          },
+          "store": {
+            "type": "bool"
+          },
+          "metadata": {
+            "system_fingerprint": {
+              "type": "string",
+              "characters": 19
+            }
+          },
+          "background": {
+            "type": "bool"
+          },
+          "service_tier": {
+            "type": "string",
+            "characters": 7
+          },
+          "truncation": {
+            "type": "string",
+            "characters": 8
+          },
+          "top_logprobs": {
+            "type": "int"
+          },
+          "presence_penalty": {
+            "type": "float"
+          },
+          "frequency_penalty": {
+            "type": "float"
+          },
+          "prompt_cache_key": {
+            "type": "NoneType"
+          },
+          "max_tool_calls": {
+            "type": "NoneType"
+          },
+          "safety_identifier": {
+            "type": "NoneType"
+          },
+          "error": {
+            "type": "NoneType"
+          },
+          "instructions": {
+            "type": "NoneType"
+          }
+        }
+      }
+    }
+  ]
+}

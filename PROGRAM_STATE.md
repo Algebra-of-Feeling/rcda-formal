@@ -323,3 +323,13 @@ Raising the cap did not eliminate the issue; root cause remains unresolved.
 Cost USD 0.159582, no new uncertainty; conservative cumulative USD
 7.6417725407, plus v0.2 reserve USD 2.00 gives USD 9.6417725407.
 No local inference active; original temperature sweep still incomplete.
+
+## Stored response audit: missing final messages confirmed
+
+[Four read-only retrievals](experiments/rh1/results/2026-09-19/RESPONSE_STRUCTURE_AUDIT.md)
+recovered the original 25% JSON for both valid controls; both empty cases
+returned output=[], completed, null error and null incomplete_details.
+No alternate final-answer field was found in retrieved structures. This
+supports missing delivered final messages rather than simple parser omission;
+provider root cause remains unresolved. Nine offline tests passed. No new
+inference or double-counting of retrieved historical costs; ledger unchanged.

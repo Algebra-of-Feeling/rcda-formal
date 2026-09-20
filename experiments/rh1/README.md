@@ -230,3 +230,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [8192-output-cap diagnostic](results/2026-09-19/OUTPUT_CAP_CHECK.md): 1.7/high returned 25% in 12 s, only 773 output tokens; success does not establish a causal cap fix.
 
 [Balanced cap comparison](results/2026-09-19/OUTPUT_CAP_COMPARISON.md): at 1.7/high, each cap (4096/8192) returned one valid 25% and one empty final. Increasing the cap did not eliminate empty outputs.
+
+[Stored response audit](results/2026-09-19/RESPONSE_STRUCTURE_AUDIT.md): four GETs, no new inference; valid controls recover JSON, both empty cases remain output=[] with completed status.
