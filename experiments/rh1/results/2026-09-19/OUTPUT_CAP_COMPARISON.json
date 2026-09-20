@@ -1,0 +1,221 @@
+{
+  "manifest": {
+    "version": "RH1-output-cap-comparison-v0.1",
+    "status": "completed",
+    "git_commit": "0010dd64bd18fc465b66b5cf821296f16f65ef11",
+    "order": [
+      4096,
+      8192,
+      8192,
+      4096
+    ],
+    "maximum_calls": 4,
+    "hard_cap_usd": 0.4,
+    "scenario": "soil_sensor_transfer",
+    "model": "grok-4.6",
+    "temperature": 1.7,
+    "effort": "high",
+    "timeout_seconds": 600,
+    "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+    "seed": null,
+    "credentials_saved": false,
+    "primary_outcome": "Nonempty final text by cap; invalid score recorded separately",
+    "stop_rule": "Continue only after success or billed completed empty final; otherwise stop; no retries",
+    "attempted_calls": 4,
+    "observed_calls": 4,
+    "reported_cost_usd": 0.159582,
+    "uncertain_reservation_usd": 0.0,
+    "valid_scores": 2
+  },
+  "groups": [
+    {
+      "cap": 4096,
+      "attempts": 2,
+      "nonempty": 1,
+      "empty": 1,
+      "authority_scores_percent": [
+        25.0
+      ]
+    },
+    {
+      "cap": 8192,
+      "attempts": 2,
+      "nonempty": 1,
+      "empty": 1,
+      "authority_scores_percent": [
+        25.0
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "block_call": 1,
+      "output_cap": 4096,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "timestamp_utc": "2026-09-20T02:02:36.764145+00:00",
+      "elapsed_seconds": 13.850306499996805,
+      "request_timeout_seconds": 600,
+      "reasoning_effort_requested": "high",
+      "reasoning_effort_applied": null,
+      "reasoning_effort_returned": "high",
+      "temperature_requested": 1.7,
+      "temperature_returned": 1.7,
+      "reasoning_tokens": 744,
+      "input_tokens": 987,
+      "output_tokens": 751,
+      "max_output_tokens_requested": 4096,
+      "max_output_tokens_returned": 4096,
+      "incomplete_reason": null,
+      "output_item_types": [
+        "reasoning",
+        "message"
+      ],
+      "output_content_types": [
+        "output_text"
+      ],
+      "cost_usd": 0.005136,
+      "status": "completed",
+      "content": "{\"authority_share\":25}"
+    },
+    {
+      "block_call": 2,
+      "output_cap": 8192,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "timestamp_utc": "2026-09-20T02:02:50.615618+00:00",
+      "elapsed_seconds": 317.30224637500214,
+      "request_timeout_seconds": 600,
+      "reasoning_effort_requested": "high",
+      "reasoning_effort_applied": null,
+      "reasoning_effort_returned": "high",
+      "temperature_requested": 1.7,
+      "temperature_returned": 1.7,
+      "reasoning_tokens": 7842,
+      "input_tokens": 987,
+      "output_tokens": 7849,
+      "max_output_tokens_requested": 8192,
+      "max_output_tokens_returned": 8192,
+      "incomplete_reason": null,
+      "output_item_types": [
+        "reasoning",
+        "message"
+      ],
+      "output_content_types": [
+        "output_text"
+      ],
+      "cost_usd": 0.047724,
+      "status": "completed",
+      "content": "{\"authority_share\":25}"
+    },
+    {
+      "block_call": 3,
+      "output_cap": 8192,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "timestamp_utc": "2026-09-20T02:08:07.921157+00:00",
+      "elapsed_seconds": 265.07198120799876,
+      "request_timeout_seconds": 600,
+      "reasoning_effort_requested": "high",
+      "reasoning_effort_applied": null,
+      "reasoning_effort_returned": "high",
+      "temperature_requested": 1.7,
+      "temperature_returned": 1.7,
+      "reasoning_tokens": 6949,
+      "input_tokens": 987,
+      "output_tokens": 6950,
+      "max_output_tokens_requested": 8192,
+      "max_output_tokens_returned": 8192,
+      "incomplete_reason": null,
+      "output_item_types": [
+        "reasoning"
+      ],
+      "output_content_types": [],
+      "cost_usd": 0.04233,
+      "status": "completed",
+      "content": ""
+    },
+    {
+      "block_call": 3,
+      "output_cap": 8192,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "timestamp_utc": "2026-09-20T02:08:07.921157+00:00",
+      "elapsed_seconds": 265.07258925000497,
+      "request_timeout_seconds": 600,
+      "error": "empty_final_output"
+    },
+    {
+      "block_call": 4,
+      "output_cap": 4096,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "timestamp_utc": "2026-09-20T02:12:32.996133+00:00",
+      "elapsed_seconds": 420.4747342499977,
+      "request_timeout_seconds": 600,
+      "reasoning_effort_requested": "high",
+      "reasoning_effort_applied": null,
+      "reasoning_effort_returned": "high",
+      "temperature_requested": 1.7,
+      "temperature_returned": 1.7,
+      "reasoning_tokens": 10627,
+      "input_tokens": 987,
+      "output_tokens": 10627,
+      "max_output_tokens_requested": 4096,
+      "max_output_tokens_returned": 4096,
+      "incomplete_reason": null,
+      "output_item_types": [
+        "reasoning"
+      ],
+      "output_content_types": [],
+      "cost_usd": 0.064392,
+      "status": "completed",
+      "content": ""
+    },
+    {
+      "block_call": 4,
+      "output_cap": 4096,
+      "temperature": 1.7,
+      "scenario": "soil_sensor_transfer",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "phase": "output_cap_comparison",
+      "attempt_id": 1,
+      "arm": "grok-4.6__high",
+      "timestamp_utc": "2026-09-20T02:12:32.996133+00:00",
+      "elapsed_seconds": 420.4753822909988,
+      "request_timeout_seconds": 600,
+      "error": "empty_final_output"
+    }
+  ],
+  "conservative_cumulative_usd": 7.6417725407,
+  "v02_reserve_usd": 2.0,
+  "combined_exposure_and_reserve_usd": 9.6417725407
+}

@@ -312,3 +312,14 @@ stored response recovered no final text; root cause remains unresolved.
 Cost USD 0.005268; conservative cumulative USD 7.4821905407; with unchanged
 v0.2 reserve USD 2.00, combined USD 9.4821905407. No new uncertainty or active
 local inference. Original temperature block remains incomplete.
+
+## Balanced output-cap comparison completed
+
+[Four fresh 1.7/high calls](experiments/rh1/results/2026-09-19/OUTPUT_CAP_COMPARISON.md)
+in order 4096/8192/8192/4096 yielded valid 25%, valid 25%, empty, empty.
+Each cap had one success and one empty final; no equivalence inference from
+n=2 per cap. Empty 8192 output count 6950; empty 4096 output count 10627.
+Raising the cap did not eliminate the issue; root cause remains unresolved.
+Cost USD 0.159582, no new uncertainty; conservative cumulative USD
+7.6417725407, plus v0.2 reserve USD 2.00 gives USD 9.6417725407.
+No local inference active; original temperature sweep still incomplete.

@@ -228,3 +228,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Real API temperature return](results/2026-09-19/TEMPERATURE_API_RETURN.md): fixed high effort, three 25% replies at 0.2/0.7/1.2; 1.7 completed without final text, so the ten-call block stopped after four attempts.
 
 [8192-output-cap diagnostic](results/2026-09-19/OUTPUT_CAP_CHECK.md): 1.7/high returned 25% in 12 s, only 773 output tokens; success does not establish a causal cap fix.
+
+[Balanced cap comparison](results/2026-09-19/OUTPUT_CAP_COMPARISON.md): at 1.7/high, each cap (4096/8192) returned one valid 25% and one empty final. Increasing the cap did not eliminate empty outputs.
