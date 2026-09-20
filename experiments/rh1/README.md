@@ -226,3 +226,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [CLI repeatability check](results/2026-09-19/GROK_TUI_REPEAT.md): two new 25% responses; three of three including the earlier probe. One scenario, high displayed, temperature unknown.
 
 [Real API temperature return](results/2026-09-19/TEMPERATURE_API_RETURN.md): fixed high effort, three 25% replies at 0.2/0.7/1.2; 1.7 completed without final text, so the ten-call block stopped after four attempts.
+
+[8192-output-cap diagnostic](results/2026-09-19/OUTPUT_CAP_CHECK.md): 1.7/high returned 25% in 12 s, only 773 output tokens; success does not establish a causal cap fix.

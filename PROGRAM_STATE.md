@@ -301,3 +301,14 @@ Stopped without retry; 2.0 and second repetitions not attempted. Cost USD
 v0.2 reserve now USD 2.00 after diagnostic reallocation, combined USD
 9.4769225407. Unused diagnostic reservation USD 0.441842 released.
 Subscription credit coverage unverified. No local request remains active.
+
+## Larger-output diagnostic completed at 1.7/high
+
+[One 8192-cap call](experiments/rh1/results/2026-09-19/OUTPUT_CAP_CHECK.md) returned
+25% in 12.023 seconds, 773 output tokens including 766 reasoning tokens.
+Temperature, effort and cap echoed; identical input hash. This is below even
+the former 4096 cap, so a causal cap fix is unproven. Retrieval of the earlier
+stored response recovered no final text; root cause remains unresolved.
+Cost USD 0.005268; conservative cumulative USD 7.4821905407; with unchanged
+v0.2 reserve USD 2.00, combined USD 9.4821905407. No new uncertainty or active
+local inference. Original temperature block remains incomplete.
