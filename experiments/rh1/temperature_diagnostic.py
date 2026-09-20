@@ -15,7 +15,7 @@ HERE=Path(__file__).resolve().parent
 TEMPERATURES=(0.2,0.7,1.2)
 
 
-def schedule():
+def schedule(temperatures=TEMPERATURES):
     prompts=json.loads((HERE/'context_controls_v02_prompts.json').read_text())
     contexts=[]
     for scenario, value in prompts['scenario_inputs'].items():
@@ -26,28 +26,31 @@ def schedule():
     result=[]
     for repeat in range(2):
         for index,(scenario,messages) in enumerate(contexts):
-            shift=(repeat+index)%3
-            for temperature in TEMPERATURES[shift:]+TEMPERATURES[:shift]:
+            shift=(repeat+index)%len(temperatures)
+            for temperature in temperatures[shift:]+temperatures[:shift]:
                 result.append((scenario,repeat,temperature,messages))
     return result
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--maximum',action='store_true');args=p.parse_args()
+    temperatures=(2.0,) if args.maximum else TEMPERATURES
+    maximum_calls=4 if args.maximum else 12
+    cap=0.15 if args.maximum else 0.25
     root=HERE.parents[1];out=args.output.resolve()
     if out.exists() or out.is_relative_to(root):raise SystemExit('New output outside repository required')
     if subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True).strip():raise SystemExit('Clean committed source required')
     key=os.environ.pop('RH1_XAI_KEY','')
     if not key:raise SystemExit('Missing local credential')
     os.umask(0o077);out.mkdir(parents=True,mode=0o700);journal=Journal(out)
-    manifest={'version':'RH1-temperature-diagnostic-v0.1','git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
+    manifest={'version':'RH1-temperature-maximum-v0.1' if args.maximum else 'RH1-temperature-diagnostic-v0.1','git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
               'prompt_sha256':hashlib.sha256((HERE/'context_controls_v02_prompts.json').read_bytes()).hexdigest(),
-              'maximum_calls':12,'hard_cap_usd':0.25,'status':'started','credentials_saved':False}
+              'maximum_calls':maximum_calls,'hard_cap_usd':cap,'status':'started','credentials_saved':False}
     journal.save('manifest.json',manifest)
-    rows=[]; gateway=XaiGateway(key,0.25,12,journal.event)
+    rows=[]; gateway=XaiGateway(key,cap,maximum_calls,journal.event)
     try:
         if 'grok-4.6' not in {m['id'] for m in request('/models',key)['data']}:raise GatewayError('model_unavailable')
-        for scenario,repeat,temperature,messages in schedule():
+        for scenario,repeat,temperature,messages in schedule(temperatures):
             gateway.temperature=temperature
             info={'scenario':scenario,'repeat':repeat,'temperature':temperature,'phase':'temperature_probe',
                   'input_sha256':fingerprint(messages)}
