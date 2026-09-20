@@ -95,6 +95,7 @@ class XaiGateway:
                       'model': data.get('model'), 'request_id': data.get('id'),
                       'timestamp_utc': started, 'reasoning_effort_requested': self.reasoning_effort,
                       'reasoning_effort_applied': None,
+                      'reasoning_effort_returned': (data.get('reasoning') or {}).get('effort'),
                       'temperature_requested': self.temperature,
                       'temperature_returned': data.get('temperature'), 'reasoning_tokens':
                       (usage.get('output_tokens_details') or {}).get('reasoning_tokens'),
