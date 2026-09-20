@@ -234,3 +234,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Stored response audit](results/2026-09-19/RESPONSE_STRUCTURE_AUDIT.md): four GETs, no new inference; valid controls recover JSON, both empty cases remain output=[] with completed status.
 
 [ADR009 C++23 receipt verification](results/2026-09-19/CPP23_RECEIPT_VERIFICATION.md): exact receipt counts and micro-USD cost for the four-call cap comparison. Historical Python files are legacy, not canonical numerical verification.
+
+[DEV PASS connection check](results/2026-09-19/DEVPASS_RETURN.md): one C++23 local-credential smoke succeeded through the LLM Gateway, with reported cost USD 0.001158. Connectivity only.

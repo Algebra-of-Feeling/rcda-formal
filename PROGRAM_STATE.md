@@ -344,3 +344,16 @@ or executable-supplement implementations. [C++23 receipt verification](experimen
 independently confirms the four-call cap counts and exact USD 0.159582 sum.
 Four stored GET responses confirm the two missing final messages. A sanitized
 xAI diagnostic packet was prepared locally but not sent.
+
+## DEV PASS gateway connection restored
+
+A [C++23 connection check](experiments/rh1/results/2026-09-19/DEVPASS_RETURN.md)
+read the locally authorized Notes credential in memory, received HTTP 200 from
+`/key` and `/models`, found `kimi-k3`, and obtained a completed `GATEWAY_OK`
+chat response at reported cost USD 0.001158. Upstream provider/version were not
+independently verified. This is connectivity only, not RH-1 evidence. No secret
+was saved or pushed. C++23 exact-integer accounting adds the USD 0.001158
+gateway charge to the prior conservative exposure USD 7.6417725407, yielding
+USD 7.6429305407. With the unchanged v0.2 reserve USD 2.00, the combined
+exposure and reserve is USD 9.6429305407. Subscription credit coverage remains
+unverified.
