@@ -57,7 +57,7 @@ def main():
             journal.save('responses.json',rows)
             print(json.dumps({'completed':len(rows),'temperature':temperature,'authority_share':score}),flush=True)
         manifest['status']='completed'
-    except GatewayError as exc:
+    except (GatewayError, ValueError) as exc:
         manifest['status']='stopped';manifest['stop_reason']=str(exc)
     manifest.update(attempted_calls=gateway.calls,valid_responses=len(rows),reported_cost_usd=gateway.spent,
                     uncertain_reservation_usd=gateway.reserved)
