@@ -133,3 +133,14 @@ paths, without establishing their causal contribution. H-M1 remains open.
 The v0.2 design adds context-removal and canonical-reset controls; operational
 choices must be frozen before a new run. No new API calls or spend occurred.
 Prior experimental freezes and outcomes remain unchanged.
+
+## Context-control implementation checkpoint
+
+The [offline verification](experiments/rh1/results/2026-09-19/CONTEXT_CONTROLS.md)
+processed 32 historical trajectories, 64 role contexts and 192 candidate inputs.
+All 32 recipient removals were exact; all 32 partner contexts were preserved;
+all 16 reset groups had identical candidate payloads across four conditions.
+Seven unit tests passed. This is implementation evidence, not new behavioural
+data. The historical reset briefing is explicitly post-hoc. No API requests
+or additional expenditure occurred. Next: freeze a prospective pilot execution
+design before any live calls.

@@ -203,3 +203,7 @@ See [the post-hoc audit](results/2026-09-19/CONTEXT_AUDIT.md) and
 `audit_controlled_contexts.py --inputs DIR_46 DIR_420 --output FILE`
 reproduces the structural audit offline from the saved controlled trajectories.
 No new model execution is included.
+
+The pure transformations in `context_controls.py` and historical replay in
+`verify_context_controls.py` have [passed offline verification](results/2026-09-19/CONTEXT_CONTROLS.md).
+They do not execute providers. Candidate request hashes are not API receipts.

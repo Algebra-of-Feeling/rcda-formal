@@ -41,3 +41,7 @@ Uma alegação de holonomia ainda requer transporte definido, caminho fechado no
 ## Próximo marco
 
 Implementar e verificar as transformações de contexto offline com os registros existentes, antes de decidir uma rodada paga. Os dados atuais servem à depuração dessas transformações, não como novos dados confirmatórios. Só depois congelar um piloto novo com os campos operacionais acima resolvidos. Esta revisão não autoriza nem inicia novas chamadas.
+
+## Implementação offline — atualização de 2026-09-19
+
+As transformações foram implementadas e [verificadas nos registros históricos](results/2026-09-19/CONTEXT_CONTROLS.md). O marco offline está concluído; a rodada prospectiva continua não executada. O briefing histórico é um fixture pós-hoc e não substitui o congelamento prévio de novos cenários.
