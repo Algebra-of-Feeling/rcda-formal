@@ -270,3 +270,13 @@ request submitted; no final result could be verified because the captured
 terminal image stopped updating. Remaining three calls not started. Remote
 completion/cancellation unknown: recover existing session before retrying.
 No behavioural effort comparison or new API harness spend.
+
+## User-reported medium and extra-high results
+
+The user resolved the first pending CLI medium response as 25% and separately
+reported extra high at 25%. [Updated evidence](experiments/rh1/results/2026-09-19/GROK_TUI_EFFORT.md)
+distinguishes those user observations from three earlier assistant-observed
+high results of 25%. Extra-high prompt/session/model matching is unverified;
+it is outside the planned medium/high block, whose remaining three calls are
+pending. Agreement of scores does not establish effort equivalence or H-M1.
+No assistant model calls were made for this update.

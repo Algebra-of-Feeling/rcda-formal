@@ -1,11 +1,15 @@
-# CLI medium/high comparison — incomplete
+# CLI effort comparison — user observation update
 
-Before inference, a four-call exploratory plan was recorded: medium, high, high, medium, with a fresh session and the same soil-sensor authority prompt each time. The primary summary was high minus medium mean authority percentage points. Temperature remained unknown. This is separate from prospective v0.2.
+The planned four-call block remains medium, high, high, medium. The assistant verified Grok 4.6 medium in the UI, started a fresh session and submitted the fixed prompt. Its capture then stopped updating. The user subsequently reported that this medium call returned 25%. This resolves the first result through user observation, not independent assistant verification of the final screen. The remaining three planned calls have not been executed by the assistant.
 
-The Grok 4.6 menu visibly offered low, medium, high and extra high. Selecting medium produced a visible confirmation and status label. After `/clear`, the new session displayed medium with approximately 2.2k context. One prompt was submitted.
+The user additionally reported “extra high effort : 25”. Record this as one additional user-reported observation outside the planned block. The model identity, exact prompt, fresh-session reset, temperature and timing of that extra-high call were not independently checked. Do not silently treat it as a matched trial or substitute it for a planned high call.
 
-No final response could be verified. The captured terminal image repeatedly remained at “Waiting for response… 4.3s” after elapsed waiting, tab navigation and raising the window. Accessibility tab state changed while the screenshot stayed unchanged. This is an observation/control problem of unknown cause, not evidence that the model failed or that medium effort changes behaviour. The remote request may have completed; neither completion nor cancellation was verified.
+| Effort | Reported authority | Observations | Evidence |
+|---|---:|---:|---|
+| medium | 25% | 1 | User confirmed the first submitted medium result |
+| high | 25%, 25%, 25% | 3 historical | Earlier final CLI replies observed by assistant |
+| extra high | 25% | 1 additional | User report; matching conditions unverified |
 
-No duplicate submission was made and the remaining three calls were not started. Valid observations: zero. No effort contrast can be calculated. Resume by recovering the existing session and inspecting its result before sending any further prompt. Prior three high scores of 25% remain historical observations outside this balanced block.
+All reported scores coincide. This is descriptive agreement of a coarse five-option endpoint in the available observations. It does not establish effort equivalence, matching reasoning processes, unchanged response distributions, temperature effects, or H-M1. The balanced medium/high block is incomplete and extra-high conditions need verification before matched comparison.
 
-No local API harness requests were made; subscription consumption is unknown. API exposure ledger remains USD 7.4187645407, plus the separate USD 2.50 v0.2 reservation. No reasoning trace was saved.
+No new model calls were made by the assistant in this update. Subscription consumption of the user-run observation is unmeasured; no new local API harness calls. The prior capture problem remains historical evidence, not a Grok failure.

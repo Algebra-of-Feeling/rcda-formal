@@ -1,5 +1,5 @@
 {
-  "status": "blocked_ui_result_unverifiable",
+  "status": "partial_user_reported_result",
   "model": "Grok 4.6",
   "order": [
     "medium",
@@ -13,13 +13,35 @@
   "stopping_rule": "Four completed calls or first failure; no outcome-dependent expansion",
   "primary_summary": "Difference in mean authority percentage points: high minus medium",
   "scope": "Exploratory single-scenario within-CLI effort comparison; not H-M1 or v0.2",
-  "results": [],
+  "results": [
+    {
+      "order": 1,
+      "effort": "medium",
+      "authority_share_percent": 25,
+      "evidence_source": "user reported visible answer after assistant capture stalled",
+      "assistant_verified_final_ui": false
+    }
+  ],
   "calls_submitted": 1,
-  "valid_results": 0,
+  "valid_results": 1,
   "remaining_calls_not_started": 3,
-  "active_request_state": "unknown; no verified completion or cancellation",
+  "active_request_state": "first response completed according to user; remaining planned calls not performed by assistant",
   "control_verified": "Menu offered low, medium, high, extra high; switch confirmed as Grok 4.6 medium",
   "observation": "Terminal image repeatedly remained Waiting for response 4.3s despite elapsed time, tab switching and raising window; accessibility tab state changed but screenshot did not",
   "api_harness_calls": 0,
-  "subscription_usage_receipt": null
+  "subscription_usage_receipt": null,
+  "assistant_verified_final_results": 0,
+  "additional_observations": [
+    {
+      "effort_reported": "extra high",
+      "authority_share_percent": 25,
+      "evidence_source": "user message: extra high effort : 25",
+      "assistant_verified_final_ui": false,
+      "model_independently_verified": false,
+      "prompt_identity_verified": false,
+      "fresh_session_verified": false,
+      "temperature": null,
+      "within_planned_block": false
+    }
+  ]
 }
