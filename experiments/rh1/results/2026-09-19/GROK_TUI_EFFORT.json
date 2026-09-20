@@ -1,0 +1,25 @@
+{
+  "status": "blocked_ui_result_unverifiable",
+  "model": "Grok 4.6",
+  "order": [
+    "medium",
+    "high",
+    "high",
+    "medium"
+  ],
+  "reset": "/clear before each call",
+  "temperature": null,
+  "prompt_sha256": "6455abf1b1405cd918d793780d3e95d7affc614380e9d1a8fcc61328521255fd",
+  "stopping_rule": "Four completed calls or first failure; no outcome-dependent expansion",
+  "primary_summary": "Difference in mean authority percentage points: high minus medium",
+  "scope": "Exploratory single-scenario within-CLI effort comparison; not H-M1 or v0.2",
+  "results": [],
+  "calls_submitted": 1,
+  "valid_results": 0,
+  "remaining_calls_not_started": 3,
+  "active_request_state": "unknown; no verified completion or cancellation",
+  "control_verified": "Menu offered low, medium, high, extra high; switch confirmed as Grok 4.6 medium",
+  "observation": "Terminal image repeatedly remained Waiting for response 4.3s despite elapsed time, tab switching and raising window; accessibility tab state changed but screenshot did not",
+  "api_harness_calls": 0,
+  "subscription_usage_receipt": null
+}

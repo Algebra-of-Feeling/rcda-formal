@@ -261,3 +261,12 @@ with the earlier 24-second observation, scores are 25%, 25%, 25%. This is
 exploratory same-scenario consistency, not determinism or H-M1 replication.
 Temperature remains unknown; no causal effort comparison was performed.
 No new API harness calls; subscription usage unmeasured. v0.2 remains unexecuted.
+
+## CLI medium/high comparison awaiting observable result
+
+[Four-call plan](experiments/rh1/results/2026-09-19/GROK_TUI_EFFORT.md) fixed
+medium/high/high/medium before inference. Medium control was verified and one
+request submitted; no final result could be verified because the captured
+terminal image stopped updating. Remaining three calls not started. Remote
+completion/cancellation unknown: recover existing session before retrying.
+No behavioural effort comparison or new API harness spend.
