@@ -216,3 +216,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Temperature 2.0 attempt](results/2026-09-19/TEMPERATURE_MAXIMUM.md): stopped on first transport/JSON failure; no behavioural result or echoed value.
 
 [User-authorized temperature 2.0 retry](results/2026-09-19/TEMPERATURE_MAXIMUM_RETRY.md): one valid 25% score with echoed 2.0, then a second transport/JSON failure; incomplete.
+
+[Temperature 1.7 and medium/high attempt](results/2026-09-19/TEMPERATURE17_EFFORT.md): first medium call failed; high was not executed.

@@ -1,0 +1,24 @@
+{
+  "manifest": {
+    "version": "RH1-temperature17-effort-v0.1",
+    "git_commit": "b0450ae19298da838784e11b632f0946ed0d202c",
+    "prompt_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "maximum_calls": 4,
+    "hard_cap_usd": 0.12,
+    "status": "stopped",
+    "credentials_saved": false,
+    "stop_reason": "transport_or_json_failure",
+    "attempted_calls": 1,
+    "valid_responses": 0,
+    "reported_cost_usd": 0.0,
+    "uncertain_reservation_usd": 0.035044
+  },
+  "results": [],
+  "receipts": [],
+  "cumulative_conservative_upper_bound_usd": 7.4012265407000015,
+  "with_v02_reservation_usd": 9.901226540700002,
+  "source_files": {
+    "requests.jsonl": "ebc08df9594785afe5e9476db64ee24f5621abc3863ca1052ba2e10b171b1dde",
+    "manifest.json": "15a14f4822b1061a976b89a6e1896b8684e64755e2fce2c2ea1038c0dafcfccd"
+  }
+}

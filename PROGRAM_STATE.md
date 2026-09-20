@@ -190,3 +190,15 @@ is preserved. Updated cumulative conservative bound USD 7.3661825407; including
 the separate v0.2 USD 2.50 reservation, USD 9.8661825407. Across both attempts
 there are three calls, one valid score and two failures; no temperature-caused
 failure or behavioural change is established. Principal v0.2 remains unexecuted.
+
+## Temperature 1.7 versus effort diagnostic stopped
+
+[The medium/high plan](experiments/rh1/TEMPERATURE17_EFFORT_FREEZE.md) interpreted
+the user's heavy as documented high, explicitly not xhigh. The first 1.7 medium
+call failed with transport_or_json_failure; 0/4 valid measurements and high
+was not attempted. [Result](experiments/rh1/results/2026-09-19/TEMPERATURE17_EFFORT.md).
+New unresolved reservation USD 0.035044; reported cost zero is not proof of zero
+billing. Cumulative conservative exposure USD 7.4012265407; with reserved v0.2
+USD 2.50, USD 9.9012265407. No behavioural/effort comparison is available.
+Repeated transport failures should be diagnosed before interpreting temperature
+effects or extending the paid sweep. No requests remain active.
