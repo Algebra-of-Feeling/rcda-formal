@@ -167,3 +167,14 @@ exposure USD 7.2928705407. Including the separately reserved v0.2 USD 2.50
 gives USD 9.7928705407. Original v0.2 freeze hashes are unchanged; Stage A/B
 remain unexecuted. The briefings have now been used in this diagnostic, so
 later studies must disclose reuse and cannot call them wholly unseen.
+
+## Maximum-temperature attempt
+
+At user request, temperature 2.0 (documented SDK upper bound) was attempted
+with the same canonical probe. [The run](experiments/rh1/results/2026-09-19/TEMPERATURE_MAXIMUM.md)
+stopped on its first request with transport_or_json_failure: 0/4 valid
+measurements and no returned-temperature receipt. No retry occurred. Recorded
+cost USD 0; unresolved reservation USD 0.035044, not proof of zero billing.
+Conservative programme exposure USD 7.3279145407; with the USD 2.50 v0.2
+reservation, USD 9.8279145407. Failure does not establish a temperature effect
+or acceptance of 2.0 by this live request.

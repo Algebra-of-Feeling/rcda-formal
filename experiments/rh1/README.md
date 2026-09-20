@@ -212,3 +212,5 @@ They do not execute providers. Candidate request hashes are not API receipts.
 scenarios, Stage A admission and budget; not executed. Integration runner pending.
 
 [Temperature extension](TEMPERATURE_EXTENSION.md) and [completed diagnostic](results/2026-09-19/TEMPERATURE_DIAGNOSTIC.md): 12 valid calls, constant authority, returned temperatures match requests. Separate from the unexecuted v0.2 principal pilot.
+
+[Temperature 2.0 attempt](results/2026-09-19/TEMPERATURE_MAXIMUM.md): stopped on first transport/JSON failure; no behavioural result or echoed value.

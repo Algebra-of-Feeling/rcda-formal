@@ -1,0 +1,24 @@
+{
+  "manifest": {
+    "version": "RH1-temperature-maximum-v0.1",
+    "git_commit": "bded59a08f3eb158e86577cb2c710a5a65c66f07",
+    "prompt_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "maximum_calls": 4,
+    "hard_cap_usd": 0.15,
+    "status": "stopped",
+    "credentials_saved": false,
+    "stop_reason": "transport_or_json_failure",
+    "attempted_calls": 1,
+    "valid_responses": 0,
+    "reported_cost_usd": 0.0,
+    "uncertain_reservation_usd": 0.035044
+  },
+  "groups": [],
+  "receipts": [],
+  "cumulative_conservative_upper_bound_usd": 7.327914540700002,
+  "with_reserved_v02_usd": 9.827914540700002,
+  "source_files": {
+    "requests.jsonl": "284896fd9c27ad9d740911c3c4924ab7ab39854e25a82d3e6d221af9832937b0",
+    "manifest.json": "49bc8f8e26ea5e41bbc71f6b1c01fd0222e64fe3e3e81e6e6381eacfcb3c2a7a"
+  }
+}
