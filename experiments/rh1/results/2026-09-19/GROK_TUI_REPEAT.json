@@ -1,0 +1,51 @@
+{
+  "purpose": "Exploratory same-condition CLI repeatability check",
+  "new_calls_planned": 2,
+  "model_displayed": "Grok 4.6",
+  "effort_displayed": "high",
+  "temperature": null,
+  "reset_before_each": "/clear",
+  "prompt_source": "../rh1-grok-tui-authority-20260919/PROMPT.txt",
+  "prompt_sha256": "6455abf1b1405cd918d793780d3e95d7affc614380e9d1a8fcc61328521255fd",
+  "stopping_rule": "Two new visible completed responses or first failure; do not expand based on outcome",
+  "scope": "Not prospective v0.2, not a causal temperature/effort comparison",
+  "results": [
+    {
+      "repeat": 1,
+      "raw_final_response": "{\"authority_share\":25}",
+      "authority_share_percent": 25,
+      "worked_seconds_displayed": 29,
+      "context_before": "2.2k/500k",
+      "context_after": "28k/500k",
+      "model_displayed": "Grok 4.6",
+      "effort_displayed": "high",
+      "temperature": null
+    },
+    {
+      "repeat": 2,
+      "raw_final_response": "{\"authority_share\":25}",
+      "authority_share_percent": 25,
+      "worked_seconds_displayed": 40,
+      "context_before": "2.2k/500k",
+      "context_after": "29k/500k",
+      "model_displayed": "Grok 4.6",
+      "effort_displayed": "high",
+      "temperature": null
+    }
+  ],
+  "status": "completed",
+  "new_calls_completed": 2,
+  "prior_observation": {
+    "authority_share_percent": 25,
+    "worked_seconds_displayed": 24
+  },
+  "combined_scores_percent": [
+    25,
+    25,
+    25
+  ],
+  "api_harness_calls": 0,
+  "subscription_usage_receipt": null,
+  "api_exposure_ledger_usd": 7.4187645407,
+  "verification_scope": "Visible final UI replies; intended prompt hash is not an API payload receipt; no hidden reasoning recorded"
+}

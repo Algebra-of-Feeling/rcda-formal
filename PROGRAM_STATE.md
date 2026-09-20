@@ -252,3 +252,12 @@ and injected CLI context differ from the API diagnostic that returned 50%;
 no causal effort/temperature contrast or H-M1 replication follows. No API
 harness calls; subscription usage unmeasured. The API exposure ledger and
 the unexecuted prospective v0.2 status remain unchanged.
+
+## Interactive Grok repeatability check completed
+
+[Two new fresh-session CLI repetitions](experiments/rh1/results/2026-09-19/GROK_TUI_REPEAT.md)
+returned 25% each in Grok 4.6 high (29 and 40 seconds displayed). Combined
+with the earlier 24-second observation, scores are 25%, 25%, 25%. This is
+exploratory same-scenario consistency, not determinism or H-M1 replication.
+Temperature remains unknown; no causal effort comparison was performed.
+No new API harness calls; subscription usage unmeasured. v0.2 remains unexecuted.
