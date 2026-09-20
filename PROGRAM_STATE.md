@@ -288,3 +288,16 @@ produced nominal labels 0.2/0.7/1.2/1.7/2.0 with illustrative authority
 25/0/25/50/25 in one response, xhigh displayed. Actual temperature unknown.
 This is prompt-conditioned illustrative content, excluded from experimental
 results and H-M1 evidence. No new API harness calls.
+
+## Real API temperature return stopped on empty final output
+
+[Bounded real-temperature diagnostic](experiments/rh1/results/2026-09-19/TEMPERATURE_API_RETURN.md)
+at fixed high effort returned 25% at 0.2, 0.7 and 1.2. The fourth call
+(1.7) returned completed but no final text after 254.98 seconds; 6438 reasoning
+tokens reported despite a 4096 requested/returned cap. No proven truncation
+or causal temperature effect. Returned parameters matched all four calls.
+Stopped without retry; 2.0 and second repetitions not attempted. Cost USD
+0.058158, no new unresolved reserve. Conservative cumulative USD 7.4769225407;
+v0.2 reserve now USD 2.00 after diagnostic reallocation, combined USD
+9.4769225407. Unused diagnostic reservation USD 0.441842 released.
+Subscription credit coverage unverified. No local request remains active.

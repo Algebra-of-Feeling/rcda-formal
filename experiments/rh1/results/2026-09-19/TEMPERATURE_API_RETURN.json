@@ -1,0 +1,79 @@
+{
+  "manifest": {
+    "version": "RH1-real-temperature-return-v0.1",
+    "status": "stopped",
+    "git_commit": "fb3a4e98488f56ed753846047155c362ca484333",
+    "order": [
+      0.2,
+      0.7,
+      1.2,
+      1.7,
+      2.0,
+      2.0,
+      1.7,
+      1.2,
+      0.7,
+      0.2
+    ],
+    "scenario": "soil_sensor_transfer",
+    "model": "grok-4.6",
+    "effort": "high",
+    "max_output_tokens": 4096,
+    "request_timeout_seconds": 600,
+    "maximum_calls": 10,
+    "hard_cap_usd": 0.5,
+    "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+    "prompt_file_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "seed": null,
+    "credentials_saved": false,
+    "stop_rule": "First error, parameter mismatch or cap; no retry",
+    "stop_reason": "empty_final_output",
+    "attempted_calls": 4,
+    "valid_responses": 3,
+    "reported_cost_usd": 0.058158,
+    "uncertain_reservation_usd": 0.0
+  },
+  "by_temperature": [
+    {
+      "temperature": 0.2,
+      "n": 1,
+      "scores_percent": [
+        25.0
+      ],
+      "mean_percent": 25.0
+    },
+    {
+      "temperature": 0.7,
+      "n": 1,
+      "scores_percent": [
+        25.0
+      ],
+      "mean_percent": 25.0
+    },
+    {
+      "temperature": 1.2,
+      "n": 1,
+      "scores_percent": [
+        25.0
+      ],
+      "mean_percent": 25.0
+    },
+    {
+      "temperature": 1.7,
+      "n": 0,
+      "scores_percent": [],
+      "mean_percent": null
+    },
+    {
+      "temperature": 2.0,
+      "n": 0,
+      "scores_percent": [],
+      "mean_percent": null
+    }
+  ],
+  "parameter_echo_verified": true,
+  "conservative_cumulative_usd": 7.4769225406999995,
+  "v02_reserve_usd": 2.0,
+  "unused_diagnostic_reservation_released_usd": 0.441842,
+  "combined_exposure_and_v02_reserve_usd": 9.476922540699999
+}

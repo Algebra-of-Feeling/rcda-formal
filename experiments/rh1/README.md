@@ -224,3 +224,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Interactive Grok CLI authority probe](results/2026-09-19/GROK_TUI_AUTHORITY.md): one visible 25% response with Grok 4.6 high; temperature unverified and agent context uncontrolled. Exploratory, not an H-M1 replication.
 
 [CLI repeatability check](results/2026-09-19/GROK_TUI_REPEAT.md): two new 25% responses; three of three including the earlier probe. One scenario, high displayed, temperature unknown.
+
+[Real API temperature return](results/2026-09-19/TEMPERATURE_API_RETURN.md): fixed high effort, three 25% replies at 0.2/0.7/1.2; 1.7 completed without final text, so the ten-call block stopped after four attempts.
