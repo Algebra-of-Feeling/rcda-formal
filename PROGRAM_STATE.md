@@ -241,3 +241,14 @@ headless 403 is mode-specific evidence and does not establish general account
 denial. The exact routing difference is unknown. TUI shows ~27k context tokens
 and Sounio-Language configuration, so this is a connectivity check, not a
 controlled RH-1 trial. Temperature unverified; no new local-API spend.
+
+## Interactive Grok authority probe completed
+
+[One exploratory CLI probe](experiments/rh1/results/2026-09-19/GROK_TUI_AUTHORITY.md)
+returned authority 25% in Grok 4.6 high, with 24 seconds displayed. A fresh
+session was started, but agent context persists (approximately 2.2k before
+and 28k after). Temperature is unverified. Single-user-message representation
+and injected CLI context differ from the API diagnostic that returned 50%;
+no causal effort/temperature contrast or H-M1 replication follows. No API
+harness calls; subscription usage unmeasured. The API exposure ledger and
+the unexecuted prospective v0.2 status remain unchanged.

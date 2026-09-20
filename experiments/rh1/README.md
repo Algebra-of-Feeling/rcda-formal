@@ -220,3 +220,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Temperature 1.7 and medium/high attempt](results/2026-09-19/TEMPERATURE17_EFFORT.md): first medium call failed; high was not executed.
 
 [xAI transport diagnosis](results/2026-09-19/XAI_TRANSPORT.md): configurable timeout and precise error categories; one completed empty reply, then a valid 1.7/high 50% score at cap 4096. No causal effort claim.
+
+[Interactive Grok CLI authority probe](results/2026-09-19/GROK_TUI_AUTHORITY.md): one visible 25% response with Grok 4.6 high; temperature unverified and agent context uncontrolled. Exploratory, not an H-M1 replication.
