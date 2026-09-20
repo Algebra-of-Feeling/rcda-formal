@@ -24,7 +24,8 @@ def effort_schedule():
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--transport-check',action='store_true');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--transport-check',action='store_true');p.add_argument('--larger-output-check',action='store_true');args=p.parse_args()
+    if args.larger_output_check: args.transport_check=True
     maximum_calls=1 if args.transport_check else 4
     cap=0.08 if args.transport_check else 0.12
     timeout=600 if args.transport_check else 120
@@ -37,9 +38,9 @@ def main():
     os.umask(0o077);out.mkdir(parents=True,mode=0o700);journal=Journal(out)
     manifest={'version':'RH1-transport-high-check-v0.1' if args.transport_check else 'RH1-temperature17-effort-v0.1','git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
               'prompt_sha256':hashlib.sha256((HERE/'context_controls_v02_prompts.json').read_bytes()).hexdigest(),
-              'maximum_calls':maximum_calls,'hard_cap_usd':cap,'request_timeout_seconds':timeout,'status':'started','credentials_saved':False}
+              'maximum_calls':maximum_calls,'hard_cap_usd':cap,'request_timeout_seconds':timeout,'max_output_tokens':4096 if args.larger_output_check else 1536,'status':'started','credentials_saved':False}
     journal.save('manifest.json',manifest)
-    rows=[]; gateway=XaiGateway(key,cap,maximum_calls,journal.event,request_timeout=timeout)
+    rows=[]; gateway=XaiGateway(key,cap,maximum_calls,journal.event,request_timeout=timeout,max_tokens=4096 if args.larger_output_check else 1536)
     try:
         if 'grok-4.6' not in {m['id'] for m in request('/models',key)['data']}:raise GatewayError('model_unavailable')
         for scenario,effort,messages in jobs:

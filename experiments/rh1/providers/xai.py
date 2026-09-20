@@ -120,12 +120,21 @@ class XaiGateway:
                       'temperature_returned': data.get('temperature'), 'reasoning_tokens':
                       (usage.get('output_tokens_details') or {}).get('reasoning_tokens'),
                       'input_tokens': usage.get('input_tokens'), 'output_tokens': usage.get('output_tokens'),
+                      'max_output_tokens_requested': self.max_tokens,
+                      'max_output_tokens_returned': data.get('max_output_tokens'),
+                      'incomplete_reason': (data.get('incomplete_details') or {}).get('reason'),
+                      'output_item_types': [item.get('type') for item in output],
+                      'output_content_types': [c.get('type') for item in output for c in item.get('content',[]) if isinstance(c,dict)],
                       'cost_usd': cost, 'status': data.get('status'), 'content': content}
             if self.key in json.dumps(record):
                 raise GatewayError('secret_in_response_stop')
             self.sink(record)
-            if data.get('model') != self.model or data.get('status') != 'completed' or not content.strip():
-                raise GatewayError('invalid_or_truncated_output')
+            if data.get('model') != self.model:
+                raise GatewayError('model_substitution_stop')
+            if data.get('status') != 'completed':
+                raise GatewayError('response_not_completed')
+            if not content.strip():
+                raise GatewayError('empty_final_output')
             if self.halted:
                 raise GatewayError('cost_exceeded_reservation_stop')
             return content
