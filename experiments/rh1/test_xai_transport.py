@@ -40,6 +40,19 @@ class TransportTests(unittest.TestCase):
         self.assertGreaterEqual(events[0]['elapsed_seconds'],0)
         self.assertNotIn('FAKE_SECRET',json.dumps(events))
 
+    def test_empty_final_is_not_called_truncation(self):
+        events=[];g=XaiGateway('FAKE_SECRET',.08,1,events.append)
+        response={'model':'grok-4.6','status':'completed','max_output_tokens':1536,
+                  'usage':{'cost_in_usd_ticks':1000},
+                  'output':[{'type':'reasoning','summary':[{'type':'summary_text','text':'PRIVATE_REASONING'}]}]}
+        with patch('providers.xai.request',return_value=response):
+            with self.assertRaisesRegex(GatewayError,'^empty_final_output$'):
+                g.complete(g.arm,[{'role':'user','content':'test'}],'unused',{})
+        self.assertEqual(events[0]['output_item_types'],['reasoning'])
+        self.assertNotIn('PRIVATE_REASONING',json.dumps(events))
+        self.assertEqual(g.reserved,0)
+        self.assertGreater(g.spent,0)
+
     def test_invalid_timeout(self):
         for value in (0,-1,3601,float('nan'),True):
             with self.assertRaises(GatewayError):XaiGateway('FAKE_SECRET',.08,1,lambda _:None,request_timeout=value)

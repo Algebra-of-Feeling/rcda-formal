@@ -218,3 +218,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [User-authorized temperature 2.0 retry](results/2026-09-19/TEMPERATURE_MAXIMUM_RETRY.md): one valid 25% score with echoed 2.0, then a second transport/JSON failure; incomplete.
 
 [Temperature 1.7 and medium/high attempt](results/2026-09-19/TEMPERATURE17_EFFORT.md): first medium call failed; high was not executed.
+
+[xAI transport diagnosis](results/2026-09-19/XAI_TRANSPORT.md): configurable timeout and precise error categories; one completed empty reply, then a valid 1.7/high 50% score at cap 4096. No causal effort claim.

@@ -202,3 +202,21 @@ billing. Cumulative conservative exposure USD 7.4012265407; with reserved v0.2
 USD 2.50, USD 9.9012265407. No behavioural/effort comparison is available.
 Repeated transport failures should be diagnosed before interpreting temperature
 effects or extending the paid sweep. No requests remain active.
+
+## xAI documentation and transport diagnosis
+
+[Documentation and live validation](experiments/rh1/results/2026-09-19/XAI_TRANSPORT.md)
+found three historical failures within ~0.09 s of the old 120-second client
+limit. Timeout is strongly suggested but not retrospectively proven. The
+adapter now records sanitized categories, elapsed time and response structure;
+request timeout is configurable, default remains 120 for frozen protocols.
+A 1.7/high request with 1536 cap returned completed with no final text after
+77.735 s, 2267 reasoning tokens; this is not demonstrated truncation. A separate
+4096-cap request with the identical input completed in 10.987 s, echoed 1.7/high,
+and returned 50% authority with 342 reasoning tokens. No matched 1.7/medium
+observation exists, so effort causation is untested; output cap also changed.
+Remote agent was located at /home/devsounio/.local/bin/agent on t560, version
+1.0.34, but reported unauthenticated; no CLI inference or credential transfer.
+Twelve local tests passed. New cost USD 0.017538, no new uncertainty;
+conservative cumulative exposure USD 7.4187645407, plus reserved v0.2 USD 2.50
+= USD 9.9187645407. Previous uncertain reservations remain intact.
