@@ -232,3 +232,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [Balanced cap comparison](results/2026-09-19/OUTPUT_CAP_COMPARISON.md): at 1.7/high, each cap (4096/8192) returned one valid 25% and one empty final. Increasing the cap did not eliminate empty outputs.
 
 [Stored response audit](results/2026-09-19/RESPONSE_STRUCTURE_AUDIT.md): four GETs, no new inference; valid controls recover JSON, both empty cases remain output=[] with completed status.
+
+[ADR009 C++23 receipt verification](results/2026-09-19/CPP23_RECEIPT_VERIFICATION.md): exact receipt counts and micro-USD cost for the four-call cap comparison. Historical Python files are legacy, not canonical numerical verification.

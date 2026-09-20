@@ -333,3 +333,14 @@ No alternate final-answer field was found in retrieved structures. This
 supports missing delivered final messages rather than simple parser omission;
 provider root cause remains unresolved. Nine offline tests passed. No new
 inference or double-counting of retrieved historical costs; ledger unchanged.
+
+## ADR009 and C++23 receipt verification
+
+The user established ADR009 as a permanent rule: future numerical calculations
+and verifications use C++23, F#, F*, Futhark or Koka; proofs use Lean 4.
+Python/Rust are prohibited by default, Julia excluded. Legacy Python harness
+and analysis files remain historical; they are not canonical numerical checks
+or executable-supplement implementations. [C++23 receipt verification](experiments/rh1/results/2026-09-19/CPP23_RECEIPT_VERIFICATION.md)
+independently confirms the four-call cap counts and exact USD 0.159582 sum.
+Four stored GET responses confirm the two missing final messages. A sanitized
+xAI diagnostic packet was prepared locally but not sent.
