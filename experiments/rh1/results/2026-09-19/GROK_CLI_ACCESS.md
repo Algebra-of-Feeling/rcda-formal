@@ -13,3 +13,25 @@ A ajuda de agent usage descreve estatísticas persistidas por sessão. Não é u
 Nenhuma chave da API local foi usada ou transferida para o servidor. Não houve nova chamada ao nosso cliente da API. O CLI não forneceu recibo de consumo/cobrança para essa tentativa; custo desconhecido não foi registrado como zero. O acumulado conhecido da API permanece USD 7.4187645407, separado do consumo da assinatura.
 
 O próximo diagnóstico depende do acesso efetivo ao Build nessa sessão, sem confundir login com permissão de inferência. O piloto principal v0.2 permanece não executado.
+
+## Atualização: interação real no Termius funcionou
+
+Em 2026-09-19, após orientação explícita do usuário, abriu-se uma nova aba
+Termius para t560-proxmox. No prompt devsounio@t560-proxmox, digitou-se agent
+sem argumentos e depois uma solicitação curta no campo da interface TUI,
+pedindo confirmação de conexão, sem ferramentas ou arquivos. Houve resposta
+visível de confirmação e encerramento do turno (Worked for 11s).
+A barra de estado mostrou Grok 4.6 (high). Portanto a inferência interativa
+funcionou; a negativa 403 anterior não deve ser generalizada para toda a conta.
+Não foi determinada a diferença interna de autenticação/roteamento entre modos.
+
+A interface mostrou cerca de 27 mil tokens de contexto e configuração
+Sounio-Language. Esse contexto do agente não equivale aos prompts controlados
+da API. A temperatura não foi exibida nem configurada, e não houve teste
+científico de H-M1 nesta interação. O texto digitado via teclado apresentou
+perda de acentos na renderização; a fidelidade de prompts precisará ser
+verificada antes de usar a TUI para medições comparáveis.
+
+Nenhuma chave local foi enviada ao servidor. Não houve chamada à API pelo
+harness local. Consumo da assinatura não foi medido. A aba foi mantida aberta
+no Grok, sem geração em andamento.

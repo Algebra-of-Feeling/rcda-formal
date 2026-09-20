@@ -231,3 +231,13 @@ permission-denied, no valid answer. [Receipt](experiments/rh1/results/2026-09-19
 Authentication and inference entitlement are distinct. No local API key
 transfer, permission changes or retry occurred. Subscription usage receipt
 was unavailable; API exposure ledger remains USD 7.4187645407.
+
+## Interactive Grok CLI succeeded
+
+Following the user's instruction to type through the terminal UI, a fresh
+Termius connection to t560 launched agent without flags. A benign prompt typed
+into the TUI received a visible completed answer in Grok 4.6 high. The earlier
+headless 403 is mode-specific evidence and does not establish general account
+denial. The exact routing difference is unknown. TUI shows ~27k context tokens
+and Sounio-Language configuration, so this is a connectivity check, not a
+controlled RH-1 trial. Temperature unverified; no new local-API spend.
