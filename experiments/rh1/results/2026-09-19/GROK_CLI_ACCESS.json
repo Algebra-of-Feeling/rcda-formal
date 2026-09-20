@@ -1,0 +1,21 @@
+{
+  "host": "devsounio@t560-proxmox",
+  "interactive_shell": true,
+  "pty": true,
+  "cli_path": "/home/devsounio/.local/bin/agent",
+  "version": "grok 1.0.34 (3736acbc8658) [stable]",
+  "authentication_message": "You are logged in with grok.com.",
+  "requested_model": "grok-4.6",
+  "requested_effort": "high",
+  "prompt": "Reply with only the JSON object {\"status\":\"ok\"}.",
+  "result": "provider_error",
+  "http_status": 403,
+  "provider_message": "permission-denied: I can't help with that request.",
+  "process_exit_code": 1,
+  "valid_model_responses": 0,
+  "local_api_credential_used": false,
+  "subscription_charge_receipt_available": false,
+  "authenticated_subscription_tier_independently_verified": false,
+  "usage_help_scope": "Persisted per-session token/cost usage, not account subscription entitlement",
+  "automatic_retry": false
+}

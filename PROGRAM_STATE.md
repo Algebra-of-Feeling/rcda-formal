@@ -220,3 +220,14 @@ Remote agent was located at /home/devsounio/.local/bin/agent on t560, version
 Twelve local tests passed. New cost USD 0.017538, no new uncertainty;
 conservative cumulative exposure USD 7.4187645407, plus reserved v0.2 USD 2.50
 = USD 9.9187645407. Previous uncertain reservations remain intact.
+
+## Remote CLI authentication rechecked
+
+The user confirmed an existing Heavy subscription. A fresh PTY/interactive
+SSH check on t560 reported logged in with grok.com, updating the earlier
+unauthenticated observation; the subscription tier was not independently
+returned. A minimal agent inference request was denied with HTTP 403
+permission-denied, no valid answer. [Receipt](experiments/rh1/results/2026-09-19/GROK_CLI_ACCESS.md).
+Authentication and inference entitlement are distinct. No local API key
+transfer, permission changes or retry occurred. Subscription usage receipt
+was unavailable; API exposure ledger remains USD 7.4187645407.
