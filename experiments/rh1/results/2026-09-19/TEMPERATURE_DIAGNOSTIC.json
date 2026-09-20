@@ -1,0 +1,242 @@
+{
+  "manifest": {
+    "version": "RH1-temperature-diagnostic-v0.1",
+    "git_commit": "c1d308ee4f32b76621597292e4bf0a3f658aa2de",
+    "prompt_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "maximum_calls": 12,
+    "hard_cap_usd": 0.25,
+    "status": "completed",
+    "credentials_saved": false,
+    "attempted_calls": 12,
+    "valid_responses": 12,
+    "reported_cost_usd": 0.062568,
+    "uncertain_reservation_usd": 0.0
+  },
+  "groups": [
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "temperature": 0.2,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "temperature": 0.7,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "temperature": 1.2,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "temperature": 0.2,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "temperature": 0.7,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "temperature": 1.2,
+      "values": [
+        0.25,
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    }
+  ],
+  "receipts": [
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 0,
+      "attempt_id": 1,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.2,
+      "temperature_returned": 0.2,
+      "reasoning_tokens": 556,
+      "cost_usd": 0.004584,
+      "status": "completed"
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 0,
+      "attempt_id": 2,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.7,
+      "temperature_returned": 0.7,
+      "reasoning_tokens": 813,
+      "cost_usd": 0.00555,
+      "status": "completed"
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 0,
+      "attempt_id": 3,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 1.2,
+      "temperature_returned": 1.2,
+      "reasoning_tokens": 725,
+      "cost_usd": 0.005022,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 0,
+      "attempt_id": 4,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.7,
+      "temperature_returned": 0.7,
+      "reasoning_tokens": 828,
+      "cost_usd": 0.006166,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 0,
+      "attempt_id": 5,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 1.2,
+      "temperature_returned": 1.2,
+      "reasoning_tokens": 688,
+      "cost_usd": 0.00475,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 0,
+      "attempt_id": 6,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.2,
+      "temperature_returned": 0.2,
+      "reasoning_tokens": 689,
+      "cost_usd": 0.004756,
+      "status": "completed"
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 1,
+      "attempt_id": 7,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.7,
+      "temperature_returned": 0.7,
+      "reasoning_tokens": 671,
+      "cost_usd": 0.004698,
+      "status": "completed"
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 1,
+      "attempt_id": 8,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 1.2,
+      "temperature_returned": 1.2,
+      "reasoning_tokens": 1012,
+      "cost_usd": 0.00732,
+      "status": "completed"
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 1,
+      "attempt_id": 9,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.2,
+      "temperature_returned": 0.2,
+      "reasoning_tokens": 704,
+      "cost_usd": 0.004896,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 1,
+      "attempt_id": 10,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 1.2,
+      "temperature_returned": 1.2,
+      "reasoning_tokens": 903,
+      "cost_usd": 0.00604,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 1,
+      "attempt_id": 11,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.2,
+      "temperature_returned": 0.2,
+      "reasoning_tokens": 662,
+      "cost_usd": 0.004594,
+      "status": "completed"
+    },
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "repeat": 1,
+      "attempt_id": 12,
+      "input_sha256": "4706452b34ca67bb6f0b4e1288b83dc4893c65a73218c5b30b66bdafce0d3d41",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 0.7,
+      "temperature_returned": 0.7,
+      "reasoning_tokens": 595,
+      "cost_usd": 0.004192,
+      "status": "completed"
+    }
+  ],
+  "cumulative_conservative_upper_bound_usd": 7.292870540700002,
+  "with_reserved_v02_usd": 9.792870540700001,
+  "source_files": {
+    "requests.jsonl": "974e2ed5c7ab85ca9dfb59b075e384cfba216122e936cf6db8d8fb0ff5793bd4",
+    "responses.json": "00c886108e9414f28c443e2331631eec95055340fb3ed8be58889f480258683c",
+    "manifest.json": "662fd22e9891cdb1c1e4d3fda2cec8aa6736248de2384fd5fcb53463e8e6d1cb"
+  }
+}

@@ -154,3 +154,16 @@ calls. Hard new exposure cap USD 2.50; cumulative bound USD 9.730303. This is
 a feasibility design, not a powered or externally preregistered replication.
 Exact prompts/configuration are hashed. The prospective runner and integration
 checks are the next checkpoint; no calls or credential reads occurred.
+
+## Temperature diagnostic completed
+
+The [separate temperature diagnostic](experiments/rh1/results/2026-09-19/TEMPERATURE_DIAGNOSTIC.md)
+completed 12/12 calls at 0.2, 0.7 and 1.2 with two fixed canonical role-A
+contexts and two repetitions. All authority scores were 0.25. All 12 provider
+receipts echoed the requested temperature; this does not audit internal
+sampling. No clinical/associative-state claim follows from this scalar probe.
+Actual cost USD 0.062568, no uncertain reservation; conservative programme
+exposure USD 7.2928705407. Including the separately reserved v0.2 USD 2.50
+gives USD 9.7928705407. Original v0.2 freeze hashes are unchanged; Stage A/B
+remain unexecuted. The briefings have now been used in this diagnostic, so
+later studies must disclose reuse and cannot call them wholly unseen.
