@@ -1,0 +1,56 @@
+{
+  "manifest": {
+    "version": "RH1-temperature-maximum-v0.1",
+    "git_commit": "989c2c1917eacc0d33785985f36d0dfe9448e92c",
+    "prompt_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "maximum_calls": 4,
+    "hard_cap_usd": 0.15,
+    "status": "stopped",
+    "credentials_saved": false,
+    "stop_reason": "transport_or_json_failure",
+    "attempted_calls": 2,
+    "valid_responses": 1,
+    "reported_cost_usd": 0.003168,
+    "uncertain_reservation_usd": 0.035100000000000006
+  },
+  "groups": [
+    {
+      "scenario": "acoustic_pollinator_counts",
+      "temperature": 2.0,
+      "values": [],
+      "mean": null,
+      "range": null
+    },
+    {
+      "scenario": "soil_sensor_transfer",
+      "temperature": 2.0,
+      "values": [
+        0.25
+      ],
+      "mean": 0.25,
+      "range": 0.0
+    }
+  ],
+  "receipts": [
+    {
+      "scenario": "soil_sensor_transfer",
+      "repeat": 0,
+      "attempt_id": 1,
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "requested_model": "grok-4.6",
+      "model": "grok-4.6",
+      "temperature_requested": 2.0,
+      "temperature_returned": 2.0,
+      "reasoning_tokens": 416,
+      "cost_usd": 0.003168,
+      "status": "completed"
+    }
+  ],
+  "cumulative_conservative_upper_bound_usd": 7.3661825407000014,
+  "with_reserved_v02_usd": 9.866182540700002,
+  "source_files": {
+    "requests.jsonl": "8bf6d790cbf25d6f4b17c67d28f7ca2bf10040b68dd8a6127f2f67032752135d",
+    "responses.json": "55088c07266145f90c72ff3f32251173fc17cbfb367c21fd7fed2479f3b60dda",
+    "manifest.json": "f090bc793e96a6687f345c313bc2bed31c15b60d05ff7c2d4b131ec6a863fe2d"
+  }
+}

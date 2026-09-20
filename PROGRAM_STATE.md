@@ -178,3 +178,15 @@ cost USD 0; unresolved reservation USD 0.035044, not proof of zero billing.
 Conservative programme exposure USD 7.3279145407; with the USD 2.50 v0.2
 reservation, USD 9.8279145407. Failure does not establish a temperature effect
 or acceptance of 2.0 by this live request.
+
+## User-authorized temperature 2.0 retry
+
+The [fresh bounded retry](experiments/rh1/results/2026-09-19/TEMPERATURE_MAXIMUM_RETRY.md)
+returned one valid soil-sensor score of 0.25 with temperature 2.0 echoed,
+then stopped on transport_or_json_failure in the second request. One of four
+planned measurements completed. New reported cost USD 0.003168 plus unresolved
+reservation USD 0.035100. The previous failed request reservation USD 0.035044
+is preserved. Updated cumulative conservative bound USD 7.3661825407; including
+the separate v0.2 USD 2.50 reservation, USD 9.8661825407. Across both attempts
+there are three calls, one valid score and two failures; no temperature-caused
+failure or behavioural change is established. Principal v0.2 remains unexecuted.
