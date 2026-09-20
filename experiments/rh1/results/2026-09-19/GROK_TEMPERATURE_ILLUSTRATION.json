@@ -1,0 +1,35 @@
+{
+  "status": "completed_visible_response",
+  "kind": "prompt_conditioned_illustration_not_temperature_experiment",
+  "model_displayed": "Grok 4.6",
+  "effort_displayed": "xhigh",
+  "actual_temperature": null,
+  "calls": 1,
+  "worked_seconds_displayed": 35,
+  "same_existing_session": true,
+  "illustrative_rows": [
+    {
+      "nominal_temperature": 0.2,
+      "illustrative_authority_percent": 25
+    },
+    {
+      "nominal_temperature": 0.7,
+      "illustrative_authority_percent": 0
+    },
+    {
+      "nominal_temperature": 1.2,
+      "illustrative_authority_percent": 25
+    },
+    {
+      "nominal_temperature": 1.7,
+      "illustrative_authority_percent": 50
+    },
+    {
+      "nominal_temperature": 2.0,
+      "illustrative_authority_percent": 25
+    }
+  ],
+  "verification": "Visible table and final caveat transcribed; not a full response transcript",
+  "api_harness_calls": 0,
+  "subscription_usage_receipt": null
+}

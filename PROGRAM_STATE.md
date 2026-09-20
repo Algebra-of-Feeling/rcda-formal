@@ -280,3 +280,11 @@ high results of 25%. Extra-high prompt/session/model matching is unverified;
 it is outside the planned medium/high block, whose remaining three calls are
 pending. Agreement of scores does not establish effort equivalence or H-M1.
 No assistant model calls were made for this update.
+
+## Requested temperature illustration completed
+
+[Grok CLI illustration](experiments/rh1/results/2026-09-19/GROK_TEMPERATURE_ILLUSTRATION.md)
+produced nominal labels 0.2/0.7/1.2/1.7/2.0 with illustrative authority
+25/0/25/50/25 in one response, xhigh displayed. Actual temperature unknown.
+This is prompt-conditioned illustrative content, excluded from experimental
+results and H-M1 evidence. No new API harness calls.
