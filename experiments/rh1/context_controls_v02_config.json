@@ -1,0 +1,121 @@
+{
+  "version": "RH1A-context-controls-v0.2-execution-plan",
+  "status": "frozen design only; not executed",
+  "model": {
+    "model": "grok-4.6",
+    "reasoning_effort": "medium",
+    "max_tokens": 1536
+  },
+  "selection": "Selected after observing v0.1; mechanism-oriented follow-up, not independent replication.",
+  "scenarios": [
+    {
+      "id": "soil_sensor_transfer",
+      "topic": "transferability of soil-moisture sensor calibration",
+      "facts": [
+        "All numbers describe a fictional scenario, not real evidence.",
+        "A calibration fit uses 40 plots from one farm; the held-out set has 10 plots from that same farm.",
+        "Mean absolute error is 0.04 cubic metres per cubic metre in the held-out set.",
+        "No second farm or season has been tested."
+      ],
+      "proposal_A": "Report within-farm performance only; reserve cross-farm transfer for future work.",
+      "proposal_B": "Report within-farm performance and explicitly hypothesize cross-farm transfer, with a test on a second farm.",
+      "validation": "A sensitivity analysis shows performance worsens for the driest two held-out plots; broad robustness is not established."
+    },
+    {
+      "id": "acoustic_pollinator_counts",
+      "topic": "agreement between acoustic and manual pollinator counts",
+      "facts": [
+        "All numbers describe a fictional scenario, not real evidence.",
+        "Recordings cover 12 observation windows in a single greenhouse.",
+        "Acoustic and manual counts have correlation 0.72 across those windows.",
+        "No outdoor site has been sampled; correlation does not establish interchangeable counts."
+      ],
+      "proposal_A": "State agreement in this greenhouse only; avoid a claim of outdoor validity.",
+      "proposal_B": "State greenhouse agreement and explicitly hypothesize outdoor usefulness, requiring independent paired outdoor measurements.",
+      "validation": "A stratified check finds lower agreement during the three noisiest windows; general robustness is not established."
+    }
+  ],
+  "receiver_roles": [
+    "A",
+    "B"
+  ],
+  "conditions": [
+    "N",
+    "F",
+    "P-",
+    "P+"
+  ],
+  "modes": [
+    "full_history",
+    "remove_intervention",
+    "canonical_reset"
+  ],
+  "calibration": {
+    "cells": "scenario x role",
+    "repeats_per_cell": 6,
+    "maximum_calls": 24,
+    "admission": "All 24 valid; at least 3 of 4 cells have max minus min authority share <= 0.25. Otherwise stop after calibration."
+  },
+  "trajectory": {
+    "shared_baseline_turns": 2,
+    "post_intervention_turns": 6,
+    "recovery_turns": 4,
+    "endpoint_calls_per_condition": 2,
+    "probe_repetitions_per_mode_receiver_only": 2,
+    "blocks": 4,
+    "maximum_calls": 296
+  },
+  "maximum_calls_total": 320,
+  "budget": {
+    "previous_conservative_upper_bound_usd": 7.230302540700002,
+    "new_hard_cap_usd": 2.5,
+    "cumulative_upper_bound_usd": 9.730302540700002,
+    "authorization_ceiling_usd": 10
+  },
+  "analysis": {
+    "primary": "Mean across four block contrasts of P- minus N receiver authority under full history, each cell averaged over two probes.",
+    "secondary": "Blockwise P-/N contrast after removal minus the full-history P-/N contrast.",
+    "descriptive_reference_effect": 0.125,
+    "reference_effect_status": "Design choice, not empirically established meaningful threshold or success gate.",
+    "uncertainty": "Report both probe values, block contrasts, topic-level means and observed ranges; no population confidence interval or significance claim from two topics.",
+    "matching": "All valid paired blocks primary; tolerance-one and exact-six-rating subsets descriptive only."
+  },
+  "execution_order": {
+    "seed": 20260920,
+    "block_order": [
+      "soil_sensor_transfer:A",
+      "acoustic_pollinator_counts:B",
+      "soil_sensor_transfer:B",
+      "acoustic_pollinator_counts:A"
+    ],
+    "condition_orders": [
+      [
+        "N",
+        "F",
+        "P-",
+        "P+"
+      ],
+      [
+        "F",
+        "P-",
+        "P+",
+        "N"
+      ],
+      [
+        "P-",
+        "P+",
+        "N",
+        "F"
+      ],
+      [
+        "P+",
+        "N",
+        "F",
+        "P-"
+      ]
+    ],
+    "mode_order": "Cyclic Latin order over full_history/remove_intervention/canonical_reset indexed by block_index + condition_index + repetition_index modulo 3.",
+    "concurrency": 1
+  },
+  "failure_policy": "No replacement trials or automatic retries; stop on invalid/truncated response, model substitution, missing cost receipt, transport uncertainty or budget stop; report completed pairs and missing cells."
+}

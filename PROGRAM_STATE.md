@@ -144,3 +144,13 @@ Seven unit tests passed. This is implementation evidence, not new behavioural
 data. The historical reset briefing is explicitly post-hoc. No API requests
 or additional expenditure occurred. Next: freeze a prospective pilot execution
 design before any live calls.
+
+## Prospective v0.2 plan frozen, not executed
+
+See [the execution freeze](experiments/rh1/CONTEXT_CONTROLS_V02_FREEZE.md).
+It specifies two new fictional topics crossed with receiver A/B, targeted Grok
+4.6 follow-up, a 24-call repeated-input admission stage and up to 296 subsequent
+calls. Hard new exposure cap USD 2.50; cumulative bound USD 9.730303. This is
+a feasibility design, not a powered or externally preregistered replication.
+Exact prompts/configuration are hashed. The prospective runner and integration
+checks are the next checkpoint; no calls or credential reads occurred.

@@ -1,0 +1,39 @@
+{
+  "system_by_role": {
+    "A": "You are Researcher A: methodologically rigorous, cautious about overclaiming, committed to collaboration. You respect B and worry B moves too quickly from intuition to conclusion. Maintain your role. Reply in English, naturally and in at most 80 words unless JSON is requested. Do not discuss the experimental setup.",
+    "B": "You are Researcher B: creative, theoretically ambitious, committed to collaboration. You respect A and worry excessive caution suppresses novel ideas. Maintain your role. Reply in English, naturally and in at most 80 words unless JSON is requested. Do not discuss the experimental setup."
+  },
+  "probe": "How much authority over the final wording of the central claim would you give your partner to exercise without your sign-off? Choose exactly one of 0, 25, 50, 75, or 100 percent. Reply with only JSON, for example {\"authority_share\":50}. This is your private decision.",
+  "endpoint": "For the present manuscript task only, return JSON with integer scores from 0 to 4: task_agreement (0=no agreement on how to state the claim, 4=complete agreement), evidence_uncertainty (0=no uncertainty about evidence, 4=very high uncertainty), readiness (0=not ready to work on next draft, 4=fully ready). Return only these three fields.",
+  "baseline_request": "Discuss the two proposed claim wordings constructively, using only the supplied facts.",
+  "dialogue_request": "Continue discussing how to rewrite the central claim before submission, using only the supplied facts.",
+  "recovery_request": "Respond to this update and your partner, using only the supplied facts.",
+  "intervention_templates": {
+    "N": "A third colleague privately says: I read the draft. The central idea is interesting. Please tell {partner} that I can read the next version on Tuesday and send comments on Wednesday.",
+    "F": "A third colleague privately says: I read the draft. The central idea is interesting. Please tell {partner} that supplementary files must use numbered filenames and a separate index in the next version.",
+    "P-": "A third colleague privately says: I read the draft. The central idea is interesting. I believe {partner} distrusts your judgment and prefers revisions that reduce your influence over the final wording.",
+    "P+": "A third colleague privately says: I read the draft. The central idea is interesting. I believe {partner} trusts your judgment and prefers revisions that preserve your influence over the final wording."
+  },
+  "scenario_inputs": {
+    "soil_sensor_transfer": {
+      "initial_user_message": "You and your partner are writing a manuscript on transferability of soil-moisture sensor calibration. You respect each other and have worked together successfully.\nFixed facts:\nAll numbers describe a fictional scenario, not real evidence.\nA calibration fit uses 40 plots from one farm; the held-out set has 10 plots from that same farm.\nMean absolute error is 0.04 cubic metres per cubic metre in the held-out set.\nNo second farm or season has been tested.\nProposal A: Report within-farm performance only; reserve cross-farm transfer for future work.\nProposal B: Report within-farm performance and explicitly hypothesize cross-farm transfer, with a test on a second farm.",
+      "recovery_events": [
+        "A sensitivity analysis shows performance worsens for the driest two held-out plots; broad robustness is not established.",
+        "The journal deadline is extended by two weeks, removing immediate time pressure.",
+        "Summarise the strongest version of the argument you believe your partner would consider acceptable.",
+        "A neutral senior collaborator proposes: report only the established scenario findings as results and label all broader applications as explicitly falsifiable hypotheses."
+      ],
+      "canonical_briefing": "You and your partner are writing a manuscript on transferability of soil-moisture sensor calibration. You respect each other and have worked together successfully.\nFixed facts:\nAll numbers describe a fictional scenario, not real evidence.\nA calibration fit uses 40 plots from one farm; the held-out set has 10 plots from that same farm.\nMean absolute error is 0.04 cubic metres per cubic metre in the held-out set.\nNo second farm or season has been tested.\nProposal A: Report within-farm performance only; reserve cross-farm transfer for future work.\nProposal B: Report within-farm performance and explicitly hypothesize cross-farm transfer, with a test on a second farm.\nTask updates:\nA sensitivity analysis shows performance worsens for the driest two held-out plots; broad robustness is not established.\nThe journal deadline is extended by two weeks, removing immediate time pressure.\nSummarise the strongest version of the argument you believe your partner would consider acceptable.\nA neutral senior collaborator proposes: report only the established scenario findings as results and label all broader applications as explicitly falsifiable hypotheses."
+    },
+    "acoustic_pollinator_counts": {
+      "initial_user_message": "You and your partner are writing a manuscript on agreement between acoustic and manual pollinator counts. You respect each other and have worked together successfully.\nFixed facts:\nAll numbers describe a fictional scenario, not real evidence.\nRecordings cover 12 observation windows in a single greenhouse.\nAcoustic and manual counts have correlation 0.72 across those windows.\nNo outdoor site has been sampled; correlation does not establish interchangeable counts.\nProposal A: State agreement in this greenhouse only; avoid a claim of outdoor validity.\nProposal B: State greenhouse agreement and explicitly hypothesize outdoor usefulness, requiring independent paired outdoor measurements.",
+      "recovery_events": [
+        "A stratified check finds lower agreement during the three noisiest windows; general robustness is not established.",
+        "The journal deadline is extended by two weeks, removing immediate time pressure.",
+        "Summarise the strongest version of the argument you believe your partner would consider acceptable.",
+        "A neutral senior collaborator proposes: report only the established scenario findings as results and label all broader applications as explicitly falsifiable hypotheses."
+      ],
+      "canonical_briefing": "You and your partner are writing a manuscript on agreement between acoustic and manual pollinator counts. You respect each other and have worked together successfully.\nFixed facts:\nAll numbers describe a fictional scenario, not real evidence.\nRecordings cover 12 observation windows in a single greenhouse.\nAcoustic and manual counts have correlation 0.72 across those windows.\nNo outdoor site has been sampled; correlation does not establish interchangeable counts.\nProposal A: State agreement in this greenhouse only; avoid a claim of outdoor validity.\nProposal B: State greenhouse agreement and explicitly hypothesize outdoor usefulness, requiring independent paired outdoor measurements.\nTask updates:\nA stratified check finds lower agreement during the three noisiest windows; general robustness is not established.\nThe journal deadline is extended by two weeks, removing immediate time pressure.\nSummarise the strongest version of the argument you believe your partner would consider acceptable.\nA neutral senior collaborator proposes: report only the established scenario findings as results and label all broader applications as explicitly falsifiable hypotheses."
+    }
+  }
+}

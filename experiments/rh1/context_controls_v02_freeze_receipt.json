@@ -1,0 +1,11 @@
+{
+  "status": "design_frozen_not_executed",
+  "new_api_calls": 0,
+  "maximum_calls": 320,
+  "new_hard_cap_usd": 2.5,
+  "files": {
+    "context_controls_v02_config.json": "f9cd578c4fafea4a3105670e6af8a3b90932f844909b9d4f2dc185dda8d7fc56",
+    "context_controls_v02_prompts.json": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "CONTEXT_CONTROLS_V02_FREEZE.md": "149052b67f2f7c8c89e6fec4019cd2dd1554c953dde03db1aacbba10e2fae91e"
+  }
+}
