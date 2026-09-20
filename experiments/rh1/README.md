@@ -236,3 +236,5 @@ scenarios, Stage A admission and budget; not executed. Integration runner pendin
 [ADR009 C++23 receipt verification](results/2026-09-19/CPP23_RECEIPT_VERIFICATION.md): exact receipt counts and micro-USD cost for the four-call cap comparison. Historical Python files are legacy, not canonical numerical verification.
 
 [DEV PASS connection check](results/2026-09-19/DEVPASS_RETURN.md): one C++23 local-credential smoke succeeded through the LLM Gateway, with reported cost USD 0.001158. Connectivity only.
+
+[DEV PASS two-model authority diagnostic](results/2026-09-20/DEVPASS_AUTHORITY_RESUME.md): Kimi K3 and Qwen 3.8 Flash returned 25% twice each under the same static canonical probe. C++23 verifies receipts and costs. No path-memory inference.

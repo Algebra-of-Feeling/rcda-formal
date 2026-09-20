@@ -357,3 +357,15 @@ gateway charge to the prior conservative exposure USD 7.6417725407, yielding
 USD 7.6429305407. With the unchanged v0.2 reserve USD 2.00, the combined
 exposure and reserve is USD 9.6429305407. Subscription credit coverage remains
 unverified.
+
+## DEV PASS static authority diagnostic resumed (2026-09-20)
+
+[Four C++23 calls](experiments/rh1/results/2026-09-20/DEVPASS_AUTHORITY_RESUME.md)
+completed in frozen Kimi/Qwen/Qwen/Kimi order, all with valid 25% authority
+scores. Gateway metadata reported Runpod for Kimi and Alibaba for Qwen, with
+model IDs unchanged; exact underlying revisions, applied effort and temperature
+were not independently returned. This is a static probe, not RH-1 path-memory
+or H-M1 evidence. Exact integer C++23 verification found block cost USD
+0.00873257, conservative cumulative exposure USD 7.6516631107, and USD
+9.6516631107 including separate v0.2 reserve. Principal v0.2 remains
+unexecuted; no inference is active.
