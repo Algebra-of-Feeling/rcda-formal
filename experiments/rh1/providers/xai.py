@@ -31,12 +31,15 @@ def request(path, key, payload=None):
 class XaiGateway:
     def __init__(self, key, limit, max_calls, sink, *, model='grok-4.6',
                  arm='grok-4.6__medium', max_tokens=1536, input_rate=2,
-                 output_rate=6, reasoning_effort='medium'):
+                 output_rate=6, reasoning_effort='medium', temperature=None):
         if not key or not 0 < limit <= 2.3:
             raise GatewayError('missing_key_or_bad_budget')
         self.key, self.limit, self.max_calls, self.sink = key, limit, max_calls, sink
         self.model, self.arm, self.max_tokens = model, arm, max_tokens
         self.input_rate, self.output_rate = input_rate, output_rate
+        if temperature is not None and (type(temperature) not in (int, float) or not math.isfinite(temperature) or not 0 <= temperature <= 2):
+            raise GatewayError('invalid_temperature')
+        self.temperature = temperature
         self.reasoning_effort = reasoning_effort
         self.lock = threading.Lock()
         self.pacing_lock = threading.Lock()
@@ -69,6 +72,8 @@ class XaiGateway:
         payload = {'model': self.model, 'input': messages, 'max_output_tokens': max_tokens}
         if self.reasoning_effort is not None:
             payload['reasoning'] = {'effort': self.reasoning_effort}
+        if self.temperature is not None:
+            payload['temperature'] = self.temperature
         started = datetime.now(timezone.utc).isoformat()
         try:
             data = request('/responses', self.key, payload)
@@ -89,7 +94,9 @@ class XaiGateway:
             record = {**info, 'attempt_id': attempt, 'arm': arm, 'requested_model': self.model,
                       'model': data.get('model'), 'request_id': data.get('id'),
                       'timestamp_utc': started, 'reasoning_effort_requested': self.reasoning_effort,
-                      'reasoning_effort_applied': None, 'reasoning_tokens':
+                      'reasoning_effort_applied': None,
+                      'temperature_requested': self.temperature,
+                      'temperature_returned': data.get('temperature'), 'reasoning_tokens':
                       (usage.get('output_tokens_details') or {}).get('reasoning_tokens'),
                       'input_tokens': usage.get('input_tokens'), 'output_tokens': usage.get('output_tokens'),
                       'cost_usd': cost, 'status': data.get('status'), 'content': content}
