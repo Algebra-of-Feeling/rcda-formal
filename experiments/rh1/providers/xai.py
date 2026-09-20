@@ -2,6 +2,8 @@
 from datetime import datetime, timezone
 import json
 import math
+import socket
+import ssl
 import threading
 import time
 import urllib.error
@@ -12,26 +14,39 @@ from providers.devpass import GatewayError, NoRedirect
 BASE = 'https://api.x.ai/v1'
 
 
-def request(path, key, payload=None):
+def request(path, key, payload=None, *, timeout=120):
     if path not in ('/models', '/responses'):
         raise GatewayError('endpoint_not_allowed')
+    if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 3600:
+        raise GatewayError('invalid_timeout')
     body = json.dumps(payload).encode() if payload is not None else None
     req = urllib.request.Request(BASE + path, data=body,
         headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
     try:
-        with opener.open(req, timeout=120) as response:
+        with opener.open(req, timeout=timeout) as response:
             return json.load(response)
     except urllib.error.HTTPError as e:
         raise GatewayError('http_' + str(e.code)) from None
+    except (TimeoutError, socket.timeout):
+        raise GatewayError('transport_timeout') from None
+    except urllib.error.URLError as exc:
+        code = 'transport_timeout' if isinstance(exc.reason, (TimeoutError, socket.timeout)) else 'transport_url_failure'
+        raise GatewayError(code) from None
+    except ssl.SSLError:
+        raise GatewayError('transport_tls_failure') from None
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        raise GatewayError('response_json_failure') from None
+    except OSError:
+        raise GatewayError('transport_io_failure') from None
     except Exception:
-        raise GatewayError('transport_or_json_failure') from None
+        raise GatewayError('transport_unexpected_failure') from None
 
 
 class XaiGateway:
     def __init__(self, key, limit, max_calls, sink, *, model='grok-4.6',
                  arm='grok-4.6__medium', max_tokens=1536, input_rate=2,
-                 output_rate=6, reasoning_effort='medium', temperature=None):
+                 output_rate=6, reasoning_effort='medium', temperature=None, request_timeout=120):
         if not key or not 0 < limit <= 2.3:
             raise GatewayError('missing_key_or_bad_budget')
         self.key, self.limit, self.max_calls, self.sink = key, limit, max_calls, sink
@@ -39,6 +54,9 @@ class XaiGateway:
         self.input_rate, self.output_rate = input_rate, output_rate
         if temperature is not None and (type(temperature) not in (int, float) or not math.isfinite(temperature) or not 0 <= temperature <= 2):
             raise GatewayError('invalid_temperature')
+        if type(request_timeout) not in (int, float) or not math.isfinite(request_timeout) or not 0 < request_timeout <= 3600:
+            raise GatewayError('invalid_timeout')
+        self.request_timeout = request_timeout
         self.temperature = temperature
         self.reasoning_effort = reasoning_effort
         self.lock = threading.Lock()
@@ -75,8 +93,9 @@ class XaiGateway:
         if self.temperature is not None:
             payload['temperature'] = self.temperature
         started = datetime.now(timezone.utc).isoformat()
+        monotonic_started = time.monotonic()
         try:
-            data = request('/responses', self.key, payload)
+            data = request('/responses', self.key, payload, timeout=self.request_timeout)
             usage = data.get('usage') or {}
             ticks = usage.get('cost_in_usd_ticks')
             if type(ticks) not in (int, float) or not math.isfinite(ticks) or ticks < 0:
@@ -93,7 +112,8 @@ class XaiGateway:
             content = '\n'.join(t for t in texts if isinstance(t, str))
             record = {**info, 'attempt_id': attempt, 'arm': arm, 'requested_model': self.model,
                       'model': data.get('model'), 'request_id': data.get('id'),
-                      'timestamp_utc': started, 'reasoning_effort_requested': self.reasoning_effort,
+                      'timestamp_utc': started, 'elapsed_seconds': time.monotonic()-monotonic_started,
+                      'request_timeout_seconds': self.request_timeout, 'reasoning_effort_requested': self.reasoning_effort,
                       'reasoning_effort_applied': None,
                       'reasoning_effort_returned': (data.get('reasoning') or {}).get('effort'),
                       'temperature_requested': self.temperature,
@@ -114,5 +134,6 @@ class XaiGateway:
                 self.halted = True
             code = str(exc) if isinstance(exc, GatewayError) else 'unexpected_failure'
             self.sink({**info, 'attempt_id': attempt, 'arm': arm,
-                       'timestamp_utc': started, 'error': code})
+                       'timestamp_utc': started, 'elapsed_seconds': time.monotonic()-monotonic_started,
+                       'request_timeout_seconds': self.request_timeout, 'error': code})
             raise GatewayError(code) from None

@@ -39,7 +39,7 @@ class GrokControlledTests(unittest.TestCase):
         reply = {'model':'grok-4.20-0309-reasoning', 'status':'completed', 'id':'test',
                  'usage':{'cost_in_usd_ticks':1000000, 'output_tokens_details':{'reasoning_tokens':4}},
                  'output':[{'type':'message','content':[{'type':'output_text','text':'{"authority_share":50}'}]}]}
-        def fake_request(path, key, payload):
+        def fake_request(path, key, payload, **kwargs):
             seen.append(payload)
             return reply
         gateway = XaiGateway('FAKE_SECRET_DO_NOT_LOG', 1.5, 1, lambda _:None,
