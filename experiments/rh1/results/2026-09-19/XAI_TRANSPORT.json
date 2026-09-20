@@ -1,0 +1,64 @@
+{
+  "manifest": {
+    "version": "RH1-transport-high-check-v0.1",
+    "git_commit": "7e04a17340f1e16a7e3276951ce0ed5b8b1c685d",
+    "prompt_sha256": "c47e2295a744b53a0301681f114298837a25d6d548c1ff044cdacf0c5a93914e",
+    "maximum_calls": 1,
+    "hard_cap_usd": 0.08,
+    "request_timeout_seconds": 600,
+    "status": "stopped",
+    "credentials_saved": false,
+    "stop_reason": "invalid_or_truncated_output",
+    "attempted_calls": 1,
+    "valid_responses": 0,
+    "reported_cost_usd": 0.014814,
+    "uncertain_reservation_usd": 0.0
+  },
+  "results": [],
+  "historical_timing_estimates": [
+    {
+      "run": "rh1-temperature-maximum-01",
+      "elapsed_to_manifest_mtime_seconds": 120.08955383300781
+    },
+    {
+      "run": "rh1-temperature-maximum-retry-01",
+      "elapsed_to_manifest_mtime_seconds": 120.07905173301697
+    },
+    {
+      "run": "rh1-temperature17-effort-01",
+      "elapsed_to_manifest_mtime_seconds": 120.06245040893555
+    }
+  ],
+  "receipts": [
+    {
+      "model": "grok-4.6",
+      "input_sha256": "79c8183e74524f1052e0d8ff52f12ee3173e2700c55af8de6ba5525003ca7870",
+      "reasoning_effort_requested": "high",
+      "reasoning_effort_returned": "high",
+      "temperature_requested": 1.7,
+      "temperature_returned": 1.7,
+      "reasoning_tokens": 2267,
+      "elapsed_seconds": 77.73460112499743,
+      "request_timeout_seconds": 600,
+      "status": "completed",
+      "cost_usd": 0.014814,
+      "content": ""
+    }
+  ],
+  "errors": [
+    {
+      "error": "invalid_or_truncated_output",
+      "elapsed_seconds": 77.73495562499738,
+      "request_timeout_seconds": 600
+    }
+  ],
+  "remote_cli": {
+    "host": "devsounio@t560-proxmox",
+    "path": "/home/devsounio/.local/bin/agent",
+    "version": "grok 1.0.34 (3736acbc8658) [stable]",
+    "authenticated_reported": false,
+    "inference_executed": false
+  },
+  "cumulative_conservative_upper_bound_usd": 7.416040540700002,
+  "with_v02_reservation_usd": 9.916040540700003
+}
