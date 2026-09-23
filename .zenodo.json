@@ -1,0 +1,29 @@
+{
+  "title": "RCDA / RCDB — Sounio execution and self-contained Lean proofs",
+  "description": "Machine-checked foundations for Relational Cayley–Dickson Algebra (RCDA) and Relational Cayley–Dickson Bundles (RCDB): a compiled algebraic core in Lean 4 (pinned to 4.33.0), with explicit premises, no Mathlib dependency, no project axiom declarations, and no admitted proofs (zero sorry). The executable mathematical kernel is implemented and checked in Sounio, evaluating the associator, canonical embedding, zero-divisor pair, curvature expansion, and relative-loop memory witness. Lean is the universal mathematical proof layer; runtime witnesses, logical proofs and scientific interpretation carry distinct, separately tagged receipts (see AUDIT.md and PROOF_LEDGER.md). This is the canonical published snapshot referenced by the Algebra of Feeling programme.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Agourakis, Demetrios Chiuratto",
+      "affiliation": "Faculdade São Leopoldo Mandic; Pontifícia Universidade Católica de São Paulo (PUC-SP)",
+      "orcid": "0009-0001-8671-8878"
+    }
+  ],
+  "keywords": [
+    "Cayley-Dickson algebra",
+    "zero divisors",
+    "Lean 4",
+    "formal verification",
+    "relational algebra",
+    "Sounio"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Algebra-of-Feeling/algebra-of-feeling",
+      "relation": "isSourceOf",
+      "scheme": "url"
+    }
+  ]
+}
